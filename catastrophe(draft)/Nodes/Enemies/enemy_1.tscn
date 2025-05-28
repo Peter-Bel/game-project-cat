@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://db3ey5xotuejn"]
+
+[ext_resource type="Script" uid="uid://f0b5tcjxum0x" path="res://Nodes/Enemies/enemy_1.gd" id="1_f0t3t"]
+[ext_resource type="Texture2D" uid="uid://bxlacjwihcvv1" path="res://Assets/EnemyAssets/BugEnemy1.png" id="1_pp4sg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0t3t"]
+atlas = ExtResource("1_pp4sg")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldken"]
+atlas = ExtResource("1_pp4sg")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfw8h"]
+atlas = ExtResource("1_pp4sg")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yit48"]
+atlas = ExtResource("1_pp4sg")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pk2hw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0t3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldken")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfw8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yit48")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvc4h"]
+size = Vector2(18, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pp4sg"]
+size = Vector2(14, 8)
+
+[node name="Enemy1" type="Node2D"]
+position = Vector2(0, -7)
+script = ExtResource("1_f0t3t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+sprite_frames = SubResource("SpriteFrames_pk2hw")
+frame_progress = 0.269769
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_vvc4h")
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_pp4sg")
+debug_color = Color(0.945767, 0.182034, 0.377748, 0.42)
+
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]

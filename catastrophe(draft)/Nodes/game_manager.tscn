@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf5g2k3ws7oc8"]
+
+[sub_resource type="GDScript" id="GDScript_1t0jd"]
+script/source = "extends Node
+
+var area_path = \"res://Scenes/\"
+var player: Player
+
+
+func next_level(path):
+	var full_path = area_path + path + \".tscn\"
+	get_tree().change_scene_to_file(full_path)
+	# var stage = full_path.instantiate()
+	# move player
+	print(get_tree().get_current_scene())
+	
+"
+
+[node name="GameManager" type="Node"]
+script = SubResource("GDScript_1t0jd")
