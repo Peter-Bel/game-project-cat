@@ -4,7 +4,6 @@ class_name Player
 # constants 
 const SPEED = 150.0
 const ACC = 30
-const MAX_HP = 3
 const JUMP_VELOCITY = -200.0
 const JUMP_COOLDOWN = 0.0167 * 4
 const JUMP_INCREASE = -18.0
@@ -25,23 +24,59 @@ var jump_cooldown = 0
 var floor_cooldown = 0
 var jump_increase = 0.0
 
+@onready var health_node = $Health
+@onready var max_health = health_node.max_health
+@onready var health_gui: HBoxContainer = $"../CanvasLayer/heartContainer"
+@onready var flash: AnimationPlayer = $AnimatedSprite2D/Flash
+
+var knock = 325
+var hurt_time = 0.0167 * 10
+var death_time: Timer = null
+var time_to_death = 2
+
+
 
 # ready
 func _ready():
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
+	# health setting
+	if (health_gui and health_node):
+		health_gui.setMaxHearts(max_health)
+		if (GameManager.player_hp < 0):
+			health_node.set_health(max_health)
+			health_gui.updateHearts(max_health)
+		else:
+			health_node.set_health(GameManager.player_hp)
+			health_gui.updateHearts(health_node.health)
 
+
+# death
+func death(time: int):
+	if death_time == null:
+		death_time = Timer.new()
+		add_child(death_time)
+		death_time.wait_time = time
+		death_time.one_shot = true
+	# Connect its timeout signal to a function we want called
+	death_time.timeout.connect(_on_death)
+	# Start the timer
+	death_time.start()
+# death timer complete
+func _on_death():
+	# health reset
+	GameManager.player_hp = max_health
+	# reload
+	get_tree().reload_current_scene()
 
 
 # spawning position (scene transition)
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position
 	global_position.y += 5
-	print(direction)
 	if (direction == "right"): 
 		animated_sprite.flip_h = true
 	else:
 		animated_sprite.flip_h = false
-
 
 
 # Main event
@@ -49,8 +84,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-
+	
 	### Handle jump.
 	# timers
 	if Input.is_action_just_pressed("jump"): jump_cooldown = JUMP_COOLDOWN 
@@ -70,7 +104,6 @@ func _physics_process(delta: float) -> void:
 		floor_cooldown -= delta;
 	jump_increase = lerp(0.0, jump_increase, JUMP_INCREASE_ACC * delta)
 	
-	
 	## Horizontal Movement
 	# Get input direction (-1, 0, 1)
 	var direction = Input.get_axis("left", "right")
@@ -84,13 +117,15 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	
 	### animation 
 	# idle (base)
 	if (spr_state == "Idle"): 
-		if Input.is_action_just_pressed("attack"): # attack
+		if (health_node.health <= 0):
+			spr_state = "Death"
+			death(1)
+		elif Input.is_action_just_pressed("attack"): # attack
 			spr_state = "Attack" 
-			cam.shake = 5
+			cam.shake = 3
 		elif (!is_on_floor()): # air
 			spr_state = "Air"
 		elif (direction != 0): # run
@@ -101,8 +136,7 @@ func _physics_process(delta: float) -> void:
 	# play sprite
 	animated_sprite.play(spr_state)
 	
-	
-	### Attackd
+	### Attack
 	attack_shape.disabled = true
 	# flip collision
 	if animated_sprite.flip_h:
@@ -124,6 +158,10 @@ func _physics_process(delta: float) -> void:
 		if animated_sprite.frame > 3:
 			spr_state = "Idle"
 	
+	# death
+	if (spr_state == "Death"):
+		state_time = 2
+		velocity.x = lerp(velocity.x, 0.0, 0.1)
 	
 	### reset sprite state
 	if (state_time <= 0): 
@@ -131,15 +169,31 @@ func _physics_process(delta: float) -> void:
 	else: 
 		state_time -= delta
 	
+	### image 
+	# death and imortal
+	if (health_node.imortal and spr_state != "Hurt"):
+		animated_sprite.modulate.a = randi_range(0, 1) * 1
+	else:
+		animated_sprite.modulate.a = 1
+	
 	move_and_slide()
 
 
-
 # damage and health
-func damage(node: Node2D, damage: int, knock: float, direction: float):
-	velocity.y -= 100
-
-
-# attack collision
-func _on_attack_area_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
+func damage(damage: int, direction: Vector2) -> void:
+	# imortal
+	if !health_node.imortal:
+		# knockback, states, and game feel
+		velocity.x = direction.x * knock
+		velocity.y = (direction.y * knock/2) - knock/3
+		cam.shake = 7
+		spr_state = "Hurt"
+		state_time = hurt_time
+		flash.play("hit_flash")
+		GameManager.freeze_frame(0.15, 0.2)
+		# set health
+		health_node.set_health(health_node.health - damage)
+		health_node.set_imortal_time(1.5)
+		GameManager.player_hp = health_node.health
+		if (health_gui):
+			health_gui.updateHearts(health_node.health)

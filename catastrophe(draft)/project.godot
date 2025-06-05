@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 NavigationManager="*res://Scripts/navigation_manager.gd"
+GameManager="*res://Nodes/game_manager.tscn"
 
 [display]
 

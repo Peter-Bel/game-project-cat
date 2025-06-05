@@ -3,7 +3,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if NavigationManager.spawn_door != null:
-		print(NavigationManager.spawn_door)
+		# print(NavigationManager.spawn_door)
 		_on_level_position(NavigationManager.spawn_door)
 		
 
