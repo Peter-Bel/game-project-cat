@@ -1,7 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://db3ey5xotuejn"]
+[gd_scene load_steps=11 format=3 uid="uid://db3ey5xotuejn"]
 
 [ext_resource type="Script" uid="uid://f0b5tcjxum0x" path="res://Nodes/Enemies/enemy_1.gd" id="1_f0t3t"]
 [ext_resource type="Texture2D" uid="uid://bxlacjwihcvv1" path="res://Assets/EnemyAssets/BugEnemy1.png" id="1_pp4sg"]
+[ext_resource type="PackedScene" uid="uid://kml4fhwc3cbe" path="res://Nodes/health.tscn" id="3_ldken"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvc4h"]
+size = Vector2(18, 11)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f0t3t"]
 atlas = ExtResource("1_pp4sg")
@@ -39,9 +43,6 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvc4h"]
-size = Vector2(18, 11)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pp4sg"]
 size = Vector2(14, 8)
 
@@ -49,15 +50,15 @@ size = Vector2(14, 8)
 position = Vector2(0, -7)
 script = ExtResource("1_f0t3t")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_vvc4h")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 visibility_layer = 2
 sprite_frames = SubResource("SpriteFrames_pk2hw")
 frame_progress = 0.269769
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
-position = Vector2(0, 6.5)
-shape = SubResource("RectangleShape2D_vvc4h")
 
 [node name="AttackArea" type="Area2D" parent="."]
 
@@ -66,4 +67,7 @@ position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_pp4sg")
 debug_color = Color(0.945767, 0.182034, 0.377748, 0.42)
 
+[node name="Health" parent="." instance=ExtResource("3_ldken")]
+
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

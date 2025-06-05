@@ -1,10 +1,20 @@
-[gd_scene load_steps=30 format=3 uid="uid://c3j2hpqk5l3so"]
+[gd_scene load_steps=39 format=3 uid="uid://c3j2hpqk5l3so"]
 
 [ext_resource type="Texture2D" uid="uid://fubswpjcq3l1" path="res://Assets/PlayerAssets/CatPlayer.png" id="1_aoxlc"]
 [ext_resource type="Script" uid="uid://b3fmg5jkght8m" path="res://Nodes/player.gd" id="1_qlfej"]
+[ext_resource type="Shader" uid="uid://btcwin3hxce8u" path="res://Assets/flash.gdshader" id="2_0bouj"]
 [ext_resource type="Texture2D" uid="uid://bmfnrw0jgss12" path="res://Assets/PlayerAssets/CatPlayerIdle.png" id="2_pie2b"]
 [ext_resource type="Texture2D" uid="uid://ch6tuixaq5tpe" path="res://Assets/PlayerAssets/CatPlayerAir.png" id="2_sfp35"]
 [ext_resource type="Texture2D" uid="uid://d2sm6pwfaqdr4" path="res://Assets/PlayerAssets/CatPlayerAttack.png" id="3_hv3sw"]
+[ext_resource type="Texture2D" uid="uid://cgreet26banyn" path="res://Assets/PlayerAssets/CatPlayerHurt.png" id="4_wmu34"]
+[ext_resource type="Texture2D" uid="uid://jc34rfcg6ipi" path="res://Assets/PlayerAssets/CatPlayerDeath.png" id="5_2hphp"]
+[ext_resource type="PackedScene" uid="uid://kml4fhwc3cbe" path="res://Nodes/health.tscn" id="6_r4ynj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2hphp"]
+resource_local_to_scene = true
+shader = ExtResource("2_0bouj")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8euyb"]
 atlas = ExtResource("2_sfp35")
@@ -128,6 +138,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("5_2hphp")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wmu34")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_r4ynj")
 }, {
 "duration": 1.0,
@@ -176,6 +202,60 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_x5p36"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_0bouj"]
+resource_name = "empty"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_e3gfx"]
+resource_name = "hit_flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5gn8"]
+_data = {
+&"RESET": SubResource("Animation_x5p36"),
+&"empty": SubResource("Animation_0bouj"),
+&"hit_flash": SubResource("Animation_e3gfx")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aoxlc"]
 size = Vector2(11, 12.2222)
 
@@ -186,16 +266,21 @@ size = Vector2(32, 13)
 script = ExtResource("1_qlfej")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_2hphp")
 sprite_frames = SubResource("SpriteFrames_r4ynj")
 animation = &"Idle"
 autoplay = "Idle"
+
+[node name="Flash" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_g5gn8")
+}
+autoplay = "empty"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6.5)
 scale = Vector2(0.9, 0.9)
 shape = SubResource("RectangleShape2D_aoxlc")
-
-[node name="JumpTime" type="Timer" parent="."]
 
 [node name="AttackArea" type="Area2D" parent="."]
 position = Vector2(21.5, 2)
@@ -205,4 +290,4 @@ position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_sfp35")
 disabled = true
 
-[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
+[node name="Health" parent="." instance=ExtResource("6_r4ynj")]

@@ -1,4 +1,9 @@
 extends Node2D
+class_name Enemy 
+
+
+# variables
+@onready var health = 10
 
 
 # Called when the node enters the scene tree for the first time.
@@ -12,8 +17,13 @@ func _process(delta: float) -> void:
 
 
 # Attack area for player
-func _on_attack_area_area_entered(body: Node2D) -> void:
+func _on_attack_area_body_entered(body: Node2D) -> void:
 	if (body is Player):
-		body.damage(self, 1, 1.0, 1.0)
-	print("Entered!")
-	
+		# print("Enemy")
+		var dir = global_position.direction_to(body.global_position)
+		body.damage(1, dir)
+
+
+# damage 
+func damage(damage: int, direction: Vector2) -> void:
+	pass
