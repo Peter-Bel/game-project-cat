@@ -1,0 +1,5 @@
+res://Scenes/ScenesDefault/scene_right.tscn
+res://Nodes/Enemies/enemy_1.tscn
+res://Nodes/Enemies/enemy_1.gd
+res://Scenes/ScenesDefault/scene_left.tscn
+res://Scenes/ScenesDefault/default.tscn
