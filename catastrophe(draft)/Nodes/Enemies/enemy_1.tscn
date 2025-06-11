@@ -46,7 +46,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pp4sg"]
 size = Vector2(14, 8)
 
-[node name="Enemy1" type="Node2D"]
+[node name="Enemy1" type="CharacterBody2D"]
 position = Vector2(0, -7)
 script = ExtResource("1_f0t3t")
 
@@ -58,7 +58,9 @@ shape = SubResource("RectangleShape2D_vvc4h")
 light_mask = 2
 visibility_layer = 2
 sprite_frames = SubResource("SpriteFrames_pk2hw")
-frame_progress = 0.269769
+autoplay = "default"
+frame_progress = 0.705283
+flip_h = true
 
 [node name="AttackArea" type="Area2D" parent="."]
 
@@ -69,5 +71,20 @@ debug_color = Color(0.945767, 0.182034, 0.377748, 0.42)
 
 [node name="Health" parent="." instance=ExtResource("3_ldken")]
 
-[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 7)
+target_position = Vector2(10, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 7)
+target_position = Vector2(-11, 0)
+
+[node name="RayCastBottomLeft" type="RayCast2D" parent="."]
+position = Vector2(-12, 6)
+target_position = Vector2(0, 6)
+
+[node name="RayCastBottomRight" type="RayCast2D" parent="."]
+position = Vector2(12, 7)
+target_position = Vector2(0, 6)
+
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
