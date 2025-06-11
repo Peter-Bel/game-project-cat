@@ -46,7 +46,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pp4sg"]
 size = Vector2(14, 8)
 
-[node name="Enemy1" type="Node2D"]
+[node name="Enemy1" type="CharacterBody2D"]
 position = Vector2(0, -7)
 script = ExtResource("1_f0t3t")
 
@@ -87,5 +87,4 @@ target_position = Vector2(0, 6)
 position = Vector2(12, 7)
 target_position = Vector2(0, 6)
 
-[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
