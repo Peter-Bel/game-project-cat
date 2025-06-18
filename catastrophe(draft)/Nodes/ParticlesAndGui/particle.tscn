@@ -1,0 +1,114 @@
+[gd_scene load_steps=16 format=3 uid="uid://bucsoxk0yio2p"]
+
+[ext_resource type="Script" uid="uid://5mjp4mskclwn" path="res://Nodes/ParticlesAndGui/particle.gd" id="1_em8jy"]
+[ext_resource type="Texture2D" uid="uid://d0aki2peysrg5" path="res://Assets/ParticleAssets/HitImpactParticle.png" id="1_y0y0j"]
+[ext_resource type="Texture2D" uid="uid://g3nlyc4nrs8k" path="res://Assets/ParticleAssets/PlayerAttackParticle.png" id="2_34fxq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym236"]
+atlas = ExtResource("2_34fxq")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk3re"]
+atlas = ExtResource("2_34fxq")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2nbh"]
+atlas = ExtResource("2_34fxq")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yykhu"]
+atlas = ExtResource("2_34fxq")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs0hy"]
+atlas = ExtResource("2_34fxq")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckc08"]
+atlas = ExtResource("2_34fxq")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkfg7"]
+atlas = ExtResource("2_34fxq")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_em8jy"]
+atlas = ExtResource("1_y0y0j")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34fxq"]
+atlas = ExtResource("1_y0y0j")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0j8p"]
+atlas = ExtResource("1_y0y0j")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyrmr"]
+atlas = ExtResource("1_y0y0j")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lyrmr"]
+resource_local_to_scene = true
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym236")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk3re")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2nbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yykhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs0hy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckc08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkfg7")
+}],
+"loop": false,
+"name": &"player_attack_hit",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_em8jy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34fxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0j8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyrmr")
+}],
+"loop": false,
+"name": &"player_dash",
+"speed": 8.0
+}]
+
+[node name="Particle" type="Node2D"]
+script = ExtResource("1_em8jy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+sprite_frames = SubResource("SpriteFrames_lyrmr")
+animation = &"player_attack_hit"
+autoplay = "default"
+frame = 6
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
