@@ -1,0 +1,8 @@
+CollisionShape2D
+Area2D
+Timer
+CharacterBody2D
+Node2D
+AnimatedSprite2D
+Sprite2D
+RayCast2D

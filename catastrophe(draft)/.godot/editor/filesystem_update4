@@ -1,0 +1,6 @@
+res://Nodes/Enemies/enemy_1.tscn
+res://Nodes/Enemies/flying_enemy.tscn
+res://Scenes/ScenesDefault/scene_left.tscn
+res://Scenes/ScenesDefault/default.tscn
+res://Scenes/ScenesDefault/killzone.tscn
+res://Scenes/ScenesDefault/scene_right.tscn
