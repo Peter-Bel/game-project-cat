@@ -215,7 +215,7 @@ position = Vector2(24, 2)
 position = Vector2(352, 194)
 
 [node name="FlyingEnemy" parent="Enemies" instance=ExtResource("7_78fb5")]
-position = Vector2(127, 97)
+position = Vector2(107, 122)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

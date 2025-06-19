@@ -48,7 +48,8 @@ func _ready():
 		else:
 			health_node.set_health(GameManager.player_hp)
 			health_gui.updateHearts(health_node.health)
-
+	# go to the flying enemy.gd, move func 
+	GameManager.playerBody = self
 
 # death
 func death(time: int):
