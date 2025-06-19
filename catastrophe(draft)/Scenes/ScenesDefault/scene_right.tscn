@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://s1xm5sxw2yf7"]
+[gd_scene load_steps=12 format=3 uid="uid://s1xm5sxw2yf7"]
 
 [ext_resource type="Script" uid="uid://bfmw33km0j8os" path="res://Scenes/ScenesDefault/level.gd" id="1_mc8b8"]
 [ext_resource type="PackedScene" uid="uid://c3j2hpqk5l3so" path="res://Nodes/player.tscn" id="1_ybtko"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://db3ey5xotuejn" path="res://Nodes/Enemies/enemy_1.tscn" id="6_icrpp"]
 [ext_resource type="PackedScene" uid="uid://bfvigi3qdefpo" path="res://Nodes/Enemies/flying_enemy.tscn" id="7_78fb5"]
 [ext_resource type="PackedScene" uid="uid://caersxadafrrv" path="res://Assets/PlayerAssets/heart_container.tscn" id="7_581nq"]
+[ext_resource type="PackedScene" uid="uid://b2y66t0yumqsb" path="res://Nodes/Enemies/jumping_enemy.tscn" id="8_3oemo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yw86p"]
 texture = ExtResource("3_icrpp")
@@ -216,6 +217,9 @@ position = Vector2(352, 194)
 
 [node name="FlyingEnemy" parent="Enemies" instance=ExtResource("7_78fb5")]
 position = Vector2(107, 122)
+
+[node name="jumping_enemy" parent="Enemies" instance=ExtResource("8_3oemo")]
+position = Vector2(623, 179)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
