@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://co111w4esd0op"]
+
+[ext_resource type="Script" uid="uid://dtdmgatnpenba" path="res://Nodes/scene_collision.gd" id="1_5tghq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jvr2"]
+size = Vector2(4, 28.5)
+
+[node name="Door" type="Area2D"]
+collision_layer = 32768
+script = ExtResource("1_5tghq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1jvr2")
+
+[node name="Destination" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

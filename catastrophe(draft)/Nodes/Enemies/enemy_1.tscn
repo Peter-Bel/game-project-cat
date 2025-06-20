@@ -1,0 +1,155 @@
+[gd_scene load_steps=18 format=3 uid="uid://db3ey5xotuejn"]
+
+[ext_resource type="Script" uid="uid://f0b5tcjxum0x" path="res://Nodes/Enemies/enemy_1.gd" id="1_f0t3t"]
+[ext_resource type="Texture2D" uid="uid://bxlacjwihcvv1" path="res://Assets/EnemyAssets/BugEnemy1.png" id="1_pp4sg"]
+[ext_resource type="Texture2D" uid="uid://cvye4sonqykxc" path="res://Assets/EnemyAssets/BugEnemyDeath.png" id="2_tfw8h"]
+[ext_resource type="Shader" uid="uid://btcwin3hxce8u" path="res://Assets/flash.gdshader" id="2_yit48"]
+[ext_resource type="PackedScene" uid="uid://kml4fhwc3cbe" path="res://Nodes/health.tscn" id="3_ldken"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvc4h"]
+size = Vector2(18, 11)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pk2hw"]
+resource_local_to_scene = true
+shader = ExtResource("2_yit48")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0t3t"]
+atlas = ExtResource("1_pp4sg")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldken"]
+atlas = ExtResource("1_pp4sg")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfw8h"]
+atlas = ExtResource("1_pp4sg")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yit48"]
+atlas = ExtResource("1_pp4sg")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pk2hw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tfw8h")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0t3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldken")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfw8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yit48")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 6.0
+}]
+
+[sub_resource type="Animation" id="Animation_x5p36"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_0bouj"]
+resource_name = "empty"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_e3gfx"]
+resource_name = "hit_flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5gn8"]
+_data = {
+&"RESET": SubResource("Animation_x5p36"),
+&"empty": SubResource("Animation_0bouj"),
+&"hit_flash": SubResource("Animation_e3gfx")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pp4sg"]
+size = Vector2(14, 8)
+
+[node name="Enemy1" type="Node2D"]
+script = ExtResource("1_f0t3t")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_vvc4h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("ShaderMaterial_pk2hw")
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_pk2hw")
+animation = &"Death"
+autoplay = "Idle"
+
+[node name="Flash" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_g5gn8")
+}
+autoplay = "empty"
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(0, -7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_pp4sg")
+debug_color = Color(0.945767, 0.182034, 0.377748, 0.42)
+
+[node name="Health" parent="." instance=ExtResource("3_ldken")]
+max_health = 50
+
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
