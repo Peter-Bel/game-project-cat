@@ -211,7 +211,7 @@ position = Vector2(-32, 0)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource("6_oswdx")]
-position = Vector2(-49, 85)
+position = Vector2(-48, 80)
 
 [editable path="Player/Camera"]
 [editable path="Doors/Door_R"]
