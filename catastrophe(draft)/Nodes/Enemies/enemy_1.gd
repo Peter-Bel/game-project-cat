@@ -1,9 +1,23 @@
+<<<<<<< HEAD
 extends CharacterBody2D
+
+
 class_name Enemy 
+=======
+extends Node2D
+class_name Enemy
+
+>>>>>>> parent of 4db7ca4 (Merge branch 'main' into Peter_Levels&PlayerImplimentatoin)
+
+
 
 # variables
+<<<<<<< HEAD
 const SPEED = 30
 var direction = -1
+<<<<<<< HEAD
+=======
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_node: Health = $Health
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -15,18 +29,18 @@ var knock_acc = 0.05
 var direction = Vector2(0,0) 
 
 var active = true
+>>>>>>> parent of 4db7ca4 (Merge branch 'main' into Peter_Levels&PlayerImplimentatoin)
 
-@onready var health = 10
-@onready var ray_cast_right = $RayCastRight
-@onready var ray_cast_left = $RayCastLeft
-@onready var ray_cast_bottomL = $RayCastBottomLeft
-@onready var ray_cast_bottomR = $RayCastBottomRight
-@onready var animated_sprite = $AnimatedSprite2D
+=======
+>>>>>>> parent of c852502 (Merge pull request #4 from Peter-Bel/Peter_Levels&PlayerImplimentatoin)
+
 # Called when the node enters the scene tree for the first time.
-
-
-func _ready() -> void:
-	pass 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of c852502 (Merge pull request #4 from Peter-Bel/Peter_Levels&PlayerImplimentatoin)
+#func _ready() -> void:
+	#pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,9 +58,15 @@ func _process(delta):
 	animated_sprite.flip_h = direction == -1
 	
 	position.x += direction * SPEED * delta	
-  
-  # death
-  if (!death_time and health_node.health <= 0):
+<<<<<<< HEAD
+=======
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if (!death_time and health_node.health <= 0):
 		death(time_to_death)
 		animated_sprite.play("Death")
 	if (health_node.health <= 0):
@@ -54,39 +74,18 @@ func _process(delta):
 		position.y += direction.y * knock
 		knock = lerp(knock, 0.0, knock_acc)
 
+>>>>>>> parent of 4db7ca4 (Merge branch 'main' into Peter_Levels&PlayerImplimentatoin)
+=======
+>>>>>>> parent of c852502 (Merge pull request #4 from Peter-Bel/Peter_Levels&PlayerImplimentatoin)
 
 # Attack area for player
 func _on_attack_area_body_entered(body: Node2D) -> void:
-	if (body is Player and active):
+	if (body is Player):
 		# print("Enemy")
 		var dir = global_position.direction_to(body.global_position)
 		body.damage(1, dir)
 
+
 # damage 
-func damage(damage: int, dir: Vector2) -> void:
-	if (health_node.imortal):
-		pass
-	else:
-		direction = dir
-		# set health
-		health_node.set_health(health_node.health - damage)
-		print(health_node.health)
-
-
-# death
-func death(time: float):
-	if death_time == null:
-		active = false
-		death_time = Timer.new()
-		add_child(death_time)
-		death_time.wait_time = time
-		death_time.one_shot = true
-		animated_sprite_2d.modulate = Color.DARK_GRAY
-	# Connect its timeout signal to a function we want called
-	death_time.timeout.connect(_on_death)
-	# Start the timer
-	death_time.start()
-# death timer complete
-func _on_death():
-	# remove self
-	self.queue_free()
+func damage(damage: int, direction: Vector2) -> void:
+	pass

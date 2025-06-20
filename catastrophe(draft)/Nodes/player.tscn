@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c3j2hpqk5l3so"]
+[gd_scene load_steps=39 format=3 uid="uid://c3j2hpqk5l3so"]
 
 [ext_resource type="Texture2D" uid="uid://fubswpjcq3l1" path="res://Assets/PlayerAssets/CatPlayer.png" id="1_aoxlc"]
 [ext_resource type="Script" uid="uid://b3fmg5jkght8m" path="res://Nodes/player.gd" id="1_qlfej"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cgreet26banyn" path="res://Assets/PlayerAssets/CatPlayerHurt.png" id="4_wmu34"]
 [ext_resource type="Texture2D" uid="uid://jc34rfcg6ipi" path="res://Assets/PlayerAssets/CatPlayerDeath.png" id="5_2hphp"]
 [ext_resource type="PackedScene" uid="uid://kml4fhwc3cbe" path="res://Nodes/health.tscn" id="6_r4ynj"]
-[ext_resource type="Texture2D" uid="uid://8qx237jf05n8" path="res://Assets/PlayerAssets/CatPlayerSpin.png" id="9_e3gfx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2hphp"]
 resource_local_to_scene = true
@@ -100,18 +99,6 @@ region = Rect2(0, 24, 24, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hv3sw"]
 atlas = ExtResource("1_aoxlc")
 region = Rect2(24, 24, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wvmdh"]
-atlas = ExtResource("9_e3gfx")
-region = Rect2(0, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bcmgr"]
-atlas = ExtResource("9_e3gfx")
-region = Rect2(24, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vvsb4"]
-atlas = ExtResource("9_e3gfx")
-region = Rect2(48, 0, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r4ynj"]
 animations = [{
@@ -213,20 +200,6 @@ animations = [{
 "loop": true,
 "name": &"Run",
 "speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wvmdh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bcmgr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vvsb4")
-}],
-"loop": true,
-"name": &"Spin",
-"speed": 10.0
 }]
 
 [sub_resource type="Animation" id="Animation_x5p36"]
@@ -295,10 +268,8 @@ script = ExtResource("1_qlfej")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_2hphp")
 sprite_frames = SubResource("SpriteFrames_r4ynj")
-animation = &"Spin"
+animation = &"Idle"
 autoplay = "Idle"
-frame = 2
-frame_progress = 0.718035
 
 [node name="Flash" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {
@@ -320,5 +291,3 @@ shape = SubResource("RectangleShape2D_sfp35")
 disabled = true
 
 [node name="Health" parent="." instance=ExtResource("6_r4ynj")]
-
-[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
