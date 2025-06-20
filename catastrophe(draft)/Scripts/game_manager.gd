@@ -5,6 +5,9 @@ var player_hp = -1
 #particles
 var particle_node = preload("res://Nodes/ParticlesAndGui/particle.tscn")
 
+# playerBody for flying enemy.gd
+# go to player.gd and find Gamemager in the _ready func
+var playerBody: CharacterBody2D
 
 # freeze frame
 func freeze_frame(timeScale, duration):
