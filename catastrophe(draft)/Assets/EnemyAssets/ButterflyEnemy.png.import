@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0aki2peysrg5"
-path="res://.godot/imported/HitImpactParticle.png-021c1878429a492d6d42eec1b9742118.ctex"
+uid="uid://bhg7i5515v4bq"
+path="res://.godot/imported/ButterflyEnemy.png-32d80ce62a31ecd40f1b908e326b9525.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ParticleAssets/HitImpactParticle.png"
-dest_files=["res://.godot/imported/HitImpactParticle.png-021c1878429a492d6d42eec1b9742118.ctex"]
+source_file="res://Assets/EnemyAssets/ButterflyEnemy.png"
+dest_files=["res://.godot/imported/ButterflyEnemy.png-32d80ce62a31ecd40f1b908e326b9525.ctex"]
 
 [params]
 

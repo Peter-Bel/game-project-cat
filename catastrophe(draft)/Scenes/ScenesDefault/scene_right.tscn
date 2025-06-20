@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://s1xm5sxw2yf7"]
+[gd_scene load_steps=12 format=3 uid="uid://s1xm5sxw2yf7"]
 
 [ext_resource type="Script" uid="uid://bfmw33km0j8os" path="res://Scenes/ScenesDefault/level.gd" id="1_mc8b8"]
 [ext_resource type="PackedScene" uid="uid://c3j2hpqk5l3so" path="res://Nodes/player.tscn" id="1_ybtko"]
@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ccpih8645yd7u" path="res://Assets/WorldAssets/world_tileset.png" id="3_icrpp"]
 [ext_resource type="PackedScene" uid="uid://co111w4esd0op" path="res://Nodes/scene_collision.tscn" id="4_581nq"]
 [ext_resource type="PackedScene" uid="uid://db3ey5xotuejn" path="res://Nodes/Enemies/enemy_1.tscn" id="6_icrpp"]
+[ext_resource type="PackedScene" uid="uid://bfvigi3qdefpo" path="res://Nodes/Enemies/flying_enemy.tscn" id="7_78fb5"]
 [ext_resource type="PackedScene" uid="uid://caersxadafrrv" path="res://Assets/PlayerAssets/heart_container.tscn" id="7_581nq"]
-[ext_resource type="PackedScene" uid="uid://22vqg3buca64" path="res://Nodes/ParticlesAndGui/scene_fade.tscn" id="8_78fb5"]
+[ext_resource type="PackedScene" uid="uid://b2y66t0yumqsb" path="res://Nodes/Enemies/jumping_enemy.tscn" id="8_3oemo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yw86p"]
 texture = ExtResource("3_icrpp")
@@ -212,19 +213,18 @@ position = Vector2(24, 2)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource("6_icrpp")]
-position = Vector2(352, 192)
-scale = Vector2(2.68, 2.04)
+position = Vector2(352, 194)
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource("6_icrpp")]
-position = Vector2(104, 80)
-scale = Vector2(9.0224, 8.8816)
+[node name="FlyingEnemy" parent="Enemies" instance=ExtResource("7_78fb5")]
+position = Vector2(107, 122)
+
+[node name="jumping_enemy" parent="Enemies" instance=ExtResource("8_3oemo")]
+position = Vector2(623, 179)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="heartContainer" parent="CanvasLayer" instance=ExtResource("7_581nq")]
 metadata/_edit_use_anchors_ = true
-
-[node name="SceneFade" parent="CanvasLayer" instance=ExtResource("8_78fb5")]
 
 [editable path="Player/Camera"]
 [editable path="Doors/Door_L"]

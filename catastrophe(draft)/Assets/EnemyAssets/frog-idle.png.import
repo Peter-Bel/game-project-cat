@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvye4sonqykxc"
-path="res://.godot/imported/BugEnemyDeath.png-311f5dd0548cf40c55e178f0d03d6147.ctex"
+uid="uid://cvvauit2qr3mv"
+path="res://.godot/imported/frog-idle.png-0c73eaec691dd3c34b7249a7dea377fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/EnemyAssets/BugEnemyDeath.png"
-dest_files=["res://.godot/imported/BugEnemyDeath.png-311f5dd0548cf40c55e178f0d03d6147.ctex"]
+source_file="res://Assets/EnemyAssets/frog-idle.png"
+dest_files=["res://.godot/imported/frog-idle.png-0c73eaec691dd3c34b7249a7dea377fc.ctex"]
 
 [params]
 

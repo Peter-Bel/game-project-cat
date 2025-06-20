@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8qx237jf05n8"
-path="res://.godot/imported/CatPlayerSpin.png-666faee269cbc363deefc6c16347abf0.ctex"
+uid="uid://bau4lnljegroq"
+path="res://.godot/imported/frog-jump.png-4fad8ade9cf021716a9b9bcf2452d2f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PlayerAssets/CatPlayerSpin.png"
-dest_files=["res://.godot/imported/CatPlayerSpin.png-666faee269cbc363deefc6c16347abf0.ctex"]
+source_file="res://Assets/EnemyAssets/frog-jump.png"
+dest_files=["res://.godot/imported/frog-jump.png-4fad8ade9cf021716a9b9bcf2452d2f4.ctex"]
 
 [params]
 
