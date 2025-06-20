@@ -1,16 +1,14 @@
 extends Node
 class_name Health
 
+# signal
 signal health_zero
-
 
 # variables
 @export var max_health: int = 3 : set = set_max_health, get = get_max_health
-@export var imortal: bool = false : set = set_imortal, get = get_imortal
-
-var imortal_time: Timer = null
-
 @onready var health: int = max_health : set = set_health, get = get_health
+@export var imortal: bool = false : set = set_imortal, get = get_imortal
+var imortal_time: Timer = null
 
 
 # max health funcitons

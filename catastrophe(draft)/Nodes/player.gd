@@ -11,12 +11,17 @@ const JUMP_INCREASE_ACC = 55
 const ATTACK_TIME = 50
 const ATTACK_ACC = 20
 const ATTACK_DAMAGE = 10
+const SPIN_ACC = 5
+const SPIN_VELOCITY_X = 185
+const SPIN_VELOCITY_Y = 250
+const SPIN_X_UP = -110
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 # variables
 @onready var attack = $AttackArea
 @onready var attack_shape = $AttackArea/AttackShape2D
 @onready var cam = $Camera
+@onready var scene_fade: ColorRect = $"../CanvasLayer/SceneFade"
 var spr_state = "Idle"
 var state_time = 0
 
@@ -34,6 +39,10 @@ var hurt_time = 0.0167 * 10
 var death_time: Timer = null
 var time_to_death = 2
 
+var spin = true
+var dash_dir_x = 0
+var dash_dir_y = 0
+var spin_time = 0.0167 * 20
 
 
 # ready
@@ -48,24 +57,14 @@ func _ready():
 		else:
 			health_node.set_health(GameManager.player_hp)
 			health_gui.updateHearts(health_node.health)
-<<<<<<< HEAD
-<<<<<<< HEAD
-	# go to the flying enemy.gd, move func 
-	GameManager.playerBody = self
-=======
 	# scene fading
 	if scene_fade:
 		scene_fade.fade(false)
 	else:
 		GameManager.unpause_screen()
->>>>>>> parent of 4db7ca4 (Merge branch 'main' into Peter_Levels&PlayerImplimentatoin)
-=======
-	# go to the flying enemy.gd, move func 
-	GameManager.playerBody = self
->>>>>>> parent of c852502 (Merge pull request #4 from Peter-Bel/Peter_Levels&PlayerImplimentatoin)
 
 # death
-func death(time: int):
+func death(time: float):
 	if death_time == null:
 		death_time = Timer.new()
 		add_child(death_time)
@@ -98,6 +97,8 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	else:
+		spin = true
 	
 	### Handle jump.
 	# timers
@@ -131,12 +132,28 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	### animation 
+	## Spin Direction 
+	dash_dir_x = direction
+	dash_dir_y = Input.get_axis("up", "down")
+	
+	### animation and states
 	# idle (base)
 	if (spr_state == "Idle"): 
 		if (health_node.health <= 0):
 			spr_state = "Death"
 			death(1)
+		elif Input.is_action_just_pressed("spin") and (dash_dir_x != 0 or dash_dir_y != 0) and spin: # spin
+			spr_state = "Spin"
+			state_time = spin_time
+			spin = false
+			if (dash_dir_y != 0):
+				velocity.y = SPIN_VELOCITY_Y * dash_dir_y
+				GameManager.particle("player_dash", position, 0, Vector2(0, 0), 0.0, [false, false ,90 * sign(dash_dir_y) + (20 * sign(dash_dir_x) * sign(-dash_dir_y))])
+			else:
+				GameManager.particle("player_dash", position, 0, Vector2(0, 0), 0.0, [animated_sprite.flip_h, false, 0])
+				velocity.x += SPIN_VELOCITY_X * dash_dir_x
+				velocity.y = SPIN_X_UP
+				
 		elif Input.is_action_just_pressed("attack"): # attack
 			spr_state = "Attack" 
 			cam.shake = 3
@@ -149,6 +166,14 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.frame = sign(velocity.y)
 	# play sprite
 	animated_sprite.play(spr_state)
+	
+	## Spin
+	if (spr_state == "Spin"):
+		# x velocity
+		velocity.x = lerp(velocity.x, SPEED * direction, SPIN_ACC * delta)
+		# reset 
+		if is_on_floor() and state_time != spin_time:
+			state_time = 0
 	
 	### Attack
 	attack_shape.disabled = true
@@ -211,3 +236,22 @@ func damage(damage: int, direction: Vector2) -> void:
 		GameManager.player_hp = health_node.health
 		if (health_gui):
 			health_gui.updateHearts(health_node.health)
+
+
+# Enemy Attack
+func _on_attack_area_area_entered(area: Area2D) -> void:
+	# get correct area2D
+	var parent = null
+	if (area.name == "Area2D"):
+		parent = area.get_parent()
+	# if enemy
+	if parent is Enemy:
+		cam.shake = 5
+		var p_pos = parent.global_position
+		var dir = global_position.direction_to(parent.global_position)
+		var dist = global_position.distance_to(parent.global_position)
+		var mid = (global_position + parent.global_position) / 2
+		parent.damage(ATTACK_DAMAGE, dir)
+		# particle
+		GameManager.freeze_frame(0.15, 0.1)
+		GameManager.particle("player_attack_hit", mid, 0, Vector2(0, 0), 0.0, [animated_sprite.flip_h, false, 0])
