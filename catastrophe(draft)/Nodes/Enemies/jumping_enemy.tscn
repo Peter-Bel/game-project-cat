@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://b2y66t0yumqsb"]
 
-[ext_resource type="Script" uid="uid://irbktfr5iegp" path="res://jumping_enemy.gd" id="1_hejch"]
+[ext_resource type="Script" uid="uid://irbktfr5iegp" path="res://Nodes/Enemies/jumping_enemy.gd" id="1_hejch"]
 [ext_resource type="Texture2D" uid="uid://cvvauit2qr3mv" path="res://Assets/EnemyAssets/frog-idle.png" id="2_6bb5y"]
 [ext_resource type="Texture2D" uid="uid://bau4lnljegroq" path="res://Assets/EnemyAssets/frog-jump.png" id="3_tye65"]
 
