@@ -1,0 +1,153 @@
+[gd_scene load_steps=18 format=3 uid="uid://bfvigi3qdefpo"]
+
+[ext_resource type="Texture2D" uid="uid://bhg7i5515v4bq" path="res://Assets/EnemyAssets/ButterflyEnemy.png" id="1_f14ib"]
+[ext_resource type="Script" uid="uid://dkhsq6i5okj1" path="res://Nodes/Enemies/flying_enemy.gd" id="1_s4uff"]
+[ext_resource type="Shader" uid="uid://btcwin3hxce8u" path="res://Assets/flash.gdshader" id="2_22tra"]
+[ext_resource type="PackedScene" uid="uid://kml4fhwc3cbe" path="res://Nodes/health.tscn" id="4_ynpr7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0dvit"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3o3wv"]
+shader = ExtResource("2_22tra")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4uff"]
+atlas = ExtResource("1_f14ib")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22tra"]
+atlas = ExtResource("1_f14ib")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynpr7"]
+atlas = ExtResource("1_f14ib")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o3wv"]
+atlas = ExtResource("1_f14ib")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wb0q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4uff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22tra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynpr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3o3wv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[sub_resource type="Animation" id="Animation_x5p36"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_0bouj"]
+resource_name = "empty"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_e3gfx"]
+resource_name = "hit_flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5gn8"]
+_data = {
+&"RESET": SubResource("Animation_x5p36"),
+&"empty": SubResource("Animation_0bouj"),
+&"hit_flash": SubResource("Animation_e3gfx")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s4uff"]
+radius = 91.0055
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0wb0q"]
+radius = 8.06226
+
+[node name="FlyingEnemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_s4uff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_0dvit")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_3o3wv")
+sprite_frames = SubResource("SpriteFrames_0wb0q")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Flash" type="AnimationPlayer" parent="AnimatedSprite2D"]
+deterministic = true
+libraries = {
+&"": SubResource("AnimationLibrary_g5gn8")
+}
+autoplay = "empty"
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_s4uff")
+debug_color = Color(0.887128, 0.317067, 0.240722, 0.42)
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_0wb0q")
+debug_color = Color(0.945767, 0.182034, 0.377748, 0.42)
+
+[node name="Health" parent="." instance=ExtResource("4_ynpr7")]
+max_health = 15
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
