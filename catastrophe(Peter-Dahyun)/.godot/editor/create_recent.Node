@@ -1,6 +1,6 @@
+Area2D
 Camera2D
 CollisionShape2D
-Area2D
 TileMapLayer
 Sprite2D
 ParallaxLayer
