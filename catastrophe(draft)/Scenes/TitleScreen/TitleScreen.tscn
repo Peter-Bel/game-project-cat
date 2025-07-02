@@ -1,4 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://rm4riwha0rpu"]
+[gd_scene load_steps=8 format=3 uid="uid://rm4riwha0rpu"]
+
+[ext_resource type="Script" uid="uid://b2ii0v51u3ovu" path="res://Scenes/TitleScreen/parallax_background.gd" id="1_f6ya5"]
+[ext_resource type="Texture2D" uid="uid://c3sn3a44twvir" path="res://Assets/BackgroundAssets/TitleScreen/WCP_1.png" id="2_4lqrc"]
+[ext_resource type="Texture2D" uid="uid://bnl5okvh3lmdm" path="res://Assets/BackgroundAssets/TitleScreen/WCP_2.png" id="3_q82or"]
+[ext_resource type="Texture2D" uid="uid://c8tq1h3bn45xr" path="res://Assets/BackgroundAssets/TitleScreen/WCP_3.png" id="4_2lib6"]
+[ext_resource type="Texture2D" uid="uid://seqd2s2fh632" path="res://Assets/BackgroundAssets/TitleScreen/WCP_4.png" id="5_wgw8k"]
+[ext_resource type="Texture2D" uid="uid://fvhuous34q8b" path="res://Assets/BackgroundAssets/TitleScreen/WCP_5.png" id="6_44kja"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d3xdh"]
 bg_color = Color(0.89059, 0.89059, 0.89059, 1)
@@ -17,13 +24,63 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Catastrophe Logo" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = -119.0
+offset_right = 211.0
+offset_bottom = -22.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 71
+text = "Catastrophe"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("1_f6ya5")
+
+[node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Background"]
+position = Vector2(308, 144)
+texture = ExtResource("2_4lqrc")
+
+[node name="Background2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.2, 1.2)
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Background2"]
+position = Vector2(308, 144)
+texture = ExtResource("3_q82or")
+
+[node name="Background3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.4, 1.4)
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Background3"]
+position = Vector2(308, 144)
+texture = ExtResource("4_2lib6")
+
+[node name="Background4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.6, 1.6)
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Background4"]
+position = Vector2(308, 144)
+texture = ExtResource("5_wgw8k")
+
+[node name="Background5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Background5"]
+position = Vector2(308, 144)
+texture = ExtResource("6_44kja")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -32,12 +89,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -85.0
-offset_top = -51.0
-offset_right = 85.0
-offset_bottom = 51.0
+offset_left = -84.0
+offset_top = 17.0
+offset_right = 86.0
+offset_bottom = 119.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -51,11 +109,11 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_d3xdh")
-text = "Start Game"
+text = "Options"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_d3xdh")
-text = "Start Game"
+text = "Exit Game"

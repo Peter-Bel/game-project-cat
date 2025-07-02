@@ -1,2 +1,7 @@
 res://Scenes/TitleScreen/TitleScreen.tscn
+res://Scenes/ScenesDefault/scene_right.tscn
 res://Scenes/ScenesDefault/default.tscn
+res://Scenes/ScenesDefault/scene_left.tscn
+res://Nodes/camera.tscn
+res://Nodes/scene_collision.tscn
+res://Scenes/TitleScreen/parallax_background.gd

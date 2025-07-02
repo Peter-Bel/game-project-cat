@@ -1,3 +1,9 @@
+Label
+Sprite2D
+ParallaxBackground
+ParallaxLayer
+Parallax2D
+Panel
 VBoxContainer
 Button
 TextureRect
