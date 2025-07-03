@@ -1,6 +1,8 @@
+Node
+CollisionShape2D
+StaticBody2D
 Area2D
 Camera2D
-CollisionShape2D
 TileMapLayer
 Sprite2D
 ParallaxLayer
