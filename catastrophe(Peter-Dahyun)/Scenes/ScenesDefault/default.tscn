@@ -206,7 +206,7 @@ position = Vector2(24, 0)
 
 [node name="Door_R" parent="Doors" instance=ExtResource("5_e6r0x")]
 position = Vector2(264, 96)
-destination_scene = "res://Scenes/ScenesDefault/scene_right.tscn"
+destination_scene = "res://Scenes/Levels/Level1.tscn"
 destination_door = "L"
 
 [node name="Destination" parent="Doors/Door_R" index="1"]
