@@ -8,3 +8,6 @@ Sprite2D
 ParallaxLayer
 ParallaxBackground
 Node2D
+TileMap
+Polygon2D
+Line2D

@@ -1,23 +1,14 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1752815026
+::res://::1752815441
 export_presets.cfg::TextFile/TextFile::-1::1752705887::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::4450555947161938685::1752705887::1752706849::1::::<><><>0<>0<>fb78ee1d92b2847e618f51f16c88d4a2<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+waterphysic.gd::GDScript::1467465032908843564::1752815376::0::1::::<>Node2D<><>0<>0<><>::
 ::res://Assets/::1752705887
 flash.gdshader::Shader/Shader::3725488254922880870::1752705887::0::1::::<><><>0<>0<><>::
-::res://Assets/BackgroundAssets/::1752814824
-::res://Assets/BackgroundAssets/Level1Bg/::1752814917
-1st Layer.png::CompressedTexture2D/CompressedTexture2D::2703546481301207509::1752814831::1752814917::1::::<><><>0<>0<>11da0fd26130492390cdb7a321aa135a<>res://.godot/imported/1st Layer.png-0786b6e81f7be06751498aef51ebc885.ctex::
-2nd Layer.png::CompressedTexture2D/CompressedTexture2D::446286953301766196::1752814831::1752814916::1::::<><><>0<>0<>ce249763d07ae3cad56cc7da32546e92<>res://.godot/imported/2nd Layer.png-8a1f6cd62a933e5c169e86429e2adfd8.ctex::
-3rd Layer.png::CompressedTexture2D/CompressedTexture2D::2659212182232349348::1752814831::1752814916::1::::<><><>0<>0<>b2bfe8015c9e5ae8fab0a496237549b4<>res://.godot/imported/3rd Layer.png-52010e750953ba53b9833353fca40448.ctex::
-4th Layer.png::CompressedTexture2D/CompressedTexture2D::6988677574274814996::1752814831::1752814917::1::::<><><>0<>0<>86176fe347ee9d6e5d5521191bba8256<>res://.godot/imported/4th Layer.png-275a7f0bce01d22901fdc9d97cdac48f.ctex::
-5th Layer.png::CompressedTexture2D/CompressedTexture2D::2224724065829194527::1752814831::1752814916::1::::<><><>0<>0<>db3002adb4314aa8e667d14b7b595e6f<>res://.godot/imported/5th Layer.png-81d81e2d990a3e74bdbc7c93ceb3ddf8.ctex::
-::res://Assets/BackgroundAssets/PineForestParallax/::1752814918
-MorningLayer1.png::CompressedTexture2D/CompressedTexture2D::4178630632029291348::1752814831::1752814917::1::::<><><>0<>0<>5b5dc15103e76a7a2578a14fa2bfa720<>res://.godot/imported/MorningLayer1.png-3e476ca8a43ef736be7272723a06dd43.ctex::
-MorningLayer2.png::CompressedTexture2D/CompressedTexture2D::4065833196005594384::1752814831::1752814917::1::::<><><>0<>0<>c46576d35868f110850d620985db89bf<>res://.godot/imported/MorningLayer2.png-63b643143e697b887b69d316eddae7e8.ctex::
-MorningLayer3.png::CompressedTexture2D/CompressedTexture2D::797747227983281048::1752814831::1752814917::1::::<><><>0<>0<>18ff7db61143be8ab301f276330b306f<>res://.godot/imported/MorningLayer3.png-08e36906aa65def176127ffb1a17e74b.ctex::
-MorningLayer4.png::CompressedTexture2D/CompressedTexture2D::6103310236039457501::1752814831::1752814917::1::::<><><>0<>0<>a9bb0570920d8a60837515cee95b7816<>res://.godot/imported/MorningLayer4.png-061b016ff5950fc096e9d632bd864c06.ctex::
-MorningLayer5.png::CompressedTexture2D/CompressedTexture2D::5196667708620196707::1752814831::1752814917::1::::<><><>0<>0<>6bf8d9b045d53708da271696ef6612cb<>res://.godot/imported/MorningLayer5.png-c5bafcaf63b21e241303a05176b66b7a.ctex::
-MorningLayer6.png::CompressedTexture2D/CompressedTexture2D::1643793797333029459::1752814831::1752814917::1::::<><><>0<>0<>886b7a2bd2e10956453ecace6d1a933a<>res://.godot/imported/MorningLayer6.png-f55366a2654d284ecd1b9c455a78c609.ctex::
+::res://Assets/BackgroundAssets/::1752815376
+5.png::CompressedTexture2D/CompressedTexture2D::7302772236648745191::1752815376::1752815444::1::::<><><>0<>0<>751a970bfd9436ed23d1b6813283a3a8<>res://.godot/imported/5.png-eb5581473c1c1cd5a3bed9e4df852238.ctex::
+::res://Assets/BackgroundAssets/Level1Bg/::1752815375
+::res://Assets/BackgroundAssets/PineForestParallax/::1752815375
 ::res://Assets/EnemyAssets/::1752706849
 BugEnemy1.png::CompressedTexture2D/CompressedTexture2D::4023476321319103032::1752705887::1752706849::1::::<><><>0<>0<>efb6a2aa0f6d3f1d786d4c9765be0641<>res://.godot/imported/BugEnemy1.png-8d39f4e6056666940e4cc01e80d853ae.ctex::
 BugEnemyDeath.png::CompressedTexture2D/CompressedTexture2D::6296647773537186584::1752705887::1752706849::1::::<><><>0<>0<>214cb035fda7abe917a0f7d113e85fc8<>res://.godot/imported/BugEnemyDeath.png-311f5dd0548cf40c55e178f0d03d6147.ctex::
@@ -40,8 +31,7 @@ heart_container.gd::GDScript/GDScript::5691852403070792211::1752705887::0::1::::
 heart_container.tscn::PackedScene/PackedScene::4782164419743335587::1752705887::0::1::::<><><>0<>0<><>::uid://cndf8h8hd6usx::::res://Assets/PlayerAssets/heart_container.gd
 heart_gui.gd::GDScript/GDScript::7808762215936376826::1752705887::0::1::::<>Panel<><>0<>0<><>::
 heart_gui.tscn::PackedScene/PackedScene::7981116612521272950::1752705887::0::1::::<><><>0<>0<><>::uid://djivf41ukn2w1::::res://Assets/PlayerAssets/heart_gui.gd<>uid://csw8h5wincb63::::res://Assets/PlayerAssets/GameHeart.png
-::res://Assets/WorldAssets/::1752814917
-forest_tileset.png::CompressedTexture2D/CompressedTexture2D::4849857122295440598::1752814831::1752814917::1::::<><><>0<>0<>1112b8edd86c23b504f7fbbe85fb3dc5<>res://.godot/imported/forest_tileset.png-42a88418ad4251426bafcc709d5d5131.ctex::
+::res://Assets/WorldAssets/::1752815375
 world_tileset.png::CompressedTexture2D/CompressedTexture2D::4944684739990786400::1752705887::1752706849::1::::<><><>0<>0<>eacf0ef44316fcdf68eecf384ca18626<>res://.godot/imported/world_tileset.png-7e4af22ce45c46d5e187c080fa6dd173.ctex::
 ::res://Nodes/::1752748885
 camera.gd::GDScript/GDScript::7022682783291149031::1752705887::0::1::::<>Camera2D<><>0<>0<><>::
@@ -49,7 +39,7 @@ camera.tscn::PackedScene/PackedScene::4948417566460573025::1752705887::0::1::::<
 game_manager.tscn::PackedScene/PackedScene::5186130006103120765::1752705887::0::1::::<><><>0<>0<><>::uid://cow7yrne76hf1::::res://Scripts/game_manager.gd
 health.gd::GDScript/GDScript::4141090233413072690::1752705887::0::1::::Health<>Node<><>0<>0<><>::
 health.tscn::PackedScene/PackedScene::727380918806450734::1752705887::0::1::::<><><>0<>0<><>::uid://by88fex0yn31g::::res://Nodes/health.gd
-player.gd::GDScript/GDScript::4362771103071348178::1752748885::0::1::::Player<>CharacterBody2D<><>0<>0<><>::
+player.gd::GDScript::4362771103071348178::1752748885::0::1::::Player<>CharacterBody2D<><>0<>0<><>::
 player.tscn::PackedScene/PackedScene::6758361061461708122::1752705887::0::1::::<><><>0<>0<><>::uid://fubswpjcq3l1::::res://Assets/PlayerAssets/CatPlayer.png<>uid://b3fmg5jkght8m::::res://Nodes/player.gd<>uid://btcwin3hxce8u::::res://Assets/flash.gdshader<>uid://bmfnrw0jgss12::::res://Assets/PlayerAssets/CatPlayerIdle.png<>uid://ch6tuixaq5tpe::::res://Assets/PlayerAssets/CatPlayerAir.png<>uid://d2sm6pwfaqdr4::::res://Assets/PlayerAssets/CatPlayerAttack.png<>uid://cgreet26banyn::::res://Assets/PlayerAssets/CatPlayerHurt.png<>uid://jc34rfcg6ipi::::res://Assets/PlayerAssets/CatPlayerDeath.png<>uid://kml4fhwc3cbe::::res://Nodes/health.tscn<>uid://8qx237jf05n8::::res://Assets/PlayerAssets/CatPlayerSpin.png
 scene_collision.gd::GDScript/GDScript::8499782562102886470::1752705887::0::1::::Door<>Area2D<><>0<>0<><>::
 scene_collision.tscn::PackedScene/PackedScene::5810785272896639303::1752705887::0::1::::<><><>0<>0<><>::uid://dtdmgatnpenba::::res://Nodes/scene_collision.gd
@@ -65,16 +55,19 @@ particle.gd::GDScript/GDScript::2131012624579260693::1752705887::0::1::::<>Node2
 particle.tscn::PackedScene/PackedScene::3795445443599719869::1752705887::0::1::::<><><>0<>0<><>::uid://5mjp4mskclwn::::res://Nodes/ParticlesAndGui/particle.gd<>uid://d0aki2peysrg5::::res://Assets/ParticleAssets/HitImpactParticle.png<>uid://g3nlyc4nrs8k::::res://Assets/ParticleAssets/PlayerAttackParticle.png
 scene_fade.gd::GDScript/GDScript::3228062795833403090::1752705887::0::1::::<>ColorRect<><>0<>0<><>::
 scene_fade.tscn::PackedScene/PackedScene::1952140965603928747::1752705887::0::1::::<><><>0<>0<><>::uid://bl8xytl6ehge1::::res://Nodes/ParticlesAndGui/scene_fade.gd
-::res://Nodes/WaterDynamics/::1752814824
+::res://Nodes/WaterDynamics/::1752815376
+background.tscn::PackedScene::3805083495994587230::1752815376::0::1::::<><><>0<>0<><>::uid://dcbruedxirb64::::res://Assets/BackgroundAssets/5.png
+water.gd::GDScript::5840102624726444912::1752815376::0::1::::<>Node2D<><>0<>0<><>::
+water.tscn::PackedScene::5719533518608462770::1752815376::0::1::::<><><>0<>0<><>::uid://cpg8vwl3y7y7q::::res://Nodes/WaterDynamics/water.gd
+waterdynamic.tscn::PackedScene::3438544928575342409::1752815376::0::1::::<><><>0<>0<><>::uid://buhhf0wgbdlcg::::res://Nodes/WaterDynamics/background.tscn<>uid://cnqt476hremfi::::res://Nodes/WaterDynamics/water.tscn<>uid://c3j2hpqk5l3so::::res://Nodes/player.tscn<>uid://ccpih8645yd7u::::res://Assets/WorldAssets/world_tileset.png
 ::res://Scenes/::1752098533
-::res://Scenes/Levels/::1752814831
-Level1.tscn::PackedScene/PackedScene::1488749531930187732::1752814831::0::1::::<><><>0<>0<><>::uid://bfmw33km0j8os::::res://Scenes/ScenesDefault/level.gd<>uid://c3j2hpqk5l3so::::res://Nodes/player.tscn<>uid://ccrbyj1xjr05j::::res://Nodes/camera.tscn<>uid://cbdko5uie7msc::::res://Assets/WorldAssets/forest_tileset.png<>uid://co111w4esd0op::::res://Nodes/scene_collision.tscn<>uid://db3ey5xotuejn::::res://Nodes/Enemies/enemy_1.tscn<>uid://caersxadafrrv::::res://Assets/PlayerAssets/heart_container.tscn<>uid://bfvigi3qdefpo::::res://Nodes/Enemies/flying_enemy.tscn<>uid://22vqg3buca64::::res://Nodes/ParticlesAndGui/scene_fade.tscn<>uid://6xw46wn62kh8::::res://Assets/BackgroundAssets/Level1Bg/5th Layer.png<>uid://c6tmq7mtn76v5::::res://Assets/BackgroundAssets/Level1Bg/4th Layer.png<>uid://bd5e3otc0mpwm::::res://Assets/BackgroundAssets/Level1Bg/3rd Layer.png<>uid://gmgjs0ghsvc3::::res://Assets/BackgroundAssets/Level1Bg/2nd Layer.png<>uid://bervar8lkfo6x::::res://Assets/BackgroundAssets/Level1Bg/1st Layer.png
-::res://Scenes/ScenesDefault/::1752814831
-default.tscn::PackedScene/PackedScene::8028704917149326737::1752814724::0::1::::<><><>0<>0<><>::uid://c3j2hpqk5l3so::::res://Nodes/player.tscn<>uid://bfmw33km0j8os::::res://Scenes/ScenesDefault/level.gd<>uid://ccrbyj1xjr05j::::res://Nodes/camera.tscn<>uid://ccpih8645yd7u::::res://Assets/WorldAssets/world_tileset.png<>uid://co111w4esd0op::::res://Nodes/scene_collision.tscn<>uid://caersxadafrrv::::res://Assets/PlayerAssets/heart_container.tscn<>uid://22vqg3buca64::::res://Nodes/ParticlesAndGui/scene_fade.tscn
+::res://Scenes/Levels/::1752815375
+::res://Scenes/ScenesDefault/::1752815376
+default.tscn::PackedScene::8028704917149326737::1752814724::0::1::::<><><>0<>0<><>::uid://c3j2hpqk5l3so::::res://Nodes/player.tscn<>uid://bfmw33km0j8os::::res://Scenes/ScenesDefault/level.gd<>uid://ccrbyj1xjr05j::::res://Nodes/camera.tscn<>uid://ccpih8645yd7u::::res://Assets/WorldAssets/world_tileset.png<>uid://co111w4esd0op::::res://Nodes/scene_collision.tscn<>uid://caersxadafrrv::::res://Assets/PlayerAssets/heart_container.tscn<>uid://22vqg3buca64::::res://Nodes/ParticlesAndGui/scene_fade.tscn
 killzone.tscn::PackedScene/PackedScene::8269846755560955104::1752705887::0::1::::<><><>0<>0<><>::uid://bv3a7xenfrgc0::::res://Scripts/killzone.gd
 level.gd::GDScript/GDScript::2763524697683053642::1752705887::0::1::::<>Node2D<><>0<>0<><>::
 scene_left.tscn::PackedScene/PackedScene::5518814029436657829::1752705887::0::1::::<><><>0<>0<><>::uid://bfmw33km0j8os::::res://Scenes/ScenesDefault/level.gd<>uid://c3j2hpqk5l3so::::res://Nodes/player.tscn<>uid://ccrbyj1xjr05j::::res://Nodes/camera.tscn<>uid://ccpih8645yd7u::::res://Assets/WorldAssets/world_tileset.png<>uid://co111w4esd0op::::res://Nodes/scene_collision.tscn
-scene_right.tscn::PackedScene/PackedScene::1318492532033111618::1752814831::0::1::::<><><>0<>0<><>::uid://bfmw33km0j8os::::res://Scenes/ScenesDefault/level.gd<>uid://c3j2hpqk5l3so::::res://Nodes/player.tscn<>uid://ccrbyj1xjr05j::::res://Nodes/camera.tscn<>uid://ccpih8645yd7u::::res://Assets/WorldAssets/world_tileset.png<>uid://co111w4esd0op::::res://Nodes/scene_collision.tscn<>uid://db3ey5xotuejn::::res://Nodes/Enemies/enemy_1.tscn<>uid://caersxadafrrv::::res://Assets/PlayerAssets/heart_container.tscn<>uid://22vqg3buca64::::res://Nodes/ParticlesAndGui/scene_fade.tscn
+scene_right.tscn::PackedScene::1318492532033111618::1752815376::0::1::::<><><>0<>0<><>::uid://bfmw33km0j8os::::res://Scenes/ScenesDefault/level.gd<>uid://c3j2hpqk5l3so::::res://Nodes/player.tscn<>uid://ccrbyj1xjr05j::::res://Nodes/camera.tscn<>uid://ccpih8645yd7u::::res://Assets/WorldAssets/world_tileset.png<>uid://co111w4esd0op::::res://Nodes/scene_collision.tscn<>uid://caersxadafrrv::::res://Assets/PlayerAssets/heart_container.tscn<>uid://22vqg3buca64::::res://Nodes/ParticlesAndGui/scene_fade.tscn
 ::res://Scripts/::1752705887
 enemy.gd::GDScript/GDScript::2768825340938519557::1752705887::0::1::::Enemy<>CharacterBody2D<><>0<>0<><>::
 game_manager.gd::GDScript/GDScript::5802888204935355928::1752705887::0::1::::<>Node<><>0<>0<><>::
