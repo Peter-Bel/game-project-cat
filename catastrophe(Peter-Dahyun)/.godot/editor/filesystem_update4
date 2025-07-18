@@ -5,3 +5,4 @@ res://Nodes/WaterDynamics/water.tscn
 res://Nodes/WaterDynamics/waterdynamic.tscn
 res://waterphysic.gd
 res://Nodes/WaterDynamics/waterphysic.tscn
+res://Nodes/player.gd
