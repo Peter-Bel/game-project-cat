@@ -11,6 +11,8 @@ const JUMP_INCREASE_ACC = 55
 const ATTACK_TIME = 50
 const ATTACK_ACC = 20
 const ATTACK_DAMAGE = 10
+const ATTACK_DOWN_Y = -200.0
+const ATTACK_UP_Y = 75.0
 const SPIN_ACC = 5
 const SPIN_VELOCITY_X = 185
 const SPIN_VELOCITY_Y = 250
@@ -19,7 +21,9 @@ const SPIN_X_UP = -110
 
 # variables
 @onready var attack = $AttackArea
-@onready var attack_shape = $AttackArea/AttackShape2D
+@onready var attack_shape_2d: CollisionShape2D = $AttackArea/AttackShape2D
+@onready var attack_shape_up_2d: CollisionShape2D = $AttackArea/AttackShapeUp2D
+@onready var attack_shape_down_2d: CollisionShape2D = $AttackArea/AttackShapeDown2D
 @onready var cam = $Camera
 @onready var scene_fade: ColorRect = $"../CanvasLayer/SceneFade"
 var spr_state = "Idle"
@@ -43,6 +47,10 @@ var spin = true
 var dash_dir_x = 0
 var dash_dir_y = 0
 var spin_time = 0.0167 * 20
+
+var spd = SPEED
+var spd_multiply = 1
+var spd_multiply_type = ""
 
 
 # ready
@@ -97,6 +105,9 @@ func _on_spawn(position: Vector2, direction: String):
 
 # Main event
 func _physics_process(delta: float) -> void:
+	# speed
+	spd = SPEED * spd_multiply
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -125,15 +136,16 @@ func _physics_process(delta: float) -> void:
 	## Horizontal Movement
 	# Get input direction (-1, 0, 1)
 	var direction = Input.get_axis("left", "right")
+	var direction_ud = Input.get_axis("up", "down")
 	# flip sprite
 	if (spr_state == "Idle"):
 		if (direction > 0): animated_sprite.flip_h = false
 		elif (direction < 0): animated_sprite.flip_h = true
 		# direction
 		if direction:
-			velocity.x = lerp(velocity.x, direction * SPEED, ACC * delta)
+			velocity.x = lerp(velocity.x, direction * spd, ACC * delta)
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, spd)
 	
 	## Spin Direction 
 	dash_dir_x = direction
@@ -156,10 +168,13 @@ func _physics_process(delta: float) -> void:
 				GameManager.particle("player_dash", position, 0, Vector2(0, 0), 0.0, [animated_sprite.flip_h, false, 0])
 				velocity.x += SPIN_VELOCITY_X * dash_dir_x
 				velocity.y = SPIN_X_UP
-				
 		elif Input.is_action_just_pressed("attack"): # attack
-			spr_state = "Attack" 
-			cam.shake = 3
+			if (direction_ud > 0 and !is_on_floor()):
+				spr_state = "Attack_Down"
+			if (direction_ud < 0):
+				spr_state = "Attack_Up"
+			if (direction_ud == 0):
+				spr_state = "Attack" 
 		elif (!is_on_floor()): # air
 			spr_state = "Air"
 		elif (direction != 0): # run
@@ -173,31 +188,42 @@ func _physics_process(delta: float) -> void:
 	## Spin
 	if (spr_state == "Spin"):
 		# x velocity
-		velocity.x = lerp(velocity.x, SPEED * direction, SPIN_ACC * delta)
+		velocity.x = lerp(velocity.x, spd * direction, SPIN_ACC * delta)
 		# reset 
 		if is_on_floor() and state_time != spin_time:
 			state_time = 0
 	
 	### Attack
-	attack_shape.disabled = true
+	attack_shape_2d.disabled = true
+	attack_shape_down_2d.disabled = true
+	attack_shape_up_2d.disabled = true
 	# flip collision
-	if animated_sprite.flip_h:
+	if animated_sprite.flip_h and spr_state == "Attack":
 		attack.position.x  = abs(attack.position.x)*-1
 	else: 
 		attack.position.x  = abs(attack.position.x)
 	# attacking sprite
-	if (spr_state == "Attack"):
+	if (spr_state == "Attack" or spr_state == "Attack_Up" or spr_state == "Attack_Down"):
 		# time reduction and hitbox time
 		state_time = delta
 		if (animated_sprite.frame < 2):
-			attack_shape.disabled = false
+			if (spr_state == "Attack"):
+				attack_shape_2d.disabled = false
+			elif (spr_state == "Attack_Up"):
+				attack_shape_up_2d.disabled = false
+			elif (spr_state == "Attack_Down"):
+				attack_shape_down_2d.disabled = false
 		# movement
 		if (is_on_floor()):
-			velocity.x = lerp(velocity.x, direction * (SPEED / 3), ATTACK_ACC * delta)
+			velocity.x = lerp(velocity.x, direction * (spd / 3), ATTACK_ACC * delta)
 		else: 
-			velocity.x = lerp(velocity.x, direction * SPEED, ATTACK_ACC * delta)
+			velocity.x = lerp(velocity.x, direction * spd, ATTACK_ACC * delta)
 		# reset
 		if animated_sprite.frame > 3:
+			spr_state = "Idle"
+	# attacking sprite for down
+	if (spr_state == "Attack_Down"):
+		if (is_on_floor()):
 			spr_state = "Idle"
 	
 	# death
@@ -218,6 +244,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		animated_sprite.modulate.a = 1
 	
+	# movment
 	move_and_slide()
 
 
@@ -244,6 +271,15 @@ func damage(damage: int, direction: Vector2) -> void:
 # Enemy Attack
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body is Enemy:
+		# attack up and down velocity
+		if (spr_state == "Attack_Up"):
+			velocity.y += ATTACK_UP_Y
+		elif (spr_state == "Attack_Down"):
+			if (velocity.y > ATTACK_DOWN_Y):
+				velocity.y = ATTACK_DOWN_Y
+			else:
+				velocity.y += ATTACK_DOWN_Y / 2
+		# image stats
 		cam.shake = 5
 		var p_pos = body.global_position
 		var dir = global_position.direction_to(body.global_position)

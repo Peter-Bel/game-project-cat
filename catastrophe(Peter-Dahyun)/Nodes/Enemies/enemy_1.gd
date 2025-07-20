@@ -28,7 +28,7 @@ func _process(delta):
 	elif direction == -1 and !ray_cast_bottomL.is_colliding():
 		direction = 1
 	animated_sprite.flip_h = direction == -1
-	position.x += direction * SPEED * delta	
+	position.x += direction * SPEED * delta	* spd_multiply
 	# death 
 	if (!death_time and health_node.health <= 0):
 		death(time_to_death)

@@ -2,21 +2,31 @@ extends Node2D
 
 # variables
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var timer: Timer = $Timer
+
 var type = 0
+var sprite
+
+var move = Vector2(0,0)
+var time = 1
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	# mud
+	if (sprite == "mud_particle"):
+		animated_sprite_2d.frame = randi_range(0, 4)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	# movement
+	if (move != Vector2(0,0)):
+		position += move
 
 # set sprite
 func spr(spr: String):
 	animated_sprite_2d.play(spr)
-	animated_sprite_2d.frame = 0
 
 # set image
 func img(img: Array):
@@ -34,3 +44,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if (type == 0):
 		if animated_sprite_2d.animation_finished:
 			self.queue_free()
+
+func _on_timer_timeout() -> void:
+	if (type == 1):
+		self.queue_free()

@@ -1,8 +1,29 @@
-[gd_scene load_steps=16 format=3 uid="uid://bucsoxk0yio2p"]
+[gd_scene load_steps=22 format=3 uid="uid://bucsoxk0yio2p"]
 
 [ext_resource type="Script" uid="uid://5mjp4mskclwn" path="res://Nodes/ParticlesAndGui/particle.gd" id="1_em8jy"]
 [ext_resource type="Texture2D" uid="uid://d0aki2peysrg5" path="res://Assets/ParticleAssets/HitImpactParticle.png" id="1_y0y0j"]
 [ext_resource type="Texture2D" uid="uid://g3nlyc4nrs8k" path="res://Assets/ParticleAssets/PlayerAttackParticle.png" id="2_34fxq"]
+[ext_resource type="Texture2D" uid="uid://c5m3xcehgfrai" path="res://Assets/ParticleAssets/MudParticle.png" id="2_d0j8p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybx3n"]
+atlas = ExtResource("2_d0j8p")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwh4s"]
+atlas = ExtResource("2_d0j8p")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cvgp"]
+atlas = ExtResource("2_d0j8p")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8o6wd"]
+atlas = ExtResource("2_d0j8p")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mndl"]
+atlas = ExtResource("2_d0j8p")
+region = Rect2(0, 16, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ym236"]
 atlas = ExtResource("2_34fxq")
@@ -58,6 +79,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ybx3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwh4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cvgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8o6wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mndl")
+}],
+"loop": true,
+"name": &"mud_particle",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ym236")
 }, {
 "duration": 1.0,
@@ -106,9 +147,13 @@ script = ExtResource("1_em8jy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 2
 sprite_frames = SubResource("SpriteFrames_lyrmr")
-animation = &"player_attack_hit"
+animation = &"mud_particle"
 autoplay = "default"
-frame = 6
-frame_progress = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+autostart = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
