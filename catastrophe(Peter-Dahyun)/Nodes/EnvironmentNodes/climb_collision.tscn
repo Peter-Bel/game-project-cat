@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctb7cougiqjco"]
+
+[ext_resource type="Script" uid="uid://death8jhi37by" path="res://Nodes/EnvironmentNodes/climb_collision.gd" id="1_tsykh"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_njgil"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsykh"]
+size = Vector2(0.625, 1)
+
+[node name="climb_collision" type="Area2D"]
+script = ExtResource("1_tsykh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.611765, 0.862745, 0.423529, 0.607843)
+position = Vector2(3, 0)
+scale = Vector2(10, 16)
+texture = SubResource("CanvasTexture_njgil")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+scale = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_tsykh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

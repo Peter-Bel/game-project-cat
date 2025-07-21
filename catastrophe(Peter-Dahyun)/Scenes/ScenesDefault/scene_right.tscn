@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://s1xm5sxw2yf7"]
+[gd_scene load_steps=15 format=3 uid="uid://s1xm5sxw2yf7"]
 
 [ext_resource type="Script" uid="uid://bfmw33km0j8os" path="res://Scenes/ScenesDefault/level.gd" id="1_mc8b8"]
 [ext_resource type="PackedScene" uid="uid://c3j2hpqk5l3so" path="res://Nodes/player.tscn" id="1_ybtko"]
@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://db3ey5xotuejn" path="res://Nodes/Enemies/enemy_1.tscn" id="6_78fb5"]
 [ext_resource type="PackedScene" uid="uid://caersxadafrrv" path="res://Assets/PlayerAssets/heart_container.tscn" id="7_581nq"]
 [ext_resource type="PackedScene" uid="uid://22vqg3buca64" path="res://Nodes/ParticlesAndGui/scene_fade.tscn" id="8_78fb5"]
+[ext_resource type="PackedScene" uid="uid://bfvigi3qdefpo" path="res://Nodes/Enemies/flying_enemy.tscn" id="9_pv0xh"]
+[ext_resource type="PackedScene" uid="uid://b2y66t0yumqsb" path="res://Nodes/Enemies/jumping_enemy.tscn" id="10_6uj6i"]
+[ext_resource type="PackedScene" uid="uid://vofbr6ovv224" path="res://Nodes/EnvironmentNodes/mud_collision.tscn" id="11_6uj6i"]
+[ext_resource type="PackedScene" uid="uid://ctb7cougiqjco" path="res://Nodes/EnvironmentNodes/climb_collision.tscn" id="12_5s3dy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yw86p"]
 texture = ExtResource("3_icrpp")
@@ -215,12 +219,39 @@ position = Vector2(24, 2)
 [node name="Enemy1" parent="Enemies" instance=ExtResource("6_78fb5")]
 position = Vector2(191, 242)
 
+[node name="FlyingEnemy" parent="Enemies" instance=ExtResource("9_pv0xh")]
+position = Vector2(592, 152)
+
+[node name="FlyingEnemy2" parent="Enemies" instance=ExtResource("9_pv0xh")]
+position = Vector2(419, 133)
+
+[node name="jumping_enemy" parent="Enemies" instance=ExtResource("10_6uj6i")]
+position = Vector2(519, 241)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="heartContainer" parent="CanvasLayer" instance=ExtResource("7_581nq")]
 metadata/_edit_use_anchors_ = true
 
 [node name="SceneFade" parent="CanvasLayer" instance=ExtResource("8_78fb5")]
+
+[node name="World" type="Node" parent="."]
+
+[node name="mud_collision" parent="World" instance=ExtResource("11_6uj6i")]
+position = Vector2(256, 192)
+scale = Vector2(4, 4)
+
+[node name="climb_collision" parent="World" instance=ExtResource("12_5s3dy")]
+position = Vector2(160, 24)
+scale = Vector2(1, 4)
+
+[node name="climb_collision2" parent="World" instance=ExtResource("12_5s3dy")]
+position = Vector2(68, 8)
+scale = Vector2(1, 7)
+
+[node name="mud_collision2" parent="World" instance=ExtResource("11_6uj6i")]
+position = Vector2(424, 88)
+scale = Vector2(4, 6)
 
 [editable path="Player/Camera"]
 [editable path="Doors/Door_L"]

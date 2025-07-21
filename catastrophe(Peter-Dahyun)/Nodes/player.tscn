@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://c3j2hpqk5l3so"]
+[gd_scene load_steps=62 format=3 uid="uid://c3j2hpqk5l3so"]
 
 [ext_resource type="Texture2D" uid="uid://fubswpjcq3l1" path="res://Assets/PlayerAssets/CatPlayer.png" id="1_aoxlc"]
 [ext_resource type="Script" uid="uid://b3fmg5jkght8m" path="res://Nodes/player.gd" id="1_qlfej"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bekp35ovcs5tf" path="res://Assets/PlayerAssets/CatPlayerAttackDown.png" id="5_g5gn8"]
 [ext_resource type="Texture2D" uid="uid://b3snmgyx58arh" path="res://Assets/PlayerAssets/CatPlayerAttackUp.png" id="6_6nrtn"]
 [ext_resource type="PackedScene" uid="uid://kml4fhwc3cbe" path="res://Nodes/health.tscn" id="6_r4ynj"]
+[ext_resource type="Texture2D" uid="uid://d1pmqgura33ok" path="res://Assets/PlayerAssets/CatPlayerClimb.png" id="7_6nrtn"]
 [ext_resource type="Texture2D" uid="uid://8qx237jf05n8" path="res://Assets/PlayerAssets/CatPlayerSpin.png" id="9_e3gfx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2hphp"]
@@ -90,6 +91,22 @@ region = Rect2(32, 128, 32, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_a0qoi"]
 atlas = ExtResource("6_6nrtn")
 region = Rect2(64, 128, 32, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq17c"]
+atlas = ExtResource("7_6nrtn")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcxps"]
+atlas = ExtResource("7_6nrtn")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhu3d"]
+atlas = ExtResource("7_6nrtn")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvqaw"]
+atlas = ExtResource("7_6nrtn")
+region = Rect2(24, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4ynj"]
 atlas = ExtResource("2_pie2b")
@@ -245,6 +262,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_lq17c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcxps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhu3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvqaw")
+}],
+"loop": true,
+"name": &"Climb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("5_2hphp")
 }],
 "loop": true,
@@ -395,8 +429,10 @@ script = ExtResource("1_qlfej")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_2hphp")
 sprite_frames = SubResource("SpriteFrames_r4ynj")
-animation = &"Attack_Down"
+animation = &"Climb"
 autoplay = "Idle"
+frame = 1
+frame_progress = 0.996786
 
 [node name="Flash" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {

@@ -52,6 +52,13 @@ var spd = SPEED
 var spd_multiply = 1
 var spd_multiply_type = ""
 
+var able_to_climb = false
+var climb_spd = 1500.0
+var climb_spd_x = 35.0
+var climb_jump = -200.0
+var climb_regrab_buffer = 0
+var climb_regrab_buffer_time = 0.0167 * 15
+
 
 # ready
 func _ready():
@@ -175,6 +182,8 @@ func _physics_process(delta: float) -> void:
 				spr_state = "Attack_Up"
 			if (direction_ud == 0):
 				spr_state = "Attack" 
+		elif Input.is_action_pressed("up") and able_to_climb and climb_regrab_buffer <= 0:
+			spr_state = "Climb"
 		elif (!is_on_floor()): # air
 			spr_state = "Air"
 		elif (direction != 0): # run
@@ -192,6 +201,28 @@ func _physics_process(delta: float) -> void:
 		# reset 
 		if is_on_floor() and state_time != spin_time:
 			state_time = 0
+	
+	## Climb
+	if (spr_state == "Climb"):
+		velocity.x = lerp(velocity.x, climb_spd_x * direction, delta * ACC)
+		if (Input.is_action_pressed("up")):
+			velocity.y = -climb_spd * delta
+		elif (Input.is_action_pressed("down")):
+			velocity.y = climb_spd * delta
+		else:
+			animated_sprite.frame = 0
+			velocity.y = 0
+		if (Input.is_action_pressed("jump")):
+			velocity.y = climb_jump
+			jump_increase = JUMP_INCREASE
+			spr_state = "Idle"
+			climb_regrab_buffer = climb_regrab_buffer_time
+		if (able_to_climb):
+			spin = true
+			state_time = delta
+	if (climb_regrab_buffer > 0):
+		climb_regrab_buffer -= delta 
+		print(climb_regrab_buffer)
 	
 	### Attack
 	attack_shape_2d.disabled = true
