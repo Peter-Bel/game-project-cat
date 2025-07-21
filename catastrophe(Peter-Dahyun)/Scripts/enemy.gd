@@ -1,4 +1,5 @@
-class_name Enemy extends CharacterBody2D
+extends CharacterBody2D
+class_name Enemy
 
 # variables 
 @onready var animated_sprite = $AnimatedSprite2D
@@ -14,6 +15,9 @@ var knock_acc = 0.05
 var knock_dir = Vector2(0,0) 
 
 var active = true
+
+var spd_multiply = 1
+var spd_multiply_type = ""
 
 # Attack area for player
 func _on_attack_area_body_entered(body: Node2D) -> void:
@@ -50,3 +54,12 @@ func death(time: float):
 func _on_death():
 	# remove self
 	self.queue_free()
+
+# spd multiply
+func speed_multiplier(mult: float, type: String):
+	if (mult < spd_multiply):
+		spd_multiply = mult
+		spd_multiply_type = type
+	elif (mult == 1 and (type == spd_multiply_type or spd_multiply_type == "")):
+		spd_multiply = 1
+		spd_multiply_type = ""

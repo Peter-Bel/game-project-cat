@@ -52,13 +52,13 @@ func _process(delta):
 func move(delta):
 	if !dead:
 		if !is_enemy_chase:
-			velocity += dir * speed * delta
+			velocity += dir * speed * delta * spd_multiply
 		elif is_enemy_chase:
 			#var dir_to_player = position.direction_to(player.position) * speed
 			#velocity.x = dir_to_player.x
 			#dir.x = abs(velocity.x) / velocity.x
 			var dir_to_player = position.direction_to(player.position)
-			velocity.x = dir_to_player.x * speed
+			velocity.x = dir_to_player.x * speed * spd_multiply
 			dir.x = sign(velocity.x)
 		is_roaming = true
 	elif dead:
