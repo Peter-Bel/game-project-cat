@@ -181,7 +181,7 @@ script = ExtResource("1_12tue")
 
 [node name="Player" parent="." instance=ExtResource("2_oswdx")]
 position = Vector2(200, 80)
-collision_mask = 3
+collision_mask = 6
 
 [node name="Camera" parent="Player" instance=ExtResource("3_fwsit")]
 
