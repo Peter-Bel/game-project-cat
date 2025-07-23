@@ -32,7 +32,7 @@ func _process(delta):
 func move(delta):
 	if is_enemy_chase:
 		player = GameManager.playerBody
-		velocity = position.direction_to(player.position) * speed # the flying enemy's position sets to the player's position
+		velocity = position.direction_to(player.position) * speed * spd_multiply # the flying enemy's position sets to the player's position
 		dir.x = abs(velocity.x) / velocity.x # the flying enemy follows the player
 	if !is_enemy_chase:
 		velocity += dir * speed * delta

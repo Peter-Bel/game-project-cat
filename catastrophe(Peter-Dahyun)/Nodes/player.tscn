@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c3j2hpqk5l3so"]
+[gd_scene load_steps=62 format=3 uid="uid://c3j2hpqk5l3so"]
 
 [ext_resource type="Texture2D" uid="uid://fubswpjcq3l1" path="res://Assets/PlayerAssets/CatPlayer.png" id="1_aoxlc"]
 [ext_resource type="Script" uid="uid://b3fmg5jkght8m" path="res://Nodes/player.gd" id="1_qlfej"]
@@ -8,7 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://d2sm6pwfaqdr4" path="res://Assets/PlayerAssets/CatPlayerAttack.png" id="3_hv3sw"]
 [ext_resource type="Texture2D" uid="uid://cgreet26banyn" path="res://Assets/PlayerAssets/CatPlayerHurt.png" id="4_wmu34"]
 [ext_resource type="Texture2D" uid="uid://jc34rfcg6ipi" path="res://Assets/PlayerAssets/CatPlayerDeath.png" id="5_2hphp"]
+[ext_resource type="Texture2D" uid="uid://bekp35ovcs5tf" path="res://Assets/PlayerAssets/CatPlayerAttackDown.png" id="5_g5gn8"]
+[ext_resource type="Texture2D" uid="uid://b3snmgyx58arh" path="res://Assets/PlayerAssets/CatPlayerAttackUp.png" id="6_6nrtn"]
 [ext_resource type="PackedScene" uid="uid://kml4fhwc3cbe" path="res://Nodes/health.tscn" id="6_r4ynj"]
+[ext_resource type="Texture2D" uid="uid://d1pmqgura33ok" path="res://Assets/PlayerAssets/CatPlayerClimb.png" id="7_6nrtn"]
 [ext_resource type="Texture2D" uid="uid://8qx237jf05n8" path="res://Assets/PlayerAssets/CatPlayerSpin.png" id="9_e3gfx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2hphp"]
@@ -48,6 +51,62 @@ region = Rect2(192, 168, 96, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ynwet"]
 atlas = ExtResource("3_hv3sw")
 region = Rect2(0, 72, 96, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuwr8"]
+atlas = ExtResource("5_g5gn8")
+region = Rect2(32, 0, 32, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srole"]
+atlas = ExtResource("5_g5gn8")
+region = Rect2(64, 0, 32, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qftjl"]
+atlas = ExtResource("5_g5gn8")
+region = Rect2(0, 128, 32, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6xqe"]
+atlas = ExtResource("5_g5gn8")
+region = Rect2(32, 128, 32, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg76i"]
+atlas = ExtResource("5_g5gn8")
+region = Rect2(64, 128, 32, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u84n6"]
+atlas = ExtResource("6_6nrtn")
+region = Rect2(32, 0, 32, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxytg"]
+atlas = ExtResource("6_6nrtn")
+region = Rect2(64, 0, 32, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jipxv"]
+atlas = ExtResource("6_6nrtn")
+region = Rect2(0, 128, 32, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4ylw"]
+atlas = ExtResource("6_6nrtn")
+region = Rect2(32, 128, 32, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0qoi"]
+atlas = ExtResource("6_6nrtn")
+region = Rect2(64, 128, 32, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq17c"]
+atlas = ExtResource("7_6nrtn")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcxps"]
+atlas = ExtResource("7_6nrtn")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhu3d"]
+atlas = ExtResource("7_6nrtn")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvqaw"]
+atlas = ExtResource("7_6nrtn")
+region = Rect2(24, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4ynj"]
 atlas = ExtResource("2_pie2b")
@@ -148,6 +207,75 @@ animations = [{
 "loop": true,
 "name": &"Attack",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuwr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srole")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qftjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6xqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg76i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg76i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg76i")
+}],
+"loop": true,
+"name": &"Attack_Down",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u84n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxytg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jipxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4ylw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0qoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0qoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0qoi")
+}],
+"loop": true,
+"name": &"Attack_Up",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lq17c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcxps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhu3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvqaw")
+}],
+"loop": true,
+"name": &"Climb",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -289,6 +417,12 @@ size = Vector2(11, 12.2222)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfp35"]
 size = Vector2(32, 13)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lq17c"]
+size = Vector2(14, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcxps"]
+size = Vector2(14, 15.5)
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 4
 script = ExtResource("1_qlfej")
@@ -296,10 +430,10 @@ script = ExtResource("1_qlfej")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_2hphp")
 sprite_frames = SubResource("SpriteFrames_r4ynj")
-animation = &"Spin"
+animation = &"Climb"
 autoplay = "Idle"
-frame = 2
-frame_progress = 0.718035
+frame = 1
+frame_progress = 0.996786
 
 [node name="Flash" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {
@@ -319,6 +453,16 @@ collision_mask = 3
 [node name="AttackShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_sfp35")
+disabled = true
+
+[node name="AttackShapeUp2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-21.5, -20.5)
+shape = SubResource("RectangleShape2D_lq17c")
+disabled = true
+
+[node name="AttackShapeDown2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-21.5, 21.25)
+shape = SubResource("RectangleShape2D_tcxps")
 disabled = true
 
 [node name="Health" parent="." instance=ExtResource("6_r4ynj")]

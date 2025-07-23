@@ -19,9 +19,15 @@ func freeze_frame(timeScale, duration):
 # create particles
 func particle(spr: String, pos: Vector2, type: int, move: Vector2, speed: float, img: Array):
 	var inst = particle_node.instantiate()
+	# type
+	inst.type = type
+	# sprite
+	inst.sprite = spr
 	# position and initialize
 	inst.position = pos
 	add_child(inst)
+	# movement
+	inst.move = move
 	# sprite setting
 	inst.spr(spr)
 	# image setting
