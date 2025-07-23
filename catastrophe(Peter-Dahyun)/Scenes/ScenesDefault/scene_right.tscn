@@ -179,7 +179,7 @@ texture = ExtResource("3_icrpp")
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_ifjbo"]
-physics_layer_0/collision_layer = 3
+physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_yw86p")
 
@@ -217,7 +217,7 @@ position = Vector2(24, 2)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource("6_78fb5")]
-position = Vector2(191, 242)
+position = Vector2(191, 240)
 
 [node name="FlyingEnemy" parent="Enemies" instance=ExtResource("9_pv0xh")]
 position = Vector2(592, 152)
