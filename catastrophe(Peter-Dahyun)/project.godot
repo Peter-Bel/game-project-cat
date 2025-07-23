@@ -78,6 +78,7 @@ spin={
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Enemy"
+2d_physics/layer_3="platform"
 2d_physics/quality/use_taa=false
 2d_physics/stretch/mode="canvas_items"
 

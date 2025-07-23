@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnqt476hremfi"]
+
+[ext_resource type="Script" uid="uid://cpg8vwl3y7y7q" path="res://Nodes/WaterDynamics/water.gd" id="1_x0ki6"]
+
+[node name="water" type="Node2D"]
+script = ExtResource("1_x0ki6")
+
+[node name="Line2D" type="Line2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
