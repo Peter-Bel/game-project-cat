@@ -1,15 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmnfukdt3ig70"]
+[gd_scene load_steps=11 format=3 uid="uid://b536ttmvjnty7"]
 
-[ext_resource type="PackedScene" uid="uid://c3j2hpqk5l3so" path="res://Nodes/player.tscn" id="1_aa77l"]
-[ext_resource type="Script" uid="uid://bfmw33km0j8os" path="res://Scenes/ScenesDefault/level.gd" id="1_e6r0x"]
-[ext_resource type="PackedScene" uid="uid://ccrbyj1xjr05j" path="res://Nodes/camera.tscn" id="2_cmypg"]
-[ext_resource type="Texture2D" uid="uid://ccpih8645yd7u" path="res://Assets/WorldAssets/world_tileset.png" id="3_hj5t5"]
-[ext_resource type="PackedScene" uid="uid://co111w4esd0op" path="res://Nodes/scene_collision.tscn" id="5_e6r0x"]
-[ext_resource type="PackedScene" uid="uid://caersxadafrrv" path="res://Assets/PlayerAssets/heart_container.tscn" id="6_bfx3a"]
-[ext_resource type="PackedScene" uid="uid://22vqg3buca64" path="res://Nodes/ParticlesAndGui/scene_fade.tscn" id="7_flwdu"]
+[ext_resource type="Script" uid="uid://bfmw33km0j8os" path="res://Scenes/ScenesDefault/level.gd" id="1_p6j1j"]
+[ext_resource type="PackedScene" uid="uid://c3j2hpqk5l3so" path="res://Nodes/player.tscn" id="2_8lbee"]
+[ext_resource type="PackedScene" uid="uid://ccrbyj1xjr05j" path="res://Nodes/camera.tscn" id="3_kykyo"]
+[ext_resource type="Texture2D" uid="uid://ccpih8645yd7u" path="res://Assets/WorldAssets/world_tileset.png" id="4_rq4ic"]
+[ext_resource type="PackedScene" uid="uid://co111w4esd0op" path="res://Nodes/scene_collision.tscn" id="5_8eykc"]
+[ext_resource type="PackedScene" uid="uid://caersxadafrrv" path="res://Assets/PlayerAssets/heart_container.tscn" id="6_i2qdw"]
+[ext_resource type="PackedScene" uid="uid://22vqg3buca64" path="res://Nodes/ParticlesAndGui/scene_fade.tscn" id="7_4ajxw"]
+[ext_resource type="PackedScene" uid="uid://jpstg2g86bys" path="res://Nodes/Enemies/mud_boss.tscn" id="8_cr7xg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xe0gy"]
-texture = ExtResource("3_hj5t5")
+texture = ExtResource("4_rq4ic")
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
@@ -174,28 +175,29 @@ texture = ExtResource("3_hj5t5")
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_tqsk5"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_xe0gy")
 
 [node name="Default" type="Node2D"]
-script = ExtResource("1_e6r0x")
+script = ExtResource("1_p6j1j")
 
-[node name="Player" parent="." instance=ExtResource("1_aa77l")]
+[node name="Player" parent="." instance=ExtResource("2_8lbee")]
 collision_mask = 3
 
-[node name="Camera" parent="Player" instance=ExtResource("2_cmypg")]
+[node name="Camera" parent="Player" instance=ExtResource("3_kykyo")]
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, 16)
 tile_set = SubResource("TileSet_tqsk5")
 format = 2
-layer_0/tile_data = PackedInt32Array(458736, 0, 0, 458737, 0, 0, 458738, 0, 0, 458739, 0, 0, 458740, 0, 0, 458741, 0, 0, 458742, 0, 0, 458743, 0, 0, 458744, 0, 0, 458745, 0, 0, 458746, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 327684, 0, 0, 262148, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 262151, 0, 0, 327687, 0, 0, 393207, 0, 0, 327671, 0, 0, 327670, 0, 0, 327669, 0, 0, 393205, 0, 0, 327691, 0, 0, 262155, 0, 0, 196619, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 196621, 0, 0, 262157, 0, 0, 327693, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 7, 0, 0, 8, 0, 0, -8, 0, 0, -9, 0, 0, -10, 0, 0, -11, 0, 0, 458735, 0, 0, 393232, 0, 0, 262127, 196608, 3, 196591, 196608, 3, 131055, 196608, 3, 65519, 196608, 3, -17, 196608, 3, -65553, 196608, 3, -131089, 196608, 3, -196625, 196608, 3, -262161, 196608, 3, -327697, 196608, 3, -393233, 196608, 3, 196624, 196608, 3, 131088, 196608, 3, 65552, 196608, 3, 16, 196608, 3, -65520, 196608, 3, -131056, 196608, 3, -196592, 196608, 3, -262128, 196608, 3, -327664, 196608, 3, -393200, 196608, 3, -458736, 196608, 3, 393198, 196608, 3, 327662, 196608, 3, 327697, 196608, 3, 262161, 196608, 3)
+layer_0/tile_data = PackedInt32Array(458736, 0, 0, 458737, 0, 0, 458738, 0, 0, 458739, 0, 0, 458740, 0, 0, 458741, 0, 0, 458742, 0, 0, 458743, 0, 0, 458744, 0, 0, 458745, 0, 0, 458746, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 458735, 0, 0, 393232, 0, 0, 262127, 196608, 3, 196591, 196608, 3, 131055, 196608, 3, 65519, 196608, 3, -17, 196608, 3, -65553, 196608, 3, -131089, 196608, 3, -196625, 196608, 3, -262161, 196608, 3, -327697, 196608, 3, -393233, 196608, 3, 196624, 196608, 3, 131088, 196608, 3, 65552, 196608, 3, 16, 196608, 3, -65520, 196608, 3, -131056, 196608, 3, -196592, 196608, 3, -262128, 196608, 3, -327664, 196608, 3, -393200, 196608, 3, -458736, 196608, 3, 393198, 196608, 3, 327662, 196608, 3, 327697, 196608, 3, 262161, 196608, 3)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Doors" type="Node" parent="."]
 
-[node name="Door_L" parent="Doors" instance=ExtResource("5_e6r0x")]
+[node name="Door_L" parent="Doors" instance=ExtResource("5_8eykc")]
 position = Vector2(-264, 96)
 spawn_direction = "left"
 destination_scene = "res://Scenes/ScenesDefault/scene_left.tscn"
@@ -204,7 +206,7 @@ destination_door = "R"
 [node name="Destination" parent="Doors/Door_L" index="1"]
 position = Vector2(24, 0)
 
-[node name="Door_R" parent="Doors" instance=ExtResource("5_e6r0x")]
+[node name="Door_R" parent="Doors" instance=ExtResource("5_8eykc")]
 position = Vector2(264, 96)
 destination_scene = "res://Scenes/ScenesDefault/scene_right.tscn"
 destination_door = "L"
@@ -214,12 +216,15 @@ position = Vector2(-24, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="heartContainer" parent="CanvasLayer" instance=ExtResource("6_bfx3a")]
+[node name="heartContainer" parent="CanvasLayer" instance=ExtResource("6_i2qdw")]
 metadata/_edit_use_anchors_ = true
 
-[node name="SceneFade" parent="CanvasLayer" instance=ExtResource("7_flwdu")]
+[node name="SceneFade" parent="CanvasLayer" instance=ExtResource("7_4ajxw")]
 
 [node name="Enemies" type="Node" parent="."]
+
+[node name="mud_boss" parent="Enemies" instance=ExtResource("8_cr7xg")]
+position = Vector2(-112, 94)
 
 [editable path="Player/Camera"]
 [editable path="Doors/Door_L"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6iikx702ub7g"]
+
+[ext_resource type="Texture2D" uid="uid://c8kkhklwh1iec" path="res://Assets/ParticleAssets/mud_ball.png" id="1_28g8w"]
+[ext_resource type="Script" uid="uid://b32vta5ad6p6k" path="res://Nodes/EnvironmentNodes/mud_ball.gd" id="1_uxq8v"]
+[ext_resource type="PackedScene" uid="uid://kml4fhwc3cbe" path="res://Nodes/health.tscn" id="3_8h55o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qwdat"]
+radius = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uxq8v"]
+radius = 23.0868
+
+[node name="mud_ball" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_uxq8v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_28g8w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qwdat")
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_uxq8v")
+debug_color = Color(0.974582, 0, 0.425723, 0.42)
+
+[node name="Health" parent="." instance=ExtResource("3_8h55o")]
+max_health = 1
+imortal = true
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
