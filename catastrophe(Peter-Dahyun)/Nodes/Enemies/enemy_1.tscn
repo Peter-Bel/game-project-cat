@@ -119,6 +119,7 @@ size = Vector2(14, 8)
 [node name="Enemy1" type="CharacterBody2D"]
 position = Vector2(0, -7)
 collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_f0t3t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -153,22 +154,22 @@ max_health = 5
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(0, 7)
-target_position = Vector2(10, 0)
-collision_mask = 2
+target_position = Vector2(9, 0)
+collision_mask = 4
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, 7)
-target_position = Vector2(-11, 0)
-collision_mask = 2
+target_position = Vector2(-9, 0)
+collision_mask = 4
 
 [node name="RayCastBottomLeft" type="RayCast2D" parent="."]
-position = Vector2(-12, 6)
+position = Vector2(-9, 12)
 target_position = Vector2(0, 6)
-collision_mask = 2
+collision_mask = 4
 
 [node name="RayCastBottomRight" type="RayCast2D" parent="."]
-position = Vector2(12, 7)
+position = Vector2(9, 12)
 target_position = Vector2(0, 6)
-collision_mask = 2
+collision_mask = 4
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

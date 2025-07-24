@@ -1,5 +1,5 @@
-res://Nodes/EnvironmentNodes
-res://Assets/EnemyAssets
+res://Nodes/Enemies
+res://Nodes/WaterDynamics
 res://Nodes
 res://Assets/PlayerAssets
 res://Assets/ParticleAssets
