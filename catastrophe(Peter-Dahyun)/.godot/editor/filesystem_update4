@@ -7,3 +7,4 @@ res://Scenes/Levels/Level1.tscn
 res://Nodes/player.tscn
 res://Scenes/ScenesDefault/killzone.tscn
 res://Nodes/Enemies/jumping_enemy.tscn
+res://Scenes/Levels/Level3.tscn
