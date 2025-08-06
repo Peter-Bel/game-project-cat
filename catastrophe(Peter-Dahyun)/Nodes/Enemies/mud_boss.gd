@@ -11,6 +11,10 @@ var state_timer = 0.0
 var time_to_action_min = 0.0167 * 90
 var time_to_action_max = 0.0167 * 150
 
+## variables for jump attack
+var is_landed: bool = false
+
+
 @onready var player: Player = $"../../Player"
 
 var mud_node = preload("res://Nodes/EnvironmentNodes/mud_ball.tscn")
@@ -20,7 +24,12 @@ func _physics_process(delta: float) -> void:
 	if (state == "default"):
 		if (state_timer <= 0):
 			state_timer = randf_range(time_to_action_min, time_to_action_max)
-			state = "spit"
+			# Enemy chooses "spit" or "jump" attack randomly
+			var choice = randi() % 2 
+			if choice == 0:
+				state = "spit"
+			else:
+				state = "jump_squat"
 		else:
 			state_timer -= delta
 			flip = sign(player.global_position.x - global_position.x)
@@ -33,12 +42,18 @@ func _physics_process(delta: float) -> void:
 			state = "default"
 	elif (state == "jump_squat"):
 		if (floor(animated_sprite_2d.frame) == 6):
-			state = "junmp"
+			state = "jump"
 			position.y -= 1
-			velocity.y = -400.0
+			velocity.y = JUMP_VELOCITY
+			velocity.x = SPEED * flip
 	elif (state == "jump"):
 		if (is_on_floor()):
+			state = "jump_land"
+			velocity.x = 0 
+	elif(state == "jump_land"):
+		if (floor(animated_sprite_2d.frame) == 3):
 			state = "default"
+			velocity = Vector2.ZERO 
 	
 	animated_sprite_2d.flip_h = flip - 1
 	animated_sprite_2d.play(state)
