@@ -1,3 +1,4 @@
+res://Scenes/Levels/Level1_Room2.tscn
 res://Scenes/ScenesDefault/default.tscn
 res://Nodes/WaterDynamics/background.tscn
 res://Nodes/WaterDynamics/water.tscn
@@ -10,3 +11,6 @@ res://Nodes/player.tscn
 res://Nodes/Enemies/jumping_enemy.tscn
 res://Scenes/ScenesDefault/killzone.tscn
 res://Scenes/ScenesDefault/scene_left.tscn
+res://Nodes/EnvironmentNodes/mud_collision.tscn
+res://Nodes/EnvironmentNodes/climb_collision.tscn
+res://Scenes/Levels/Level1_Room3.tscn
