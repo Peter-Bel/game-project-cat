@@ -208,6 +208,9 @@ position = Vector2(-32, 0)
 [node name="Enemy1" parent="Enemies" instance=ExtResource("7_hdjte")]
 position = Vector2(479, -381)
 
+[node name="Enemy15" parent="Enemies" instance=ExtResource("7_hdjte")]
+position = Vector2(593, -334)
+
 [node name="Enemy2" parent="Enemies" instance=ExtResource("7_hdjte")]
 position = Vector2(603, -238)
 
@@ -232,14 +235,23 @@ position = Vector2(401, 289)
 [node name="Enemy9" parent="Enemies" instance=ExtResource("7_hdjte")]
 position = Vector2(271, 289)
 
+[node name="Enemy16" parent="Enemies" instance=ExtResource("7_hdjte")]
+position = Vector2(133, 289)
+
 [node name="Enemy10" parent="Enemies" instance=ExtResource("7_hdjte")]
-position = Vector2(271, 210)
+position = Vector2(245, 210)
+
+[node name="Enemy17" parent="Enemies" instance=ExtResource("7_hdjte")]
+position = Vector2(292, 210)
 
 [node name="Enemy11" parent="Enemies" instance=ExtResource("7_hdjte")]
-position = Vector2(406, 210)
+position = Vector2(388, 210)
 
 [node name="Enemy12" parent="Enemies" instance=ExtResource("7_hdjte")]
-position = Vector2(207, 82)
+position = Vector2(180, 82)
+
+[node name="Enemy18" parent="Enemies" instance=ExtResource("7_hdjte")]
+position = Vector2(229, 82)
 
 [node name="Enemy13" parent="Enemies" instance=ExtResource("7_hdjte")]
 position = Vector2(207, -46)
@@ -247,17 +259,71 @@ position = Vector2(207, -46)
 [node name="Enemy14" parent="Enemies" instance=ExtResource("7_hdjte")]
 position = Vector2(166, -191)
 
+[node name="Enemy20" parent="Enemies" instance=ExtResource("7_hdjte")]
+position = Vector2(192, -334)
+
+[node name="Enemy19" parent="Enemies" instance=ExtResource("7_hdjte")]
+position = Vector2(220, -191)
+
 [node name="jumping_enemy" parent="Enemies" instance=ExtResource("8_ebkbf")]
 position = Vector2(73, 291)
+
+[node name="jumping_enemy7" parent="Enemies" instance=ExtResource("8_ebkbf")]
+position = Vector2(138, 211)
+
+[node name="jumping_enemy8" parent="Enemies" instance=ExtResource("8_ebkbf")]
+position = Vector2(421, 211)
+
+[node name="jumping_enemy9" parent="Enemies" instance=ExtResource("8_ebkbf")]
+position = Vector2(334, 83)
 
 [node name="jumping_enemy2" parent="Enemies" instance=ExtResource("8_ebkbf")]
 position = Vector2(73, 83)
 
+[node name="jumping_enemy10" parent="Enemies" instance=ExtResource("8_ebkbf")]
+position = Vector2(278, -44)
+
+[node name="jumping_enemy11" parent="Enemies" instance=ExtResource("8_ebkbf")]
+position = Vector2(100, -190)
+
+[node name="jumping_enemy3" parent="Enemies" instance=ExtResource("8_ebkbf")]
+position = Vector2(474, -142)
+
+[node name="jumping_enemy4" parent="Enemies" instance=ExtResource("8_ebkbf")]
+position = Vector2(703, -238)
+
+[node name="jumping_enemy5" parent="Enemies" instance=ExtResource("8_ebkbf")]
+position = Vector2(516, 211)
+
+[node name="jumping_enemy6" parent="Enemies" instance=ExtResource("8_ebkbf")]
+position = Vector2(706, 211)
+
 [node name="FlyingEnemy" parent="Enemies" instance=ExtResource("9_81h3e")]
 position = Vector2(331, -156)
 
+[node name="FlyingEnemy8" parent="Enemies" instance=ExtResource("9_81h3e")]
+position = Vector2(406, 45)
+
+[node name="FlyingEnemy3" parent="Enemies" instance=ExtResource("9_81h3e")]
+position = Vector2(92, -92)
+
+[node name="FlyingEnemy4" parent="Enemies" instance=ExtResource("9_81h3e")]
+position = Vector2(700, -160)
+
+[node name="FlyingEnemy5" parent="Enemies" instance=ExtResource("9_81h3e")]
+position = Vector2(610, 62)
+
+[node name="FlyingEnemy7" parent="Enemies" instance=ExtResource("9_81h3e")]
+position = Vector2(641, 255)
+
+[node name="FlyingEnemy6" parent="Enemies" instance=ExtResource("9_81h3e")]
+position = Vector2(563, -427)
+
 [node name="FlyingEnemy2" parent="Enemies" instance=ExtResource("9_81h3e")]
-position = Vector2(84, -371)
+position = Vector2(84, -328)
+
+[node name="FlyingEnemy9" parent="Enemies" instance=ExtResource("9_81h3e")]
+position = Vector2(199, -422)
 
 [node name="World" type="Node" parent="."]
 
