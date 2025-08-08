@@ -285,7 +285,9 @@ script = ExtResource("1_081ev")
 material = SubResource("ShaderMaterial_tvv3d")
 position = Vector2(0, -30)
 sprite_frames = SubResource("SpriteFrames_ad53p")
+animation = &"jump_land"
 autoplay = "default"
+frame_progress = 0.217034
 
 [node name="Flash" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {
