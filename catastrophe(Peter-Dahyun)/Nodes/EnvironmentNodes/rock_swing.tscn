@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://bookiimwerjxv"]
+
+[ext_resource type="Script" uid="uid://v4sch0kc7245" path="res://Nodes/EnvironmentNodes/rock_swing.gd" id="1_anp74"]
+[ext_resource type="Texture2D" uid="uid://0jw03x7venvi" path="res://Assets/EnemyAssets/RockCrabBossSwing.png" id="2_8atqm"]
+[ext_resource type="Texture2D" uid="uid://bqpie05s4gn7w" path="res://Assets/ParticleAssets/GemStone.png" id="2_anp74"]
+[ext_resource type="Texture2D" uid="uid://cb7nxo4nwbp1b" path="res://Assets/ParticleAssets/stoneProjectile.png" id="3_8atqm"]
+[ext_resource type="PackedScene" uid="uid://kml4fhwc3cbe" path="res://Nodes/health.tscn" id="4_7pmp0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pmp0"]
+atlas = ExtResource("2_8atqm")
+region = Rect2(192, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfouc"]
+atlas = ExtResource("2_8atqm")
+region = Rect2(384, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5v1l"]
+atlas = ExtResource("2_anp74")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe1qn"]
+atlas = ExtResource("3_8atqm")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oq8b"]
+atlas = ExtResource("3_8atqm")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ysyl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pmp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfouc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5v1l")
+}],
+"loop": true,
+"name": &"gem",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qe1qn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3oq8b")
+}],
+"loop": true,
+"name": &"rock",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qwdat"]
+radius = 6.08276
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qarn3"]
+size = Vector2(55, 69)
+
+[node name="rock_swing" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_anp74")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -30)
+sprite_frames = SubResource("SpriteFrames_8ysyl")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(50, 7)
+shape = SubResource("CircleShape2D_qwdat")
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(32, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(5, -25)
+shape = SubResource("RectangleShape2D_qarn3")
+debug_color = Color(0.974582, 0, 0.425723, 0.42)
+
+[node name="Health" parent="." instance=ExtResource("4_7pmp0")]
+max_health = 1
+imortal = true
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
