@@ -7,5 +7,6 @@ res://Nodes/EnvironmentNodes/climb_collision.tscn
 res://Nodes/Enemies/mud_boss.tscn
 res://Nodes/EnvironmentNodes/mud_ball.tscn
 res://Scenes/ScenesDefault/mud_boss_test.tscn
-res://Nodes/Enemies/jumping_enemy.gd
-res://Nodes/Enemies/mud_boss.gd
+res://Scenes/ScenesDefault/default.tscn
+res://Scenes/ScenesDefault/rock_boss_test.tscn
+res://Nodes/EnvironmentNodes/rock_swing.tscn
