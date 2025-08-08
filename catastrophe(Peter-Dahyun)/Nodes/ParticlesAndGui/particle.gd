@@ -10,6 +10,8 @@ var sprite
 var move = Vector2(0,0)
 var time = 1
 
+var gravity = 0.1
+var gravity_force = gravity
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,6 +25,9 @@ func _process(delta: float) -> void:
 	# movement
 	if (move != Vector2(0,0)):
 		position += move
+	if (type == 2):
+		position.y += gravity_force
+		gravity_force += gravity
 
 # set sprite
 func spr(spr: String):
@@ -47,4 +52,6 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func _on_timer_timeout() -> void:
 	if (type == 1):
+		self.queue_free()
+	elif (type == 2):
 		self.queue_free()

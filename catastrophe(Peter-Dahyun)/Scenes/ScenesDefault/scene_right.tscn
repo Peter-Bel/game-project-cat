@@ -253,5 +253,9 @@ scale = Vector2(1, 7)
 position = Vector2(424, 88)
 scale = Vector2(4, 6)
 
+[node name="mud_collision3" parent="World" instance=ExtResource("11_6uj6i")]
+position = Vector2(704, 176)
+scale = Vector2(3.87, 3.87)
+
 [editable path="Player/Camera"]
 [editable path="Doors/Door_L"]

@@ -1,10 +1,10 @@
 CollisionShape2D
 Area2D
 AnimationPlayer
-Sprite2D
-CharacterBody2D
-Node
 AnimatedSprite2D
+CharacterBody2D
+Sprite2D
+Node
 Timer
 StaticBody2D
 Camera2D
@@ -12,6 +12,3 @@ TileMapLayer
 ParallaxLayer
 ParallaxBackground
 Node2D
-TileMap
-Polygon2D
-Line2D

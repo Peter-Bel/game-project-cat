@@ -61,6 +61,13 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	move_and_slide()
+	# death 
+	if (!death_time and health_node.health <= 0):
+		death(time_to_death)
+	if (health_node.health <= 0):
+		position.x += knock_dir.x * knock
+		position.y += knock_dir.y * knock
+		knock = lerp(knock, 0.0, knock_acc)
 
 func summon_mud_projectile(mud_speed: float):
 	# print("summoning fail")
