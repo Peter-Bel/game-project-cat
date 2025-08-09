@@ -18,3 +18,9 @@ res://Scenes/Levels/Level1_Room1.tscn
 res://Scenes/TitleScreen/TitleScreen.tscn
 res://Scenes/TitleScreen/Settings.tscn
 res://Nodes/camera.tscn
+res://Scenes/Levels/Level 1/Level1_Boss.tscn
+res://Scenes/Levels/Level 1/Level1 (Scrapped).tscn
+res://Scenes/Levels/Level 1/Level1_Room3.tscn
+res://Scenes/Levels/Level 1/Level1_Room2.tscn
+res://Scenes/Levels/Level 1/Level1_Room1.tscn
+res://Scenes/TitleScreen/parallax_background.gd
