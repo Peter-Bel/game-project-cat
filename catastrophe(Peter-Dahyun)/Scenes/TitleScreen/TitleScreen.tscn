@@ -1,0 +1,237 @@
+[gd_scene load_steps=14 format=3 uid="uid://bbvgwk8ta21rx"]
+
+[ext_resource type="Texture2D" uid="uid://b4mseg68oyo0g" path="res://Assets/BackgroundAssets/TitleScreenBg/WCP_1.png" id="1_f6ya5"]
+[ext_resource type="Script" uid="uid://b8fuik6ror6e7" path="res://Scenes/TitleScreen/parallax_background.gd" id="1_q82or"]
+[ext_resource type="Script" uid="uid://x0btxoprn4xo" path="res://Scenes/TitleScreen/title_screen.gd" id="1_wgw8k"]
+[ext_resource type="Texture2D" uid="uid://csvowxlo825j1" path="res://Assets/BackgroundAssets/TitleScreenBg/WCP_2.png" id="2_at0r8"]
+[ext_resource type="Texture2D" uid="uid://ds0tcfvr01l68" path="res://Assets/BackgroundAssets/TitleScreenBg/WCP_3.png" id="3_bf2sq"]
+[ext_resource type="Texture2D" uid="uid://cojewuwk1eyxc" path="res://Assets/BackgroundAssets/TitleScreenBg/WCP_4.png" id="4_bf2sq"]
+[ext_resource type="Texture2D" uid="uid://dysi0y36dbxjg" path="res://Assets/BackgroundAssets/TitleScreenBg/WCP_5.png" id="5_fkfbp"]
+[ext_resource type="FontFile" uid="uid://dsmgn2raxif8a" path="res://Scenes/TitleScreen/Fonts/PixelGamer-Regular.otf" id="7_wgw8k"]
+[ext_resource type="FontFile" uid="uid://icx5bi4wjfh" path="res://Scenes/TitleScreen/Fonts/pixel dead.ttf" id="8_wgw8k"]
+[ext_resource type="Texture2D" uid="uid://dvmxsyhbhaetf" path="res://Assets/BackgroundAssets/TitleScreenBg/Control Panel.png" id="9_tgnp7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q82or"]
+bg_color = Color(0.711313, 0.726373, 0.726137, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44kja"]
+bg_color = Color(0.253843, 0.253843, 0.253843, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgnp7"]
+bg_color = Color(0.174626, 0.174626, 0.174626, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wgw8k")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("1_q82or")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(0.5, 0.5)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(3100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(724, 362)
+scale = Vector2(1.44, 1.44)
+texture = ExtResource("1_f6ya5")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(0.5, 0.5)
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(3100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(724, 362)
+scale = Vector2(1.44, 1.44)
+texture = ExtResource("2_at0r8")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(0.5, 0.5)
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(3100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(724, 362)
+scale = Vector2(1.44, 1.44)
+texture = ExtResource("3_bf2sq")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(0.5, 0.5)
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(3100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(724, 362)
+scale = Vector2(1.44, 1.44)
+texture = ExtResource("4_bf2sq")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(3100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2(724, 362)
+scale = Vector2(1.44, 1.44)
+texture = ExtResource("5_fkfbp")
+
+[node name="Catastrophe" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.0
+offset_top = -100.0
+offset_right = 252.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("8_wgw8k")
+theme_override_font_sizes/font_size = 80
+text = "Catastrophe"
+
+[node name="Cat" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.0
+offset_top = -100.0
+offset_right = 252.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.359282, 0, 0.0567861, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("8_wgw8k")
+theme_override_font_sizes/font_size = 80
+text = "Cat"
+
+[node name="Buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainButtons" type="VBoxContainer" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 196.0
+offset_top = 161.0
+offset_right = 380.0
+offset_bottom = 269.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start Button" type="Button" parent="Buttons/MainButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_wgw8k")
+theme_override_styles/focus = SubResource("StyleBoxFlat_q82or")
+text = "Start Game"
+
+[node name="Controls Button" type="Button" parent="Buttons/MainButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_wgw8k")
+theme_override_styles/focus = SubResource("StyleBoxFlat_q82or")
+text = "Controls"
+
+[node name="Credits Button" type="Button" parent="Buttons/MainButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_wgw8k")
+theme_override_styles/focus = SubResource("StyleBoxFlat_q82or")
+text = "Credits"
+
+[node name="Exit Button" type="Button" parent="Buttons/MainButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_wgw8k")
+theme_override_styles/focus = SubResource("StyleBoxFlat_q82or")
+text = "Exit Game"
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Controls" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -286.0
+offset_top = -140.0
+offset_right = 286.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_44kja")
+
+[node name="TextureRect" type="TextureRect" parent="Controls"]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 48.0
+offset_right = 1960.0
+offset_bottom = 1278.0
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("9_tgnp7")
+
+[node name="Label" type="Label" parent="Controls"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("7_wgw8k")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_tgnp7")
+text = "    Game Controls"
+vertical_alignment = 1
+
+[node name="Back Button" type="Button" parent="Controls"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 495.0
+offset_top = -37.0
+offset_right = -9.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(998, -216)
+theme_override_fonts/font = ExtResource("7_wgw8k")
+theme_override_font_sizes/font_size = 20
+text = "Back"
+
+[connection signal="pressed" from="Buttons/MainButtons/Start Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Buttons/MainButtons/Controls Button" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="Buttons/MainButtons/Credits Button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Buttons/MainButtons/Exit Button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Controls/Back Button" to="." method="_on_back_button_pressed"]
