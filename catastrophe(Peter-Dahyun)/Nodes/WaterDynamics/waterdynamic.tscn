@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c3j2hpqk5l3so" path="res://Nodes/player.tscn" id="3_onb3a"]
 [ext_resource type="Texture2D" uid="uid://ccpih8645yd7u" path="res://Assets/WorldAssets/world_tileset.png" id="4_b47k1"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q712y"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b47k1"]
 texture = ExtResource("4_b47k1")
 0:0/next_alternative_id = 3
 0:0/0 = 0
@@ -140,7 +140,7 @@ texture = ExtResource("4_b47k1")
 
 [sub_resource type="TileSet" id="TileSet_v4s1j"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_q712y")
+sources/0 = SubResource("TileSetAtlasSource_b47k1")
 
 [node name="waterdynamic" type="Node2D"]
 
