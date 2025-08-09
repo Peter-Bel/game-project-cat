@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d27kgkyn0a6wl"]
+
+[node name="Settings" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 600.0
+offset_top = 6.0
+offset_right = 686.0
+offset_bottom = 37.0
+scale = Vector2(0.361786, 1.02411)
+text = "    "
