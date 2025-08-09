@@ -424,7 +424,7 @@ size = Vector2(14, 25)
 size = Vector2(14, 15.5)
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 4
+collision_mask = 5
 script = ExtResource("1_qlfej")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

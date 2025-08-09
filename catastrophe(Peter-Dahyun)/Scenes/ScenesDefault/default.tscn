@@ -219,6 +219,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="SceneFade" parent="CanvasLayer" instance=ExtResource("7_flwdu")]
 
+[node name="Enemies" type="Node" parent="."]
+
 [editable path="Player/Camera"]
 [editable path="Doors/Door_L"]
 [editable path="Doors/Door_R"]
