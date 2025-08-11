@@ -1,3 +1,4 @@
+res://Scenes/Levels/Level 2/Level2_Room2.tscn
 res://Scenes/ScenesDefault/default.tscn
 res://Nodes/WaterDynamics/background.tscn
 res://Nodes/WaterDynamics/water.tscn
@@ -14,10 +15,9 @@ res://Scenes/Levels/Level 1/Level1_Room3.tscn
 res://Nodes/EnvironmentNodes/mud_collision.tscn
 res://Nodes/EnvironmentNodes/climb_collision.tscn
 res://Scenes/Levels/Level 1/Level1_Room2.tscn
-res://Scenes/Levels/Level 1/Level1_Room1.tscn
 res://Scenes/TitleScreen/TitleScreen.tscn
 res://Scenes/TitleScreen/Settings.tscn
 res://Nodes/camera.tscn
 res://Scenes/Levels/Level 1/Level1_Boss.tscn
-res://Scenes/TitleScreen/title_screen.gd
+res://Scenes/Levels/Level 1/Level1_Room1.tscn
 res://Scenes/Levels/Level 2/Level2_Room1.tscn
