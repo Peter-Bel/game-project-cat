@@ -188,7 +188,7 @@ shape = SubResource("RectangleShape2D_n5ptj")
 [node name="Door_L" parent="Doors" instance=ExtResource("6_0wuh0")]
 position = Vector2(525, -223)
 spawn_direction = "left"
-destination_scene = "res://Scenes/Levels/Level1_Room1.tscn"
+destination_scene = "res://Scenes/Levels/Level 1/Level1_Room1.tscn"
 destination_door = "R"
 
 [node name="CollisionShape2D" parent="Doors/Door_L" index="0"]
@@ -199,7 +199,7 @@ position = Vector2(24, 2)
 
 [node name="Door_R" parent="Doors" instance=ExtResource("6_0wuh0")]
 position = Vector2(244, -223)
-destination_scene = "res://Scenes/Levels/Level1_Room3.tscn"
+destination_scene = "res://Scenes/Levels/Level 1/Level1_Room3.tscn"
 destination_door = "L"
 
 [node name="Destination" parent="Doors/Door_R" index="1"]
