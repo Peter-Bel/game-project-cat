@@ -642,30 +642,37 @@ position = Vector2(807, -336)
 [node name="World" type="Node" parent="."]
 
 [node name="climb_collision" parent="World" instance=ExtResource("8_5o4uj")]
+visible = false
 position = Vector2(168, 200)
 scale = Vector2(1.2, 6.04)
 
 [node name="climb_collision2" parent="World" instance=ExtResource("8_5o4uj")]
+visible = false
 position = Vector2(232, 104)
 scale = Vector2(1.2, 6.04)
 
 [node name="climb_collision3" parent="World" instance=ExtResource("8_5o4uj")]
+visible = false
 position = Vector2(152, 40)
 scale = Vector2(1.2, 4.08633)
 
 [node name="climb_collision4" parent="World" instance=ExtResource("8_5o4uj")]
+visible = false
 position = Vector2(776, -120)
 scale = Vector2(1.2, 9.04633)
 
 [node name="climb_collision5" parent="World" instance=ExtResource("8_5o4uj")]
+visible = false
 position = Vector2(728, -296)
 scale = Vector2(1.2, 8.16633)
 
 [node name="climb_collision6" parent="World" instance=ExtResource("8_5o4uj")]
+visible = false
 position = Vector2(88.0001, -408)
 scale = Vector2(1.2, 6.08633)
 
 [node name="climb_collision7" parent="World" instance=ExtResource("8_5o4uj")]
+visible = false
 position = Vector2(104, -231)
 scale = Vector2(1.2, 5.08633)
 

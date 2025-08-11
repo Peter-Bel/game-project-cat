@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bv6kfesvcavnm"]
+[gd_scene load_steps=25 format=4 uid="uid://bv6kfesvcavnm"]
 
 [ext_resource type="Script" uid="uid://bfmw33km0j8os" path="res://Scenes/ScenesDefault/level.gd" id="1_57ol1"]
 [ext_resource type="Texture2D" uid="uid://cbdko5uie7msc" path="res://Assets/WorldAssets/forest_tileset.png" id="2_thmcb"]
@@ -6,9 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://dkfpncoma2a3m" path="res://Assets/WorldAssets/caves_tileset.png" id="4_ehyws"]
 [ext_resource type="PackedScene" uid="uid://c3j2hpqk5l3so" path="res://Nodes/player.tscn" id="5_lt82f"]
 [ext_resource type="PackedScene" uid="uid://ccrbyj1xjr05j" path="res://Nodes/camera.tscn" id="6_rhth8"]
+[ext_resource type="PackedScene" uid="uid://b2y66t0yumqsb" path="res://Nodes/Enemies/jumping_enemy.tscn" id="7_ehyws"]
+[ext_resource type="PackedScene" uid="uid://db3ey5xotuejn" path="res://Nodes/Enemies/enemy_1.tscn" id="7_i6ef6"]
 [ext_resource type="PackedScene" uid="uid://co111w4esd0op" path="res://Nodes/scene_collision.tscn" id="7_m87g3"]
+[ext_resource type="PackedScene" uid="uid://ctb7cougiqjco" path="res://Nodes/EnvironmentNodes/climb_collision.tscn" id="7_thmcb"]
 [ext_resource type="PackedScene" uid="uid://caersxadafrrv" path="res://Assets/PlayerAssets/heart_container.tscn" id="8_rwwng"]
 [ext_resource type="PackedScene" uid="uid://22vqg3buca64" path="res://Nodes/ParticlesAndGui/scene_fade.tscn" id="9_ai3l5"]
+[ext_resource type="PackedScene" uid="uid://bfvigi3qdefpo" path="res://Nodes/Enemies/flying_enemy.tscn" id="9_lt82f"]
 [ext_resource type="Texture2D" uid="uid://c0xoaiph4x84j" path="res://Assets/BackgroundAssets/Level2Bg/7.png" id="10_ymvvb"]
 [ext_resource type="Texture2D" uid="uid://cur03olrxje7r" path="res://Assets/BackgroundAssets/Level2Bg/6.png" id="11_tkmtr"]
 [ext_resource type="Texture2D" uid="uid://c3jhr5fjvfye0" path="res://Assets/BackgroundAssets/Level2Bg/5.png" id="12_115je"]
@@ -452,7 +456,176 @@ shape = SubResource("RectangleShape2D_n5ptj")
 
 [node name="Enemies" type="Node" parent="."]
 
+[node name="jumping_enemy" parent="Enemies" instance=ExtResource("7_ehyws")]
+position = Vector2(350, 237)
+
+[node name="jumping_enemy2" parent="Enemies" instance=ExtResource("7_ehyws")]
+position = Vector2(180, -147)
+
+[node name="jumping_enemy3" parent="Enemies" instance=ExtResource("7_ehyws")]
+position = Vector2(351, -163)
+
+[node name="jumping_enemy4" parent="Enemies" instance=ExtResource("7_ehyws")]
+position = Vector2(338, -324)
+
+[node name="jumping_enemy5" parent="Enemies" instance=ExtResource("7_ehyws")]
+position = Vector2(581, -227)
+
+[node name="jumping_enemy6" parent="Enemies" instance=ExtResource("7_ehyws")]
+position = Vector2(693, 285)
+
+[node name="jumping_enemy7" parent="Enemies" instance=ExtResource("7_ehyws")]
+position = Vector2(570, 253)
+
+[node name="Enemy1" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(160, 284)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(242, 252)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(310, 236)
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(289, 28)
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(207, 12)
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(130, -4)
+
+[node name="Enemy7" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(177, -85)
+
+[node name="Enemy8" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(177, -85)
+
+[node name="Enemy9" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(258, -164)
+
+[node name="Enemy10" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(297, -324)
+
+[node name="Enemy11" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(225, -340)
+
+[node name="Enemy12" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(160, -372)
+
+[node name="Enemy13" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(130, -452)
+
+[node name="Enemy14" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(274, -420)
+
+[node name="Enemy15" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(514, -452)
+
+[node name="Enemy16" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(593, -420)
+
+[node name="Enemy17" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(688, -436)
+
+[node name="Enemy18" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(770, -276)
+
+[node name="Enemy19" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(624, -164)
+
+[node name="Enemy20" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(545, -180)
+
+[node name="Enemy21" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(705, -180)
+
+[node name="Enemy22" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(770, -148)
+
+[node name="Enemy23" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(770, -148)
+
+[node name="Enemy24" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(731, 284)
+
+[node name="Enemy25" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(652, 284)
+
+[node name="Enemy26" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(599, 268)
+
+[node name="Enemy27" parent="Enemies" instance=ExtResource("7_i6ef6")]
+position = Vector2(526, 236)
+
+[node name="FlyingEnemy" parent="Enemies" instance=ExtResource("9_lt82f")]
+position = Vector2(105, 193)
+
+[node name="FlyingEnemy2" parent="Enemies" instance=ExtResource("9_lt82f")]
+position = Vector2(237, 193)
+
+[node name="FlyingEnemy3" parent="Enemies" instance=ExtResource("9_lt82f")]
+position = Vector2(297, -53)
+
+[node name="FlyingEnemy4" parent="Enemies" instance=ExtResource("9_lt82f")]
+position = Vector2(80, -185)
+
+[node name="FlyingEnemy5" parent="Enemies" instance=ExtResource("9_lt82f")]
+position = Vector2(350, -400)
+
+[node name="FlyingEnemy6" parent="Enemies" instance=ExtResource("9_lt82f")]
+position = Vector2(78, -464)
+
+[node name="FlyingEnemy7" parent="Enemies" instance=ExtResource("9_lt82f")]
+position = Vector2(776, -464)
+
+[node name="FlyingEnemy8" parent="Enemies" instance=ExtResource("9_lt82f")]
+position = Vector2(489, -264)
+
+[node name="FlyingEnemy9" parent="Enemies" instance=ExtResource("9_lt82f")]
+position = Vector2(796, -180)
+
+[node name="FlyingEnemy10" parent="Enemies" instance=ExtResource("9_lt82f")]
+position = Vector2(581, 19)
+
+[node name="FlyingEnemy11" parent="Enemies" instance=ExtResource("9_lt82f")]
+position = Vector2(661, 19)
+
+[node name="FlyingEnemy12" parent="Enemies" instance=ExtResource("9_lt82f")]
+position = Vector2(750, 19)
+
+[node name="FlyingEnemy13" parent="Enemies" instance=ExtResource("9_lt82f")]
+position = Vector2(717, 194)
+
+[node name="FlyingEnemy14" parent="Enemies" instance=ExtResource("9_lt82f")]
+position = Vector2(582, 193)
+
 [node name="World" type="Node" parent="."]
+
+[node name="climb_collision" parent="World" instance=ExtResource("7_thmcb")]
+visible = false
+position = Vector2(376, 88)
+scale = Vector2(1.24, 10)
+
+[node name="climb_collision2" parent="World" instance=ExtResource("7_thmcb")]
+visible = false
+position = Vector2(376, -312)
+scale = Vector2(1.24, 10)
+
+[node name="climb_collision3" parent="World" instance=ExtResource("7_thmcb")]
+visible = false
+position = Vector2(792, -440)
+scale = Vector2(1.24, 11.04)
+
+[node name="climb_collision4" parent="World" instance=ExtResource("7_thmcb")]
+visible = false
+position = Vector2(456, -72)
+scale = Vector2(1.24, 5.08)
+
+[node name="climb_collision5" parent="World" instance=ExtResource("7_thmcb")]
+visible = false
+position = Vector2(776, 88)
+scale = Vector2(1.24, 13.08)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
