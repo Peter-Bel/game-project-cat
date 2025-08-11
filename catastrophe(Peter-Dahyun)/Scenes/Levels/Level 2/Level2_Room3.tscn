@@ -450,16 +450,6 @@ scale = Vector2(0.36, 1.16)
 position = Vector2(-12, 112)
 shape = SubResource("RectangleShape2D_n5ptj")
 
-[node name="Doors" type="Node" parent="."]
-
-[node name="Door_R" parent="Doors" instance=ExtResource("7_ig5fk")]
-position = Vector2(722, -446)
-destination_scene = "res://Scenes/Levels/Level 1/Level1_Room2.tscn"
-destination_door = "L"
-
-[node name="Destination" parent="Doors/Door_R" index="1"]
-position = Vector2(-32, 0)
-
 [node name="Enemies" type="Node" parent="."]
 
 [node name="World" type="Node" parent="."]
@@ -635,5 +625,28 @@ position = Vector2(512, -402)
 scale = Vector2(3.24, 3.24)
 texture = ExtResource("14_56hk7")
 
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_L" parent="Doors" instance=ExtResource("7_ig5fk")]
+position = Vector2(376, -424)
+spawn_direction = "left"
+destination_scene = "res://Scenes/Levels/Level 2/Level2_Room2.tscn"
+destination_door = "R"
+
+[node name="CollisionShape2D" parent="Doors/Door_L" index="0"]
+position = Vector2(5.5, 0)
+
+[node name="Destination" parent="Doors/Door_L" index="1"]
+position = Vector2(-32, 0)
+
+[node name="Door_R" parent="Doors" instance=ExtResource("7_ig5fk")]
+position = Vector2(456, -452)
+destination_scene = "res://Scenes/Levels/Level 2/Level2_Boss.tscn"
+destination_door = "L"
+
+[node name="Destination" parent="Doors/Door_R" index="1"]
+position = Vector2(24, 0)
+
 [editable path="Player/Camera"]
+[editable path="Doors/Door_L"]
 [editable path="Doors/Door_R"]
