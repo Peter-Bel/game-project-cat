@@ -5,14 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://kml4fhwc3cbe" path="res://Nodes/health.tscn" id="3_8h55o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qwdat"]
-radius = 14.0
+radius = 9.05539
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uxq8v"]
 radius = 23.0868
 
 [node name="mud_ball" type="CharacterBody2D"]
-collision_layer = 4
+collision_layer = 2
 script = ExtResource("1_uxq8v")
+sprite_2d = NodePath("AttackArea/CollisionShape2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_28g8w")

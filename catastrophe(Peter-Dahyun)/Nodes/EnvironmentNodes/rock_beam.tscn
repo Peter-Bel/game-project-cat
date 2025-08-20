@@ -1,0 +1,154 @@
+[gd_scene load_steps=19 format=3 uid="uid://c08pec42ng35d"]
+
+[ext_resource type="Script" uid="uid://duq822w6flwen" path="res://Nodes/EnvironmentNodes/rock_beam.gd" id="1_1v7e5"]
+[ext_resource type="Texture2D" uid="uid://cencgnyo0rjfv" path="res://Assets/ParticleAssets/RockBeam.png" id="2_acck1"]
+[ext_resource type="Texture2D" uid="uid://d0hopf2mgo2rm" path="res://Assets/ParticleAssets/RockBeamStart.png" id="3_6s6fo"]
+[ext_resource type="PackedScene" uid="uid://kml4fhwc3cbe" path="res://Nodes/health.tscn" id="4_mx7t8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx7t8"]
+atlas = ExtResource("2_acck1")
+region = Rect2(0, 0, 240, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0l25"]
+atlas = ExtResource("2_acck1")
+region = Rect2(0, 48, 240, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkxt8"]
+atlas = ExtResource("2_acck1")
+region = Rect2(0, 96, 240, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcogk"]
+atlas = ExtResource("2_acck1")
+region = Rect2(0, 144, 240, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5efd8"]
+atlas = ExtResource("2_acck1")
+region = Rect2(0, 192, 240, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_topko"]
+atlas = ExtResource("2_acck1")
+region = Rect2(0, 240, 240, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcexp"]
+atlas = ExtResource("2_acck1")
+region = Rect2(0, 288, 240, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuado"]
+atlas = ExtResource("2_acck1")
+region = Rect2(0, 336, 240, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s31k8"]
+atlas = ExtResource("3_6s6fo")
+region = Rect2(0, 0, 240, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7qlu"]
+atlas = ExtResource("3_6s6fo")
+region = Rect2(0, 48, 240, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hdmq"]
+atlas = ExtResource("3_6s6fo")
+region = Rect2(0, 96, 240, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ysyl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx7t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0l25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkxt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcogk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5efd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_topko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcexp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuado")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuado")
+}],
+"loop": true,
+"name": &"beam",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s31k8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7qlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hdmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s31k8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7qlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hdmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7qlu")
+}],
+"loop": true,
+"name": &"start",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qwdat"]
+radius = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dib81"]
+size = Vector2(335, 18)
+
+[node name="rock_beam" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_1v7e5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(165, 0)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_8ysyl")
+animation = &"beam"
+autoplay = "start"
+
+[node name="Health" parent="AnimatedSprite2D" instance=ExtResource("4_mx7t8")]
+max_health = 1
+imortal = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qwdat")
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(162.5, 0)
+shape = SubResource("RectangleShape2D_dib81")
+disabled = true
+debug_color = Color(0.974582, 0, 0.425723, 0.42)
+
+[node name="Health" parent="." instance=ExtResource("4_mx7t8")]
+max_health = 1
+imortal = true
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

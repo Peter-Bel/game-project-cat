@@ -46,6 +46,7 @@ func set_health(val: int):
 	health = val
 	if (health == 0):
 		health_zero.emit()
+	print(health)
 
 func get_health() -> int: 
 	return health
