@@ -1,4 +1,3 @@
-res://Scenes/Levels/Level 2/Level2_Room2.tscn
 res://Scenes/ScenesDefault/default.tscn
 res://Nodes/WaterDynamics/background.tscn
 res://Nodes/WaterDynamics/water.tscn
@@ -18,10 +17,13 @@ res://Scenes/Levels/Level 1/Level1_Room2.tscn
 res://Scenes/TitleScreen/TitleScreen.tscn
 res://Scenes/TitleScreen/Settings.tscn
 res://Nodes/camera.tscn
-res://Scenes/Levels/Level 1/Level1_Boss.tscn
+res://Scenes/Levels/Level 2/Level2_Boss.tscn
 res://Scenes/Levels/Level 1/Level1_Room1.tscn
+res://Scenes/Levels/Level 2/Level2_Room2.tscn
 res://Scenes/Levels/Level 2/Level2_Room1.tscn
 res://Scenes/Levels/Level 2/Level2_Room3.tscn
-res://Scenes/Levels/Level 2/Level1_Boss.tscn
-res://Scenes/Levels/Level 1/Level2_Boss.tscn
-res://Scenes/Levels/Level 2/Level2_Boss.tscn
+res://Scenes/Levels/Level 1/Level1_Boss.tscn
+res://Scenes/ScenesDefault/mud_boss_test.tscn
+res://Scenes/ScenesDefault/rock_boss_test.tscn
+res://Nodes/Enemies/rock_boss.tscn
+res://Nodes/Enemies/mud_boss.tscn
