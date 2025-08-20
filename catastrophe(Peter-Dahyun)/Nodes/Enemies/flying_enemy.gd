@@ -3,11 +3,19 @@ extends Enemy
 const speed = 50
 var dir: Vector2 # 2 different ways change directions
 var is_enemy_chase: bool #if it is true, enemy chase player. if not, enemy moves free
-
 var player: CharacterBody2D
 
-# variables
+# variables for poison powder attack
+@export var poison_node: PackedScene = preload("res://Nodes/EnvironmentNodes/poison_powder.tscn")
+@export var projectile_velocity_y: float = -100.0
+@export var shoot_interval = 1.0 # reload time
+@export var attack_range: float = 220.0 # shoot in this distance
+var shoot_cd = 0.0
+var is_shooting: bool = false
+var fired_once: bool = false 
 
+@onready var spr:AnimatedSprite2D = $AnimatedSprite2D
+@onready var shoot_point: Marker2D = $PoisonPowder
 
 func _ready():
 	# variables
@@ -15,6 +23,9 @@ func _ready():
 	# chase
 	is_enemy_chase = false 
 	$Timer.start()
+	# animation
+	spr.frame_changed.connect(_on_sprite_frame_changed)
+	spr.animation_finished.connect(_on_sprite_animation_finished)
 
 func _process(delta):
 	move(delta)
@@ -28,13 +39,21 @@ func _process(delta):
 		position.x += knock_dir.x * knock
 		position.y += knock_dir.y * knock
 		knock = lerp(knock, 0.0, knock_acc)
+		
+	# cooldown and check attack range. then shoot
+	shoot_cd -= delta
+	if is_enemy_chase and player:
+		var distance = global_position.distance_to(player.global_position)
+		if distance <= attack_range and shoot_cd <= 0.0 and not is_shooting:
+			start_shoot()
 
 func move(delta):
 	if is_enemy_chase:
 		player = GameManager.playerBody
-		velocity = position.direction_to(player.position) * speed * spd_multiply # the flying enemy's position sets to the player's position
-		dir.x = abs(velocity.x) / velocity.x # the flying enemy follows the player
-	if !is_enemy_chase:
+		if player:
+			velocity = position.direction_to(player.position) * speed * spd_multiply # the flying enemy's position sets to the player's position
+			dir.x = sign(velocity.x) # the flying enemy follows the player
+	else:
 		velocity += dir * speed * delta
 	move_and_slide()
 
@@ -44,12 +63,14 @@ func _on_timer_timeout():
 		dir = choose([Vector2.RIGHT, Vector2.UP, Vector2.LEFT, Vector2.DOWN]) #choose direction randomly
 
 func handle_animation():
-	var animated_sprite = $AnimatedSprite2D
-	animated_sprite.play("idle")
-	if dir.x == -1:
-		animated_sprite.flip_h = true
-	elif dir.x == 1:
-		animated_sprite.flip_h = false
+	if is_shooting or spr.animation == "shoot":
+		return
+	
+	spr.play("idle")
+	if dir.x < 0:
+		spr.flip_h = true
+	elif dir.x > 0:
+		spr.flip_h = false
 
 func choose(array):
 	array.shuffle() #shuffle the values in the given array
@@ -67,3 +88,35 @@ func _on_area_2d_body_exited(body):
 	if body is Player:
 		print("exit")
 		is_enemy_chase = false
+		player = null
+		
+func start_shoot():
+	is_shooting = true
+	fired_once = false
+	spr.play("shoot")
+	
+func _on_sprite_frame_changed():
+	if is_shooting and spr.animation == "shoot" and spr.frame == 4 and not fired_once:
+		if player:
+			summon_poison_projectile()
+			fired_once = true
+
+func _on_sprite_animation_finished():
+	if spr.animation == "shoot":
+		is_shooting = false
+		shoot_cd = shoot_interval
+
+func summon_poison_projectile() -> void:
+	if poison_node == null or player == null:
+		return
+	var inst = poison_node.instantiate()
+	get_tree().current_scene.add_child(inst)
+	inst.global_position = shoot_point.global_position
+	
+	# direction and velocity toward player
+	var dir = (player.global_position - inst.global_position).normalized()
+	
+	var linear_speed = 180.0
+	
+	if inst.has_method("launch"):
+		inst.launch(dir, linear_speed)

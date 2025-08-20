@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://ynpdd6etk0qm"]
+
+[ext_resource type="Script" uid="uid://cjuc5w47ioh24" path="res://Nodes/EnvironmentNodes/poison_powder.gd" id="1_0wugu"]
+[ext_resource type="Texture2D" uid="uid://du3icrsirlpog" path="res://Assets/ParticleAssets/PoisonPowder.png" id="1_xbml5"]
+[ext_resource type="PackedScene" uid="uid://kml4fhwc3cbe" path="res://Nodes/health.tscn" id="3_omh70"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wugu"]
+atlas = ExtResource("1_xbml5")
+region = Rect2(0, 0, 241, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omh70"]
+atlas = ExtResource("1_xbml5")
+region = Rect2(241, 0, 241, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kwxr"]
+atlas = ExtResource("1_xbml5")
+region = Rect2(482, 0, 241, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lo0ul"]
+atlas = ExtResource("1_xbml5")
+region = Rect2(723, 0, 241, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qh53k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wugu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omh70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kwxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lo0ul")
+}],
+"loop": true,
+"name": &"poison",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qnr7g"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wln7t"]
+radius = 3.60555
+
+[node name="poison_powder" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_0wugu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_qh53k")
+animation = &"poison"
+frame_progress = 0.979398
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2)
+shape = SubResource("CircleShape2D_qnr7g")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_wln7t")
+debug_color = Color(0.971695, 0.0671481, 0.394053, 0.42)
+
+[node name="Health" parent="." instance=ExtResource("3_omh70")]
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
