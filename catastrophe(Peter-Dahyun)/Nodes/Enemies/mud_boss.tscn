@@ -274,11 +274,11 @@ _data = {
 size = Vector2(50, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14aba"]
-size = Vector2(41.5, 27.5)
+size = Vector2(69, 31)
 
 [node name="mud_boss" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 5
 script = ExtResource("1_081ev")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -300,11 +300,14 @@ position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_kq60j")
 
 [node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, 4.25)
+position = Vector2(-0.5, 2.5)
 shape = SubResource("RectangleShape2D_14aba")
 debug_color = Color(0.99213, 0, 0.256288, 0.42)
 
 [node name="Health" parent="." instance=ExtResource("4_6plrc")]
 max_health = 200
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

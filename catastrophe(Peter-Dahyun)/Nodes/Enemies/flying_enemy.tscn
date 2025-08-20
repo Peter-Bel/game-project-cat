@@ -104,7 +104,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0wb0q"]
-radius = 8.06226
+radius = 16.0312
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s4uff"]
 radius = 91.0055
@@ -143,6 +143,7 @@ debug_color = Color(0.945767, 0.182034, 0.377748, 0.42)
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(224, 24)
 shape = SubResource("CircleShape2D_s4uff")
 debug_color = Color(0.887128, 0.317067, 0.240722, 0.42)
 

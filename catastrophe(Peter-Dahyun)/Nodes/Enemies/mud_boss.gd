@@ -1,6 +1,5 @@
 extends Enemy
 
-
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
@@ -55,7 +54,7 @@ func _physics_process(delta: float) -> void:
 			state = "default"
 			velocity = Vector2.ZERO 
 	
-	animated_sprite_2d.flip_h = flip - 1
+	animated_sprite_2d.flip_h = (flip < 0)
 	animated_sprite_2d.play(state)
 	# Add the gravity.
 	if not is_on_floor():
@@ -71,4 +70,3 @@ func summon_mud_projectile(mud_speed: float):
 	inst.global_position.y -= 24.0
 	inst.velocity.y = projectile_y_spd
 	inst.speed = mud_speed
-	
