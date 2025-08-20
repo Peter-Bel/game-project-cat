@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8fl0tcesqbq2"]
+
+[ext_resource type="Script" uid="uid://o0dc3a8jvh5g" path="res://Nodes/WaterDynamics/splash_particle.gd" id="1_18kkg"]
+[ext_resource type="Texture2D" uid="uid://bi37kbdejumv3" path="res://Assets/ParticleAssets/waterparticle.png" id="1_mte5o"]
+
+[sub_resource type="Gradient" id="Gradient_dbgyl"]
+colors = PackedColorArray(9.62615e-08, 0.615584, 0.849592, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_18kkg"]
+gradient = SubResource("Gradient_dbgyl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mte5o"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 900, 0)
+scale_min = 0.01
+scale_max = 0.02
+color = Color(0.0392157, 0.752941, 1, 1)
+color_ramp = SubResource("GradientTexture1D_18kkg")
+
+[node name="SplashParticle" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 7
+position = Vector2(295, 153)
+emitting = false
+amount = 60
+texture = ExtResource("1_mte5o")
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(-100, -100, 300, 300)
+process_material = SubResource("ParticleProcessMaterial_mte5o")
+script = ExtResource("1_18kkg")

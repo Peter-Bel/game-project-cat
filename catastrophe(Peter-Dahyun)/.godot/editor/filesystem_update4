@@ -27,3 +27,7 @@ res://Scenes/ScenesDefault/mud_boss_test.tscn
 res://Scenes/ScenesDefault/rock_boss_test.tscn
 res://Nodes/Enemies/rock_boss.tscn
 res://Nodes/Enemies/mud_boss.tscn
+res://Nodes/EnvironmentNodes/mud_ball.tscn
+res://Nodes/WaterDynamics/water.gd
+res://Nodes/WaterDynamics/splash_particle.tscn
+res://Nodes/WaterDynamics/splash_particle.gd

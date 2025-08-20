@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://c2ofr8jitewn5"]
+[gd_scene load_steps=18 format=4 uid="uid://c2ofr8jitewn5"]
 
 [ext_resource type="Script" uid="uid://bfmw33km0j8os" path="res://Scenes/ScenesDefault/level.gd" id="1_3duxh"]
 [ext_resource type="Texture2D" uid="uid://cbdko5uie7msc" path="res://Assets/WorldAssets/forest_tileset.png" id="2_dbslm"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://6xw46wn62kh8" path="res://Assets/BackgroundAssets/Level1Bg/5th Layer.png" id="10_slkvj"]
 [ext_resource type="Texture2D" uid="uid://c6tmq7mtn76v5" path="res://Assets/BackgroundAssets/Level1Bg/4th Layer.png" id="11_7n712"]
 [ext_resource type="Texture2D" uid="uid://bd5e3otc0mpwm" path="res://Assets/BackgroundAssets/Level1Bg/3rd Layer.png" id="12_7gpnv"]
+[ext_resource type="PackedScene" uid="uid://cnqt476hremfi" path="res://Nodes/WaterDynamics/water.tscn" id="13_3e8wk"]
 [ext_resource type="Texture2D" uid="uid://gmgjs0ghsvc3" path="res://Assets/BackgroundAssets/Level1Bg/2nd Layer.png" id="13_q7pmv"]
 [ext_resource type="Texture2D" uid="uid://bervar8lkfo6x" path="res://Assets/BackgroundAssets/Level1Bg/1st Layer.png" id="14_lvhkk"]
 
@@ -153,6 +154,7 @@ shape = SubResource("RectangleShape2D_n5ptj")
 
 [node name="mud_boss" parent="Enemies" instance=ExtResource("5_v877g")]
 position = Vector2(463, 247)
+collision_mask = 5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -212,5 +214,7 @@ motion_mirroring = Vector2(1000, 0)
 position = Vector2(512, 288)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("14_lvhkk")
+
+[node name="water" parent="." instance=ExtResource("13_3e8wk")]
 
 [editable path="Player/Camera"]

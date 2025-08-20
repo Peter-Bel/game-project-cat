@@ -271,14 +271,15 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kq60j"]
-size = Vector2(50, 33)
+size = Vector2(53, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14aba"]
 size = Vector2(69, 31)
 
 [node name="mud_boss" type="CharacterBody2D"]
+z_index = 1
 collision_layer = 2
-collision_mask = 5
+collision_mask = 13
 script = ExtResource("1_081ev")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -296,7 +297,7 @@ libraries = {
 autoplay = "empty"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.5)
+position = Vector2(-1.5, 0.5)
 shape = SubResource("RectangleShape2D_kq60j")
 
 [node name="AttackArea" type="Area2D" parent="."]
