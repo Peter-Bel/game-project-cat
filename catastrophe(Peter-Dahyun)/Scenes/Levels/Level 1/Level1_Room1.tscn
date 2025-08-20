@@ -188,7 +188,7 @@ shape = SubResource("RectangleShape2D_n5ptj")
 
 [node name="Door_R" parent="Doors" instance=ExtResource("6_36ks2")]
 position = Vector2(722, -446)
-destination_scene = "res://Scenes/Levels/Level1_Room2.tscn"
+destination_scene = "res://Scenes/Levels/Level 1/Level1_Room2.tscn"
 destination_door = "L"
 
 [node name="Destination" parent="Doors/Door_R" index="1"]

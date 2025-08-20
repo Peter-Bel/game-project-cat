@@ -1,8 +1,9 @@
+res://Scenes/Levels/Level 2/Level2_Room2.tscn
 res://Scenes/ScenesDefault/default.tscn
 res://Nodes/WaterDynamics/background.tscn
 res://Nodes/WaterDynamics/water.tscn
 res://Nodes/WaterDynamics/waterdynamic.tscn
-res://Scenes/Levels/Level1 (Scrapped).tscn
+res://Scenes/Levels/Level 1/Level1 (Scrapped).tscn
 res://Nodes/Enemies/enemy_1.tscn
 res://Nodes/Enemies/flying_enemy.tscn
 res://Scenes/ScenesDefault/scene_right.tscn
@@ -10,17 +11,17 @@ res://Nodes/player.tscn
 res://Nodes/Enemies/jumping_enemy.tscn
 res://Scenes/ScenesDefault/killzone.tscn
 res://Scenes/ScenesDefault/scene_left.tscn
-res://Scenes/Levels/Level1_Room3.tscn
+res://Scenes/Levels/Level 1/Level1_Room3.tscn
 res://Nodes/EnvironmentNodes/mud_collision.tscn
 res://Nodes/EnvironmentNodes/climb_collision.tscn
-res://Scenes/Levels/Level1_Room2.tscn
-res://Scenes/Levels/Level1_Room1.tscn
+res://Scenes/Levels/Level 1/Level1_Room2.tscn
 res://Scenes/TitleScreen/TitleScreen.tscn
 res://Scenes/TitleScreen/Settings.tscn
 res://Nodes/camera.tscn
 res://Scenes/Levels/Level 1/Level1_Boss.tscn
-res://Scenes/Levels/Level 1/Level1 (Scrapped).tscn
-res://Scenes/Levels/Level 1/Level1_Room3.tscn
-res://Scenes/Levels/Level 1/Level1_Room2.tscn
 res://Scenes/Levels/Level 1/Level1_Room1.tscn
-res://Scenes/TitleScreen/parallax_background.gd
+res://Scenes/Levels/Level 2/Level2_Room1.tscn
+res://Scenes/Levels/Level 2/Level2_Room3.tscn
+res://Scenes/Levels/Level 2/Level1_Boss.tscn
+res://Scenes/Levels/Level 1/Level2_Boss.tscn
+res://Scenes/Levels/Level 2/Level2_Boss.tscn
