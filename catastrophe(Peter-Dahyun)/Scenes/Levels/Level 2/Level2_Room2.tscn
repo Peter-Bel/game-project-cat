@@ -392,9 +392,9 @@ texture = ExtResource("4_ehyws")
 
 [sub_resource type="TileSet" id="TileSet_n5ptj"]
 physics_layer_0/collision_layer = 4
-physics_layer_0/collision_mask = 3
+physics_layer_0/collision_mask = 0
 physics_layer_1/collision_layer = 4
-physics_layer_1/collision_mask = 3
+physics_layer_1/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_n5ptj")
 sources/1 = SubResource("TileSetAtlasSource_upfpp")
 sources/2 = SubResource("TileSetAtlasSource_fwwos")
@@ -478,7 +478,7 @@ position = Vector2(693, 285)
 position = Vector2(570, 253)
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource("7_i6ef6")]
-position = Vector2(160, 284)
+position = Vector2(160, 285)
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource("7_i6ef6")]
 position = Vector2(242, 252)

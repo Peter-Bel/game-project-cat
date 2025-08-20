@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://bqqa8l0xxyeb3"]
+[gd_scene load_steps=25 format=4 uid="uid://bqqa8l0xxyeb3"]
 
 [ext_resource type="Script" uid="uid://bfmw33km0j8os" path="res://Scenes/ScenesDefault/level.gd" id="1_a1x34"]
 [ext_resource type="Texture2D" uid="uid://cbdko5uie7msc" path="res://Assets/WorldAssets/forest_tileset.png" id="2_5jf2j"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://co111w4esd0op" path="res://Nodes/scene_collision.tscn" id="6_g05q0"]
 [ext_resource type="PackedScene" uid="uid://ctb7cougiqjco" path="res://Nodes/EnvironmentNodes/climb_collision.tscn" id="8_5o4uj"]
 [ext_resource type="PackedScene" uid="uid://db3ey5xotuejn" path="res://Nodes/Enemies/enemy_1.tscn" id="8_fwwos"]
-[ext_resource type="Script" uid="uid://irbktfr5iegp" path="res://Nodes/Enemies/jumping_enemy.gd" id="8_hc33r"]
 [ext_resource type="Texture2D" uid="uid://c0xoaiph4x84j" path="res://Assets/BackgroundAssets/Level2Bg/7.png" id="9_h08t3"]
 [ext_resource type="Texture2D" uid="uid://cur03olrxje7r" path="res://Assets/BackgroundAssets/Level2Bg/6.png" id="10_a8x6q"]
 [ext_resource type="PackedScene" uid="uid://b2y66t0yumqsb" path="res://Nodes/Enemies/jumping_enemy.tscn" id="10_os6ia"]
@@ -478,7 +477,6 @@ destination_door = "L"
 position = Vector2(-32, 0)
 
 [node name="Enemies" type="Node" parent="."]
-script = ExtResource("8_hc33r")
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource("8_fwwos")]
 position = Vector2(144, 284)
