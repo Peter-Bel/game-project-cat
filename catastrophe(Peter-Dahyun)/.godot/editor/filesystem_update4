@@ -31,3 +31,7 @@ res://Nodes/EnvironmentNodes/mud_ball.tscn
 res://Nodes/WaterDynamics/water.gd
 res://Nodes/WaterDynamics/splash_particle.tscn
 res://Nodes/WaterDynamics/splash_particle.gd
+res://Nodes/Enemies/flying_enemy.gd
+res://Nodes/Enemies/mud_boss.gd
+res://Nodes/EnvironmentNodes/poison_powder.gd
+res://Nodes/EnvironmentNodes/poison_powder.tscn

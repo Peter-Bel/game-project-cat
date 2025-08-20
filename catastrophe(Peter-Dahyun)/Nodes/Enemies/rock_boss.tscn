@@ -516,8 +516,8 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="AttackArea"]
-position = Vector2(7, -14.0625)
-polygon = PackedVector2Array(14, -31.9375, -16, -11.9375, -49, 30.0625, 28, 30.0625, 29, 4.0625, 42, -13.9375, 37, -28.9375)
+position = Vector2(9, -14)
+polygon = PackedVector2Array(-8, -21, -36, -5, -49, 30.0625, 28, 30.0625, 29, 4.0625, 17, -16)
 
 [node name="CloseArea" type="Area2D" parent="."]
 

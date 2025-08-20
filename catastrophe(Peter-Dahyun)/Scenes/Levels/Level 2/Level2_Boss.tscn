@@ -346,7 +346,7 @@ height = 24.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5ptj"]
 size = Vector2(20, 244)
 
-[node name="SceneRight" type="Node2D"]
+[node name="SceneRight3" type="Node2D"]
 script = ExtResource("1_02qbr")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
