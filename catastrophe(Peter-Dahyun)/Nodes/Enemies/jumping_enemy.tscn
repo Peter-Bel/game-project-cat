@@ -131,8 +131,8 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_b4wc1"]
 radius = 9.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hejch"]
-radius = 8.06226
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tye65"]
+size = Vector2(25, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hejch"]
 size = Vector2(272, 20)
@@ -165,8 +165,8 @@ autostart = true
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_hejch")
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_tye65")
 debug_color = Color(0.945767, 0.182034, 0.377748, 0.42)
 
 [node name="Area2D" type="Area2D" parent="."]

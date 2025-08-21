@@ -1,9 +1,12 @@
 extends Node2D
 
+# water splash particle
+@export var splash_scene: PackedScene = preload("res://Nodes/WaterDynamics/splash_particle.tscn")
+
 # water size can be changed, if @export var get changed  
 @export var water_width: float = 640.0
 @export var water_height: float = 70.0
-@export var base_y_position: float = 310.0
+@export var base_y_position: float = 260.0
 @export var point_count: int = 64
 
 const RESTORE_FORCE: float = 50.0
@@ -34,9 +37,11 @@ func _ready() -> void:
 		water_points_y_position.append(base_y_position)
 		water_points_velocity.append(0)
 		
+	draw_water()
+		
 	$Area2D.body_entered.connect(_on_body_entered)
 	$Area2D.body_exited.connect(_on_body_exited)
-	
+		
 ###############################################################################
 func _process(delta: float) -> void:
 	apply_points_physics(delta)
@@ -52,14 +57,14 @@ func draw_water() -> void:
 	line_node.points = points
 	line_node.width = 2.0
 	# water surface color
-	line_node.default_color = Color(0, 0.5, 1, 1)
+	line_node.default_color = Color(0.36, 0.25, 0.2, 0.7)
 	
 	var polygon_points = points.duplicate()
 	for i in range(point_count - 1, -1, -1):
 		polygon_points.append(Vector2(i * segment_width, base_y_position + water_height))
 		
 	polygon_node.polygon = polygon_points
-	polygon_node.color = Color(0, 1, 1, 0.25)
+	polygon_node.color = Color(0.36, 0.25, 0.2, 0.7)
 
 ################################################################################
 func get_closest_point_index(x_position_value: float) -> int:
@@ -109,7 +114,7 @@ func apply_points_physics(delta) -> void:
 			
 func _on_body_entered(body: Node) -> void:
 	# print("Entered:", body.name)
-	if body is CharacterBody2D or body is RigidBody2D:
+	if body is  CharacterBody2D or body is RigidBody2D:
 		bodies_in_water.append(body)
 		
 
@@ -134,10 +139,11 @@ func _physics_process(delta: float) -> void:
 			velocity_x = body.velocity.x
 		elif body is RigidBody2D:
 			velocity_y = body.linear_velocity.y
-			velocity_x = body.linear_damp.x
+			velocity_x = body.linear_velocity.x
 
 		if abs(velocity_y) > 10.0 or abs(velocity_x) > 60.0 :
 			splash_point(index, velocity_y * 0.7 + velocity_x * 0.3)
 			# The more number of splash_cooldown, The less water wave frequency
 			splash_cooldown[id] = 0.5 
 		
+##water splash particle

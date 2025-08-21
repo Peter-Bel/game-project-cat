@@ -1,10 +1,9 @@
-AnimatedSprite2D
-Sprite2D
-TextureRect
-CharacterBody2D
+GPUParticles2D
+CollisionPolygon2D
 VBoxContainer
 Button
 Panel
+TextureRect
 Node
 Label
 RichTextLabel
@@ -12,3 +11,5 @@ TextEdit
 Control
 CollisionShape2D
 Area2D
+AnimationPlayer
+AnimatedSprite2D

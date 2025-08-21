@@ -6,10 +6,15 @@
 script = ExtResource("1_x0ki6")
 
 [node name="Line2D" type="Line2D" parent="."]
+z_index = 2
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = 2
+color = Color(0.247059, 0.113725, 0, 0.901961)
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 

@@ -114,7 +114,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pp4sg"]
-size = Vector2(14, 8)
+size = Vector2(19, 11)
 
 [node name="Enemy1" type="CharacterBody2D"]
 position = Vector2(0, -7)
@@ -145,7 +145,7 @@ autoplay = "empty"
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, 7)
+position = Vector2(0.5, 6.5)
 shape = SubResource("RectangleShape2D_pp4sg")
 debug_color = Color(0.945767, 0.182034, 0.377748, 0.42)
 
