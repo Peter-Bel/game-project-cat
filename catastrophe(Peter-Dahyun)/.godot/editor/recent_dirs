@@ -1,6 +1,7 @@
+res://Assets/SceneAssets
+res://Assets/PlayerAssets
+res://Nodes
 res://Assets/EnemyAssets
 res://Assets/ParticleAssets
 res://Nodes/Enemies
 res://Nodes/WaterDynamics
-res://Nodes
-res://Assets/PlayerAssets
