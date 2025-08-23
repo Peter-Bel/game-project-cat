@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dmnfukdt3ig70"]
+[gd_scene load_steps=12 format=3 uid="uid://dmnfukdt3ig70"]
 
 [ext_resource type="PackedScene" uid="uid://c3j2hpqk5l3so" path="res://Nodes/player.tscn" id="1_aa77l"]
 [ext_resource type="Script" uid="uid://bfmw33km0j8os" path="res://Scenes/ScenesDefault/level.gd" id="1_e6r0x"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://22vqg3buca64" path="res://Nodes/ParticlesAndGui/scene_fade.tscn" id="7_flwdu"]
 [ext_resource type="PackedScene" uid="uid://v4g6rus5m8pn" path="res://Nodes/Enemies/jumping_enemy_2.tscn" id="8_n1gpp"]
 [ext_resource type="PackedScene" uid="uid://bfvigi3qdefpo" path="res://Nodes/Enemies/flying_enemy.tscn" id="9_v0c40"]
-[ext_resource type="PackedScene" uid="uid://db3ey5xotuejn" path="res://Nodes/Enemies/enemy_1.tscn" id="10_0mqxo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xe0gy"]
 texture = ExtResource("3_hj5t5")
@@ -231,9 +230,6 @@ attack_cooldown = 3.0
 
 [node name="FlyingEnemy" parent="Enemies" instance=ExtResource("9_v0c40")]
 position = Vector2(-175, -64)
-
-[node name="Enemy1" parent="Enemies" instance=ExtResource("10_0mqxo")]
-position = Vector2(210, 32)
 
 [editable path="Player/Camera"]
 [editable path="Doors/Door_L"]

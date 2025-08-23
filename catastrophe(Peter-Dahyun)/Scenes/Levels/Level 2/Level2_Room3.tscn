@@ -458,63 +458,163 @@ shape = SubResource("RectangleShape2D_n5ptj")
 
 [node name="jumping_enemy" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(80, -307)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy2" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(115, -467)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy3" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(168, -435)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy4" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(75, -132)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy5" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(356, 76)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy6" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(152, 284)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy7" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(245, 285)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy8" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(334, 285)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy9" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(422, 285)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy10" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(542, 205)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy11" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(468, 109)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy12" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(579, 77)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy13" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(780, -19)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy14" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(731, -19)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy15" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(468, -99)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy16" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(693, -243)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy17" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(693, -243)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy18" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(679, -419)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy19" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(808, -419)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="jumping_enemy20" parent="Enemies" instance=ExtResource("7_tcxtr")]
 position = Vector2(609, -419)
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = 750
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource("7_tgwjy")]
 position = Vector2(232, -421)

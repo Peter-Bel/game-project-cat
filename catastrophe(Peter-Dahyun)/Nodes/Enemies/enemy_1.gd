@@ -16,7 +16,7 @@ var direction = -1
 	#pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta: float) -> void:
 	# if enemy detects  a wall, change its direction
 	if ray_cast_right.is_colliding():
 		direction = -1
@@ -27,13 +27,22 @@ func _process(delta):
 		direction = -1
 	elif direction == -1 and !ray_cast_bottomL.is_colliding():
 		direction = 1
-	animated_sprite.flip_h = direction == -1
-	position.x += direction * SPEED * delta	* spd_multiply
-	# death 
-	if (!death_time and health_node.health <= 0):
-		death(time_to_death)
-		animated_sprite.play("Death")
-	if (health_node.health <= 0):
-		position.x += knock_dir.x * knock
-		position.y += knock_dir.y * knock
-		knock = lerp(knock, 0.0, knock_acc)
+	animated_sprite.flip_h = (direction == -1)
+	
+	# gravity
+	if !is_on_floor():
+		velocity.y += gravity * delta
+	
+	velocity.x = direction * SPEED * spd_multiply
+	
+	super(delta)
+	
+	#position.x += direction * SPEED * delta	* spd_multiply
+	## death 
+	#if (!death_time and health_node.health <= 0):
+		#death(time_to_death)
+		#animated_sprite.play("Death")
+	#if (health_node.health <= 0):
+		#position.x += knock_dir.x * knock
+		#position.y += knock_dir.y * knock
+		#knock = lerp(knock, 0.0, knock_acc)

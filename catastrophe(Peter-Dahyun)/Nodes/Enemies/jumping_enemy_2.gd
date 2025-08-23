@@ -5,7 +5,7 @@ extends Enemy
 # set height of hop jump. the more negative num, the higher hop
 @export var hop_jump_vy = -300 # when enemy roams
 @export var attack_jump_vy = -250 # when enemy attacks
-@export var gravity = 1200.0
+#@export var gravity = 1200.0
 # Finite State Machine. Statements list of jumping enemy
 enum State {IDLE, HOP, CHASE, ATTACK}
 var state: State = State.IDLE
@@ -30,7 +30,7 @@ var atk_cd = 0.0
 @export var attack_cooldown = 1.0
 var want_attack_impulse = false
 # chase range
-@onready var detect_chase_range = 100.0
+@export var detect_chase_range = 100.0
 # prevent flipping direction from colliding the player
 var face_change_threshold = 4.0
 
@@ -132,23 +132,23 @@ func _physics_process(delta: float):
 			if is_on_floor() and velocity.y >= 0.0 and atk_cd > 0.0:
 				_set_state(State.CHASE) 
 			
-	move_and_slide()
+	super(delta)
 	
 	# death 
-	if (!death_time and health_node.health <= 0):
-		animated_sprite_2d.modulate = Color.DIM_GRAY
-		death(time_to_death)
-		# animated_sprite.play("Death")
-	if (health_node.health <= 0):
-		position.x += knock_dir.x * knock
-		position.y += knock_dir.y * knock
-		knock = lerp(knock, 0.0, knock_acc)
+	#if (!death_time and health_node.health <= 0):
+		#animated_sprite_2d.modulate = Color.DIM_GRAY
+		#death(time_to_death)
+		## animated_sprite.play("Death")
+	#if (health_node.health <= 0):
+		#position.x += knock_dir.x * knock
+		#position.y += knock_dir.y * knock
+		#knock = lerp(knock, 0.0, knock_acc)
 	
 	# collide wall -> change dir
-	if _is_hitting_wall():
-		dir *= -1
-		# flip animation
-		_update_facing_visual()
+	#if _is_hitting_wall():
+		#dir *= -1
+		## flip animation
+		#_update_facing_visual()
 
 # 현재 개구리의 상태를 바꿀때
 # update enemy's statement

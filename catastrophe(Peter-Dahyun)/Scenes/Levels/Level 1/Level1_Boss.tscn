@@ -155,6 +155,11 @@ shape = SubResource("RectangleShape2D_n5ptj")
 [node name="mud_boss" parent="Enemies" instance=ExtResource("5_v877g")]
 position = Vector2(463, 247)
 collision_mask = 5
+knock_strength = null
+knock_up = null
+knock_duration = null
+knock_friction = null
+gravity = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

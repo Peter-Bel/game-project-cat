@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bqqa8l0xxyeb3"]
+[gd_scene load_steps=23 format=4 uid="uid://bqqa8l0xxyeb3"]
 
 [ext_resource type="Script" uid="uid://bfmw33km0j8os" path="res://Scenes/ScenesDefault/level.gd" id="1_a1x34"]
 [ext_resource type="Texture2D" uid="uid://cbdko5uie7msc" path="res://Assets/WorldAssets/forest_tileset.png" id="2_5jf2j"]
@@ -11,8 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://db3ey5xotuejn" path="res://Nodes/Enemies/enemy_1.tscn" id="8_fwwos"]
 [ext_resource type="Texture2D" uid="uid://c0xoaiph4x84j" path="res://Assets/BackgroundAssets/Level2Bg/7.png" id="9_h08t3"]
 [ext_resource type="Texture2D" uid="uid://cur03olrxje7r" path="res://Assets/BackgroundAssets/Level2Bg/6.png" id="10_a8x6q"]
-[ext_resource type="PackedScene" uid="uid://b2y66t0yumqsb" path="res://Nodes/Enemies/jumping_enemy.tscn" id="10_os6ia"]
-[ext_resource type="PackedScene" uid="uid://bfvigi3qdefpo" path="res://Nodes/Enemies/flying_enemy.tscn" id="11_b0ydp"]
 [ext_resource type="Texture2D" uid="uid://c3jhr5fjvfye0" path="res://Assets/BackgroundAssets/Level2Bg/5.png" id="11_gvmn0"]
 [ext_resource type="Texture2D" uid="uid://ccrhdfe6ytd2v" path="res://Assets/BackgroundAssets/Level2Bg/4.png" id="12_2s1pw"]
 [ext_resource type="PackedScene" uid="uid://caersxadafrrv" path="res://Assets/PlayerAssets/heart_container.tscn" id="12_67oh0"]
@@ -576,66 +574,6 @@ position = Vector2(130, -325)
 
 [node name="Enemy33" parent="Enemies" instance=ExtResource("8_fwwos")]
 position = Vector2(130, -421)
-
-[node name="jumping_enemy" parent="Enemies" instance=ExtResource("10_os6ia")]
-position = Vector2(257, 285)
-
-[node name="jumping_enemy2" parent="Enemies" instance=ExtResource("10_os6ia")]
-position = Vector2(268, 189)
-
-[node name="jumping_enemy3" parent="Enemies" instance=ExtResource("10_os6ia")]
-position = Vector2(268, 93)
-
-[node name="jumping_enemy4" parent="Enemies" instance=ExtResource("10_os6ia")]
-position = Vector2(592, 61)
-
-[node name="jumping_enemy5" parent="Enemies" instance=ExtResource("10_os6ia")]
-position = Vector2(640, 61)
-
-[node name="jumping_enemy6" parent="Enemies" instance=ExtResource("10_os6ia")]
-position = Vector2(640, -67)
-
-[node name="jumping_enemy7" parent="Enemies" instance=ExtResource("10_os6ia")]
-position = Vector2(720, -67)
-
-[node name="jumping_enemy8" parent="Enemies" instance=ExtResource("10_os6ia")]
-position = Vector2(663, -179)
-
-[node name="jumping_enemy9" parent="Enemies" instance=ExtResource("10_os6ia")]
-position = Vector2(453, -211)
-
-[node name="jumping_enemy10" parent="Enemies" instance=ExtResource("10_os6ia")]
-position = Vector2(189, -243)
-
-[node name="jumping_enemy11" parent="Enemies" instance=ExtResource("10_os6ia")]
-position = Vector2(323, -307)
-
-[node name="jumping_enemy12" parent="Enemies" instance=ExtResource("10_os6ia")]
-position = Vector2(539, -307)
-
-[node name="jumping_enemy13" parent="Enemies" instance=ExtResource("10_os6ia")]
-position = Vector2(638, -307)
-
-[node name="FlyingEnemy2" parent="Enemies" instance=ExtResource("11_b0ydp")]
-position = Vector2(66, 173)
-
-[node name="FlyingEnemy3" parent="Enemies" instance=ExtResource("11_b0ydp")]
-position = Vector2(66, 8)
-
-[node name="FlyingEnemy4" parent="Enemies" instance=ExtResource("11_b0ydp")]
-position = Vector2(395, 25)
-
-[node name="FlyingEnemy5" parent="Enemies" instance=ExtResource("11_b0ydp")]
-position = Vector2(623, 25)
-
-[node name="FlyingEnemy6" parent="Enemies" instance=ExtResource("11_b0ydp")]
-position = Vector2(344, -150)
-
-[node name="FlyingEnemy7" parent="Enemies" instance=ExtResource("11_b0ydp")]
-position = Vector2(442, -273)
-
-[node name="FlyingEnemy8" parent="Enemies" instance=ExtResource("11_b0ydp")]
-position = Vector2(807, -336)
 
 [node name="World" type="Node" parent="."]
 
