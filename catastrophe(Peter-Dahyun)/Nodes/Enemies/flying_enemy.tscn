@@ -190,7 +190,7 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea"]
 shape = SubResource("CircleShape2D_s4uff")
-debug_color = Color(0.635459, 0.526114, 0.0786582, 0.42)
+debug_color = Color(0.830275, 0.00143853, 0.944684, 0.42)
 
 [node name="PoisonPowder" type="Marker2D" parent="."]
 

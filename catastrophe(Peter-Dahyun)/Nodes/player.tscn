@@ -426,6 +426,7 @@ size = Vector2(14, 15.5)
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 5
 script = ExtResource("1_qlfej")
+climb_spd = 5000.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_2hphp")

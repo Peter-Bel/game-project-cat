@@ -132,7 +132,7 @@ _data = {
 radius = 9.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tye65"]
-height = 23.0
+height = 27.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4p5g8"]
 radius = 83.006

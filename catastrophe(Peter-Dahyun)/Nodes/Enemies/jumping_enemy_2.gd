@@ -134,6 +134,16 @@ func _physics_process(delta: float):
 			
 	move_and_slide()
 	
+	# death 
+	if (!death_time and health_node.health <= 0):
+		animated_sprite_2d.modulate = Color.DIM_GRAY
+		death(time_to_death)
+		# animated_sprite.play("Death")
+	if (health_node.health <= 0):
+		position.x += knock_dir.x * knock
+		position.y += knock_dir.y * knock
+		knock = lerp(knock, 0.0, knock_acc)
+	
 	# collide wall -> change dir
 	if _is_hitting_wall():
 		dir *= -1

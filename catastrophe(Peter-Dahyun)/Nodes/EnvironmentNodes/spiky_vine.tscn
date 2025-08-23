@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://6lljd61g2m2d"]
+
+[ext_resource type="Script" uid="uid://bfpifcb2k2puj" path="res://Scripts/enemy.gd" id="1_bug6g"]
+[ext_resource type="Texture2D" uid="uid://sy62gbsrpfia" path="res://Assets/EnemyAssets/spiky vine.png" id="2_v37k6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvdid"]
+size = Vector2(24, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0v3i"]
+size = Vector2(28, 8)
+
+[node name="spiky_vine" type="CharacterBody2D"]
+script = ExtResource("1_bug6g")
+metadata/_custom_type_script = "uid://bfpifcb2k2puj"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_v37k6")
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_fvdid")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_y0v3i")
+debug_color = Color(0.943451, 0.202082, 0.330073, 0.42)
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
