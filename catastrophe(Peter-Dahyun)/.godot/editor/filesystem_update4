@@ -17,3 +17,5 @@ res://Scripts/enemy.gd
 res://Nodes/Enemies/jumping_enemy_2.gd
 res://Nodes/Enemies/enemy_1.gd
 res://Nodes/Enemies/flying_enemy.gd
+res://Nodes/EnvironmentNodes/spiky_vine.tscn
+res://Nodes/EnvironmentNodes/spiky_vine.gd
