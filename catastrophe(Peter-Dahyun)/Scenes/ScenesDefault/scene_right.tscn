@@ -217,7 +217,7 @@ position = Vector2(24, 2)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource("6_78fb5")]
-position = Vector2(191, 240)
+position = Vector2(100, 208)
 
 [node name="FlyingEnemy" parent="Enemies" instance=ExtResource("9_pv0xh")]
 position = Vector2(592, 152)

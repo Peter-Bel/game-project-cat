@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var water_scene: PackedScene = preload("res://Nodes/WaterDynamics/water.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if NavigationManager.spawn_door != null:

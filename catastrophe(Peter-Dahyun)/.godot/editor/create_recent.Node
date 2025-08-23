@@ -1,3 +1,5 @@
+RayCast2D
+Timer
 GPUParticles2D
 CollisionPolygon2D
 VBoxContainer
@@ -10,6 +12,3 @@ RichTextLabel
 TextEdit
 Control
 CollisionShape2D
-Area2D
-AnimationPlayer
-AnimatedSprite2D

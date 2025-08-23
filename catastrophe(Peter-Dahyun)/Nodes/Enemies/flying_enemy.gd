@@ -1,6 +1,6 @@
 extends Enemy
 
-const speed = 50
+const speed = 20
 var dir: Vector2 # 2 different ways change directions
 var is_enemy_chase: bool #if it is true, enemy chase player. if not, enemy moves free
 var player: CharacterBody2D
@@ -67,6 +67,7 @@ func handle_animation():
 		return
 	
 	spr.play("idle")
+	
 	if dir.x < 0:
 		spr.flip_h = true
 	elif dir.x > 0:

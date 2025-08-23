@@ -430,7 +430,7 @@ script = ExtResource("1_qlfej")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_2hphp")
 sprite_frames = SubResource("SpriteFrames_r4ynj")
-animation = &"Attack_Up"
+animation = &"Attack_Down"
 autoplay = "Idle"
 
 [node name="Flash" type="AnimationPlayer" parent="AnimatedSprite2D"]
