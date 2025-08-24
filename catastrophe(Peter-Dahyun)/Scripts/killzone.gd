@@ -3,6 +3,9 @@ extends Area2D
 @onready var timer = $Timer
 
 func _on_body_entered(body):
+	# ignore if not player
+	if body is not Player:
+		return
 	print("You died")
 	timer.start()
 

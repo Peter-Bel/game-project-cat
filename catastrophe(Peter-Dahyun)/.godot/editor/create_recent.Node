@@ -1,6 +1,8 @@
+TileMapLayer
+TileMap
+CollisionShape2D
 Node2D
 Sprite2D
-CollisionShape2D
 CollisionPolygon2D
 Area2D
 Enemy
@@ -10,5 +12,3 @@ GPUParticles2D
 VBoxContainer
 Button
 Panel
-TextureRect
-Node

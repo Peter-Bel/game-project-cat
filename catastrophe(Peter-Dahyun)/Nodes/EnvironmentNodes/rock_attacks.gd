@@ -4,7 +4,7 @@ extends Enemy
 
 var direction = 1
 var sprite = "gem"
-var gravity = 375.0
+#var gravity = 375.0
 
 #gem
 var gem_speed = 80.0
