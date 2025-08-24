@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://bv6kfesvcavnm"]
+[gd_scene load_steps=29 format=4 uid="uid://bv6kfesvcavnm"]
 
 [ext_resource type="Script" uid="uid://bfmw33km0j8os" path="res://Scenes/ScenesDefault/level.gd" id="1_57ol1"]
 [ext_resource type="Texture2D" uid="uid://cbdko5uie7msc" path="res://Assets/WorldAssets/forest_tileset.png" id="2_thmcb"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c3j2hpqk5l3so" path="res://Nodes/player.tscn" id="5_lt82f"]
 [ext_resource type="PackedScene" uid="uid://dp28fyafy2r2o" path="res://Scenes/ScenesDefault/killzone.tscn" id="5_rhth8"]
 [ext_resource type="PackedScene" uid="uid://ccrbyj1xjr05j" path="res://Nodes/camera.tscn" id="6_rhth8"]
-[ext_resource type="PackedScene" uid="uid://b2y66t0yumqsb" path="res://Nodes/Enemies/jumping_enemy.tscn" id="7_ehyws"]
 [ext_resource type="PackedScene" uid="uid://db3ey5xotuejn" path="res://Nodes/Enemies/enemy_1.tscn" id="7_i6ef6"]
 [ext_resource type="PackedScene" uid="uid://co111w4esd0op" path="res://Nodes/scene_collision.tscn" id="7_m87g3"]
 [ext_resource type="PackedScene" uid="uid://ctb7cougiqjco" path="res://Nodes/EnvironmentNodes/climb_collision.tscn" id="7_thmcb"]
@@ -707,62 +706,6 @@ position = Vector2(-12, 112)
 shape = SubResource("RectangleShape2D_n5ptj")
 
 [node name="Enemies" type="Node" parent="."]
-
-[node name="jumping_enemy" parent="Enemies" instance=ExtResource("7_ehyws")]
-position = Vector2(350, 237)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy2" parent="Enemies" instance=ExtResource("7_ehyws")]
-position = Vector2(180, -147)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy3" parent="Enemies" instance=ExtResource("7_ehyws")]
-position = Vector2(351, -163)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy4" parent="Enemies" instance=ExtResource("7_ehyws")]
-position = Vector2(338, -324)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy5" parent="Enemies" instance=ExtResource("7_ehyws")]
-position = Vector2(581, -227)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy6" parent="Enemies" instance=ExtResource("7_ehyws")]
-position = Vector2(693, 285)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy7" parent="Enemies" instance=ExtResource("7_ehyws")]
-position = Vector2(570, 253)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource("7_i6ef6")]
 position = Vector2(160, 283)

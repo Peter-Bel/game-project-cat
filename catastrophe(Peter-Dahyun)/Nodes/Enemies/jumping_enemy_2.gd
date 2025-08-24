@@ -33,6 +33,15 @@ var want_attack_impulse = false
 @export var detect_chase_range = 100.0
 # prevent flipping direction from colliding the player
 var face_change_threshold = 4.0
+# turn cooldown
+var turn_cd = 0.0
+@export var turn_cooldown = 0.20
+# TileMap
+@onready var tm_ground: TileMapLayer = get_node("/root/SceneRight/TileMapLayer")
+@onready var tm_lava: TileMapLayer = get_node("/root/SceneRight/TileMapLava")
+@export var tile_size: float = 16.0
+@export var foot_y_offset: float = 6.0
+@export var look_ahead_tiles: float = 0.75
 
 func _ready():
 	# Set initial statement and direction
@@ -75,9 +84,13 @@ func _physics_process(delta: float):
 	# attack cooldown
 	if atk_cd > 0.0:
 		atk_cd = max(0.0, atk_cd - delta)
-	if _is_hitting_wall():
-		dir *= -1
-		_update_facing_visual()
+	turn_cd = max(0.0, turn_cd - delta)
+	
+	if is_on_floor() and turn_cd == 0.0:
+		if _is_hitting_wall() or _is_cliff_ahead() or _is_lava_ahead():
+			dir *= -1
+			_update_facing_visual()
+			turn_cd = turn_cooldown
 	
 	# logics for each statements
 	match state:
@@ -168,7 +181,31 @@ func _update_facing_visual():
 func _face_towards_player():
 	if player == null:
 		return
+		
+	if !is_on_floor() or turn_cd > 0.0:
+		return
+		
 	var dir_x = player.global_position.x - global_position.x
 	if absf(dir_x) > face_change_threshold:
-		dir = 1 if dir_x > 0.0 else -1
-		_update_facing_visual()
+		var new_dir = 1 if dir_x > 0.0 else -1
+		if new_dir != dir:
+			dir = new_dir
+			_update_facing_visual()
+			turn_cd = turn_cooldown
+
+func _world_to_cell(tm: TileMapLayer, world_pos: Vector2) -> Vector2i:
+	var local := tm.to_local(world_pos)
+	return tm.local_to_map(local)
+	
+func _is_cliff_ahead() -> bool:
+	var ahead_world := global_position + Vector2(dir * tile_size * look_ahead_tiles, 0.0)
+	var probe_world := ahead_world + Vector2(0, foot_y_offset + tile_size * 0.6)
+	var cell := _world_to_cell(tm_ground, probe_world)
+	var has_ground := tm_ground.get_cell_source_id(cell) != -1
+	return not has_ground
+	
+func _is_lava_ahead() -> bool:
+	var ahead_world := global_position + Vector2(dir * tile_size * look_ahead_tiles, 0.0)
+	var probe_world := ahead_world + Vector2(0.0, foot_y_offset + tile_size * 0.4)
+	var cell := _world_to_cell(tm_lava, probe_world)
+	return tm_lava.get_cell_source_id(cell) != -1

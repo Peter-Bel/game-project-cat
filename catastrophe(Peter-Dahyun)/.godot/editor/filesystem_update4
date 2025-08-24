@@ -25,3 +25,6 @@ res://Nodes/Enemies/mud_boss.gd
 res://Nodes/Enemies/rock_boss.gd
 res://Nodes/EnvironmentNodes/rock_attacks.gd
 res://Scenes/Levels/Level 2/tile_map_layer.gd
+res://Nodes/EnvironmentNodes/poison_powder.tscn
+res://Nodes/Enemies/flying_enemy.tscn
+res://Scenes/ScenesDefault/level.gd

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://b50flqi61o7fk"]
+[gd_scene load_steps=29 format=4 uid="uid://b50flqi61o7fk"]
 
 [ext_resource type="Script" uid="uid://bfmw33km0j8os" path="res://Scenes/ScenesDefault/level.gd" id="1_5d7gd"]
 [ext_resource type="Texture2D" uid="uid://cbdko5uie7msc" path="res://Assets/WorldAssets/forest_tileset.png" id="2_bjl43"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://ccrbyj1xjr05j" path="res://Nodes/camera.tscn" id="6_1ji05"]
 [ext_resource type="PackedScene" uid="uid://ctb7cougiqjco" path="res://Nodes/EnvironmentNodes/climb_collision.tscn" id="7_bjl43"]
 [ext_resource type="PackedScene" uid="uid://co111w4esd0op" path="res://Nodes/scene_collision.tscn" id="7_ig5fk"]
-[ext_resource type="PackedScene" uid="uid://b2y66t0yumqsb" path="res://Nodes/Enemies/jumping_enemy.tscn" id="7_tcxtr"]
 [ext_resource type="PackedScene" uid="uid://db3ey5xotuejn" path="res://Nodes/Enemies/enemy_1.tscn" id="7_tgwjy"]
 [ext_resource type="PackedScene" uid="uid://caersxadafrrv" path="res://Assets/PlayerAssets/heart_container.tscn" id="8_yvf0h"]
 [ext_resource type="PackedScene" uid="uid://bfvigi3qdefpo" path="res://Nodes/Enemies/flying_enemy.tscn" id="9_2ehfv"]
@@ -705,166 +704,6 @@ position = Vector2(-12, 112)
 shape = SubResource("RectangleShape2D_n5ptj")
 
 [node name="Enemies" type="Node" parent="."]
-
-[node name="jumping_enemy" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(80, -307)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy2" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(115, -467)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy3" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(168, -435)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy4" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(75, -132)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy5" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(356, 76)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy6" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(152, 284)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy7" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(245, 285)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy8" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(334, 285)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy9" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(422, 285)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy10" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(542, 205)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy11" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(468, 109)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy12" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(579, 77)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy13" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(780, -19)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy14" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(731, -19)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy15" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(468, -99)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy16" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(693, -243)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy17" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(693, -243)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy18" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(679, -419)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy19" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(808, -419)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
-
-[node name="jumping_enemy20" parent="Enemies" instance=ExtResource("7_tcxtr")]
-position = Vector2(609, -419)
-knock_strength = null
-knock_up = null
-knock_duration = null
-knock_friction = null
-gravity = 750
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource("7_tgwjy")]
 position = Vector2(232, -421)
