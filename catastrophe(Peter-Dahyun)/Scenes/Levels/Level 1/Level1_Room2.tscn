@@ -256,68 +256,18 @@ scale = Vector2(1.5, 1.5)
 
 [node name="jumping_enemy_2" parent="Enemies" instance=ExtResource("9_mqsmh")]
 position = Vector2(212, 273)
-speed = 30.0
-hop_jump_vy = -300
-attack_jump_vy = -250
-decision_interval = Vector2(0.7, 1.2)
-attack_cooldown = 1.0
-knock_strength = 220.0
-knock_up = -120.0
-knock_duration = 0.25
-knock_friction = 1400.0
-gravity = 1200.0
 
 [node name="jumping_enemy_3" parent="Enemies" instance=ExtResource("9_mqsmh")]
 position = Vector2(224, 64)
-speed = 30.0
-hop_jump_vy = -300
-attack_jump_vy = -250
-decision_interval = Vector2(0.7, 1.2)
-attack_cooldown = 1.0
-knock_strength = 220.0
-knock_up = -120.0
-knock_duration = 0.25
-knock_friction = 1400.0
-gravity = 1200.0
 
 [node name="jumping_enemy_4" parent="Enemies" instance=ExtResource("9_mqsmh")]
 position = Vector2(464, 177)
-speed = 30.0
-hop_jump_vy = -300
-attack_jump_vy = -250
-decision_interval = Vector2(0.7, 1.2)
-attack_cooldown = 1.0
-knock_strength = 220.0
-knock_up = -120.0
-knock_duration = 0.25
-knock_friction = 1400.0
-gravity = 1200.0
 
 [node name="jumping_enemy_5" parent="Enemies" instance=ExtResource("9_mqsmh")]
 position = Vector2(86, -47)
-speed = 30.0
-hop_jump_vy = -300
-attack_jump_vy = -250
-decision_interval = Vector2(0.7, 1.2)
-attack_cooldown = 1.0
-knock_strength = 220.0
-knock_up = -120.0
-knock_duration = 0.25
-knock_friction = 1400.0
-gravity = 1200.0
 
 [node name="jumping_enemy_6" parent="Enemies" instance=ExtResource("9_mqsmh")]
 position = Vector2(281, -223)
-speed = 30.0
-hop_jump_vy = -300
-attack_jump_vy = -250
-decision_interval = Vector2(0.7, 1.2)
-attack_cooldown = 1.0
-knock_strength = 220.0
-knock_up = -120.0
-knock_duration = 0.25
-knock_friction = 1400.0
-gravity = 1200.0
 
 [node name="World" type="Node" parent="."]
 

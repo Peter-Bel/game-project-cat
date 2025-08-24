@@ -37,13 +37,18 @@ var face_change_threshold = 4.0
 var turn_cd = 0.0
 @export var turn_cooldown = 0.20
 # TileMap
-@onready var tm_ground: TileMapLayer = get_node("/root/SceneRight/TileMapLayer")
-@onready var tm_lava: TileMapLayer = get_node("/root/SceneRight/TileMapLava")
+@export var ground_map_path: NodePath
+@export var lava_map_path: NodePath
+@export var use_lava_check = true
+@onready var tm_ground: TileMapLayer = get_node_or_null(ground_map_path) as TileMapLayer
+@onready var tm_lava: TileMapLayer = (null if lava_map_path.is_empty() else get_node_or_null(lava_map_path) as TileMapLayer)
 @export var tile_size: float = 16.0
 @export var foot_y_offset: float = 6.0
 @export var look_ahead_tiles: float = 0.75
 
 func _ready():
+	if tm_ground == null:
+		push_error("Gound map is missing")
 	# Set initial statement and direction
 	randomize()
 	_set_state(State.IDLE)
@@ -87,7 +92,10 @@ func _physics_process(delta: float):
 	turn_cd = max(0.0, turn_cd - delta)
 	
 	if is_on_floor() and turn_cd == 0.0:
-		if _is_hitting_wall() or _is_cliff_ahead() or _is_lava_ahead():
+		var need_turn := _is_hitting_wall() or _is_cliff_ahead()
+		if use_lava_check and _is_lava_ahead():
+			need_turn = true
+		if need_turn:
 			dir *= -1
 			_update_facing_visual()
 			turn_cd = turn_cooldown
@@ -198,13 +206,15 @@ func _world_to_cell(tm: TileMapLayer, world_pos: Vector2) -> Vector2i:
 	return tm.local_to_map(local)
 	
 func _is_cliff_ahead() -> bool:
+	if tm_ground == null: return false
 	var ahead_world := global_position + Vector2(dir * tile_size * look_ahead_tiles, 0.0)
-	var probe_world := ahead_world + Vector2(0, foot_y_offset + tile_size * 0.6)
+	var probe_world := ahead_world + Vector2(0.0, foot_y_offset + tile_size * 0.6)
 	var cell := _world_to_cell(tm_ground, probe_world)
-	var has_ground := tm_ground.get_cell_source_id(cell) != -1
-	return not has_ground
+	return tm_ground.get_cell_source_id(cell) == -1
 	
 func _is_lava_ahead() -> bool:
+	if !use_lava_check or tm_lava == null:
+		return false
 	var ahead_world := global_position + Vector2(dir * tile_size * look_ahead_tiles, 0.0)
 	var probe_world := ahead_world + Vector2(0.0, foot_y_offset + tile_size * 0.4)
 	var cell := _world_to_cell(tm_lava, probe_world)
