@@ -31,6 +31,7 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	# movement
 	move(delta)
+	update_facing()
 	handle_animation()
 	## death 
 	#if (!death_time and health_node.health <= 0):
@@ -57,21 +58,31 @@ func move(delta):
 		if player:
 			var move_dir = (player.global_position - global_position).normalized()
 			velocity = move_dir * speed * spd_multiply
-			facing = sign(velocity.x) # the flying enemy follows the player
+			facing = sign(player.global_position.x - global_position.x) # the flying enemy follows the player
 	else:
 		velocity += dir_vec * speed * delta
+		facing = sign(dir_vec.x)
 
 func _on_timer_timeout():
 	timer.wait_time = choose([0.25, 0.5, 0.75]) # frequency of changing direction depends on the number of element in array
 	if !is_enemy_chase: #when the enemy moves free
 		dir_vec = choose([Vector2.RIGHT, Vector2.UP, Vector2.LEFT, Vector2.DOWN]) #choose direction randomly
 
+func update_facing() -> void:
+	var want_flip = false
+	if is_enemy_chase and player:
+		want_flip = (player.global_position.x < global_position.x)
+	else:
+		want_flip = (facing < 0)
+	if spr.flip_h != want_flip:
+		spr.flip_h = want_flip
+
 func handle_animation():
 	if is_shooting or spr.animation == "shoot":
 		return
 	if spr.animation != "idle":
 		spr.play("idle")
-	spr.flip_h = (facing < 0)
+	#spr.flip_h = (facing < 0)
 
 func choose(array):
 	return array.pick_random()

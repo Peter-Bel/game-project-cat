@@ -232,7 +232,7 @@ position = Vector2(49, 100)
 attack_cooldown = 3.0
 
 [node name="FlyingEnemy" parent="Enemies" instance=ExtResource("9_v0c40")]
-position = Vector2(-175, -64)
+position = Vector2(-187, -28)
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource("10_0mqxo")]
 position = Vector2(210, 32)
@@ -241,7 +241,7 @@ position = Vector2(210, 32)
 position = Vector2(190, 44)
 
 [node name="HP_item" parent="." instance=ExtResource("12_fadbt")]
-position = Vector2(-95, 20)
+position = Vector2(125, 2)
 
 [editable path="Player/Camera"]
 [editable path="Doors/Door_L"]
