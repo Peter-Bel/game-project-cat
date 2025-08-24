@@ -1,11 +1,1 @@
-res://Scenes/Levels/Level 1/Level1_Room1.tscn
-res://Scenes/TitleScreen/TitleScreen.tscn
-res://Scenes/ScenesDefault/default.tscn
-res://Nodes/Enemies/jumping_enemy_2.tscn
-res://Scenes/Levels/Level 1/Level1_Room2.tscn
-res://Scenes/Levels/Level 1/Level1_Room3.tscn
-res://Scenes/Levels/Level 1/Level1_Boss.tscn
-res://Scenes/Levels/Level 2/Level2_Room1.tscn
-res://Scenes/Levels/Level 2/Level2_Room2.tscn
-res://Scenes/Levels/Level 2/Level2_Room3.tscn
 res://Scenes/Levels/Level 2/Level2_Boss.tscn
