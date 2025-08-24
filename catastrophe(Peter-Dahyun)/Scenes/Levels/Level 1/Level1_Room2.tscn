@@ -251,7 +251,8 @@ rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 
 [node name="spiky_vine3" parent="Enemies" instance=ExtResource("8_fl6i2")]
-position = Vector2(218, -379)
+position = Vector2(285, -455)
+rotation = 3.14159
 scale = Vector2(1.5, 1.5)
 
 [node name="jumping_enemy_2" parent="Enemies" instance=ExtResource("9_mqsmh")]

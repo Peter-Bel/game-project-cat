@@ -1,30 +1,11 @@
-res://Scenes/Levels/Level 1/Level1_Room3.tscn
+res://Scenes/Levels/Level 1/Level1_Room1.tscn
 res://Scenes/TitleScreen/TitleScreen.tscn
 res://Scenes/ScenesDefault/default.tscn
 res://Nodes/Enemies/jumping_enemy_2.tscn
-res://Nodes/Enemies/mud_boss.tscn
-res://Scenes/ScenesDefault/mud_boss_test.tscn
-res://Nodes/Enemies/enemy_1.tscn
-res://Scenes/Levels/Level 1/Level1_Room1.tscn
 res://Scenes/Levels/Level 1/Level1_Room2.tscn
+res://Scenes/Levels/Level 1/Level1_Room3.tscn
 res://Scenes/Levels/Level 1/Level1_Boss.tscn
 res://Scenes/Levels/Level 2/Level2_Room1.tscn
 res://Scenes/Levels/Level 2/Level2_Room2.tscn
 res://Scenes/Levels/Level 2/Level2_Room3.tscn
-res://Scenes/ScenesDefault/killzone.tscn
-res://Nodes/player.tscn
-res://Scripts/enemy.gd
-res://Nodes/Enemies/jumping_enemy_2.gd
-res://Nodes/Enemies/enemy_1.gd
-res://Nodes/Enemies/flying_enemy.gd
-res://Nodes/EnvironmentNodes/spiky_vine.tscn
-res://Nodes/EnvironmentNodes/spiky_vine.gd
-res://Scripts/killzone.gd
 res://Scenes/Levels/Level 2/Level2_Boss.tscn
-res://Nodes/Enemies/mud_boss.gd
-res://Nodes/Enemies/rock_boss.gd
-res://Nodes/EnvironmentNodes/rock_attacks.gd
-res://Scenes/Levels/Level 2/tile_map_layer.gd
-res://Nodes/EnvironmentNodes/poison_powder.tscn
-res://Nodes/Enemies/flying_enemy.tscn
-res://Scenes/ScenesDefault/level.gd
