@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://m7c6tnvi5wal"]
+[gd_scene load_steps=25 format=4 uid="uid://m7c6tnvi5wal"]
 
 [ext_resource type="Script" uid="uid://bfmw33km0j8os" path="res://Scenes/ScenesDefault/level.gd" id="1_mqsmh"]
 [ext_resource type="Texture2D" uid="uid://cbdko5uie7msc" path="res://Assets/WorldAssets/forest_tileset.png" id="2_qote5"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bd5e3otc0mpwm" path="res://Assets/BackgroundAssets/Level1Bg/3rd Layer.png" id="16_7wkc8"]
 [ext_resource type="Texture2D" uid="uid://gmgjs0ghsvc3" path="res://Assets/BackgroundAssets/Level1Bg/2nd Layer.png" id="17_ruknf"]
 [ext_resource type="Texture2D" uid="uid://bervar8lkfo6x" path="res://Assets/BackgroundAssets/Level1Bg/1st Layer.png" id="18_i0srj"]
+[ext_resource type="PackedScene" uid="uid://dam1lafb38hm2" path="res://Nodes/hp_item.tscn" id="19_qote5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n5ptj"]
 texture = ExtResource("2_qote5")
@@ -611,6 +612,9 @@ motion_mirroring = Vector2(1000, 0)
 position = Vector2(512, 288)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("18_i0srj")
+
+[node name="HP_item" parent="." instance=ExtResource("19_qote5")]
+position = Vector2(254, 31)
 
 [editable path="Player/Camera"]
 [editable path="Doors/Door_L"]
