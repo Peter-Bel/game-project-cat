@@ -1,5 +1,5 @@
-res://Scenes/ScenesDefault/default.tscn
 res://Scenes/TitleScreen/TitleScreen.tscn
+res://Scenes/ScenesDefault/default.tscn
 res://Nodes/Enemies/jumping_enemy_2.tscn
 res://Scenes/Levels/Level 1/Level1_Room1.tscn
 res://Scenes/Levels/Level 1/Level1_Room2.tscn
@@ -11,5 +11,3 @@ res://Scenes/Levels/Level 2/Level2_Room3.tscn
 res://Scenes/Levels/Level 2/Level2_Boss.tscn
 res://Nodes/hp_item.tscn
 res://Nodes/health.tscn
-res://Nodes/Enemies/flying_enemy.tscn
-res://Nodes/Enemies/flying_enemy.gd
