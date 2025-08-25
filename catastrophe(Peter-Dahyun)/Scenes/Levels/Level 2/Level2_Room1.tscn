@@ -666,6 +666,7 @@ height = 24.0
 size = Vector2(20, 244)
 
 [node name="SceneRight" type="Node2D"]
+position = Vector2(1, 0)
 script = ExtResource("1_a1x34")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
