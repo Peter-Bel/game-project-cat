@@ -9,5 +9,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if (animated_sprite_2d.frame >= 23):
-		get_tree().change_scene_to_file("res://Scenes/Levels/Level 2/Level2_Room1.tscn")
+	if (animated_sprite_2d.frame > 40):
+		get_tree().change_scene_to_file("res://Scenes/TitleScreen/TitleScreen.tscn")

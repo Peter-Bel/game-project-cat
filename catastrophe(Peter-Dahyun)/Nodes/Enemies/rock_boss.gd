@@ -88,6 +88,7 @@ func _physics_process(delta: float) -> void:
 		position.x += knock_dir.x * knock
 		position.y += knock_dir.y * knock
 		knock = lerp(knock, 0.0, knock_acc)
+		get_tree().change_scene_to_file("res://Scenes/TitleScreen/CutScene2.tscn")
 
 func summon_gems(angle: float, offset: float):
 	# print("summoning fail")

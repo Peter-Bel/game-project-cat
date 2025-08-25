@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 # constants 
-const SPEED = 150.0
+const SPEED = 450.0
 const ACC = 30
 const JUMP_VELOCITY = -200.0
 const JUMP_COOLDOWN = 0.0167 * 4
