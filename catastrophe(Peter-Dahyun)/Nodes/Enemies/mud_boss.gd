@@ -19,10 +19,6 @@ var is_landed: bool = false
 var mud_node = preload("res://Nodes/EnvironmentNodes/mud_ball.tscn")
 var projectile_y_spd = -500.0
 
-# ready
-func _ready():
-	time_to_death = 2
-
 func _physics_process(delta: float) -> void:
 	if (state == "default"):
 		if (state_timer <= 0):
@@ -63,15 +59,14 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	move_and_slide()
-	# death 
-	if (!death_time and health_node.health <= 0):
-		death(0.5)
-	if (health_node.health <= 0):
-		position.x += knock_dir.x * knock
-		position.y += knock_dir.y * knock
-		knock = lerp(knock, 0.0, knock_acc)
-		get_tree().change_scene_to_file("res://Scenes/TitleScreen/CutScene.tscn")
+	super(delta)
+	## death 
+	#if (!death_time and health_node.health <= 0):
+		#death(time_to_death)
+	#if (health_node.health <= 0):
+		#position.x += knock_dir.x * knock
+		#position.y += knock_dir.y * knock
+		#knock = lerp(knock, 0.0, knock_acc)
 
 func summon_mud_projectile(mud_speed: float):
 	# print("summoning fail")

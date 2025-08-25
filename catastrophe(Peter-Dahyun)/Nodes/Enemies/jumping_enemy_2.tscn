@@ -1,0 +1,202 @@
+[gd_scene load_steps=22 format=3 uid="uid://v4g6rus5m8pn"]
+
+[ext_resource type="Script" uid="uid://cqhpiy2b6natc" path="res://Nodes/Enemies/jumping_enemy_2.gd" id="1_8dacf"]
+[ext_resource type="Shader" uid="uid://btcwin3hxce8u" path="res://Assets/flash.gdshader" id="2_ewh4d"]
+[ext_resource type="Texture2D" uid="uid://cvvauit2qr3mv" path="res://Assets/EnemyAssets/frog-idle.png" id="3_nclsm"]
+[ext_resource type="Texture2D" uid="uid://bau4lnljegroq" path="res://Assets/EnemyAssets/frog-jump.png" id="4_h3h2v"]
+[ext_resource type="PackedScene" uid="uid://kml4fhwc3cbe" path="res://Nodes/health.tscn" id="5_dyqlj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4p5g8"]
+resource_local_to_scene = true
+shader = ExtResource("2_ewh4d")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p5g8"]
+atlas = ExtResource("3_nclsm")
+region = Rect2(0, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8a2i"]
+atlas = ExtResource("3_nclsm")
+region = Rect2(35, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivsjq"]
+atlas = ExtResource("3_nclsm")
+region = Rect2(70, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqt13"]
+atlas = ExtResource("3_nclsm")
+region = Rect2(105, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtrnh"]
+atlas = ExtResource("4_h3h2v")
+region = Rect2(0, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlgju"]
+atlas = ExtResource("4_h3h2v")
+region = Rect2(35, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k06hq"]
+atlas = ExtResource("4_h3h2v")
+region = Rect2(70, 0, 35, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lrk2r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p5g8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8a2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivsjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqt13")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtrnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlgju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k06hq")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 2.5
+}]
+
+[sub_resource type="Animation" id="Animation_x5p36"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_0bouj"]
+resource_name = "empty"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_e3gfx"]
+resource_name = "hit_flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5gn8"]
+_data = {
+&"RESET": SubResource("Animation_x5p36"),
+&"empty": SubResource("Animation_0bouj"),
+&"hit_flash": SubResource("Animation_e3gfx")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b4wc1"]
+radius = 9.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dacf"]
+size = Vector2(20, 27)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4p5g8"]
+radius = 100.0
+
+[node name="jumping_enemy_2" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_8dacf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_4p5g8")
+sprite_frames = SubResource("SpriteFrames_lrk2r")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Flash" type="AnimationPlayer" parent="AnimatedSprite2D"]
+deterministic = true
+libraries = {
+&"": SubResource("AnimationLibrary_g5gn8")
+}
+autoplay = "empty"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_b4wc1")
+debug_color = Color(0, 0.841186, 0.95346, 0.42)
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-0.5, 2)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_8dacf")
+debug_color = Color(0.945767, 0.182034, 0.377748, 0.42)
+
+[node name="ChaseArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea"]
+shape = SubResource("CircleShape2D_4p5g8")
+debug_color = Color(0.646583, 0.520343, 0.090605, 0.42)
+
+[node name="Health" parent="." instance=ExtResource("5_dyqlj")]
+max_health = 30
+
+[node name="RayWallL" type="RayCast2D" parent="."]
+target_position = Vector2(-17, 0)
+collision_mask = 4
+
+[node name="RayWallR" type="RayCast2D" parent="."]
+rotation = 3.14159
+target_position = Vector2(-17, 0)
+collision_mask = 4
+
+[node name="RayEdgeL" type="RayCast2D" parent="."]
+position = Vector2(-17, 12)
+target_position = Vector2(0, 13)
+collision_mask = 4
+
+[node name="RayEdgeR" type="RayCast2D" parent="."]
+position = Vector2(12, 12)
+target_position = Vector2(0, 13)
+collision_mask = 4
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="ChaseArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="ChaseArea" to="." method="_on_area_2d_body_exited"]

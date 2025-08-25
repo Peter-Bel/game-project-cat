@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dam1lafb38hm2"]
+
+[ext_resource type="Script" uid="uid://byhnsw8b8lvbq" path="res://Nodes/hp_item.gd" id="1_12crn"]
+[ext_resource type="Texture2D" uid="uid://csw8h5wincb63" path="res://Assets/PlayerAssets/GameHeart.png" id="2_02hln"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_et3di"]
+radius = 8.0
+
+[node name="HP_item" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_12crn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_02hln")
+region_enabled = true
+region_rect = Rect2(0, 0, 15.7813, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+scale = Vector2(0.6, 0.6)
+shape = SubResource("CircleShape2D_et3di")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

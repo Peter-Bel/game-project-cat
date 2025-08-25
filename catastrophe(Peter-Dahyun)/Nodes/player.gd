@@ -54,7 +54,7 @@ var spd_multiply = 1
 var spd_multiply_type = ""
 
 var able_to_climb = false
-var climb_spd = 1500.0
+@export var climb_spd = 1500.0
 var climb_spd_x = 35.0
 var climb_jump = -200.0
 var climb_regrab_buffer = 0

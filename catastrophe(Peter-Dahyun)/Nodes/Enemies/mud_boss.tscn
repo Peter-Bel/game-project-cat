@@ -274,7 +274,7 @@ _data = {
 size = Vector2(53, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14aba"]
-size = Vector2(69, 31)
+size = Vector2(69, 36)
 
 [node name="mud_boss" type="CharacterBody2D"]
 z_index = 1
@@ -304,7 +304,7 @@ shape = SubResource("RectangleShape2D_kq60j")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(-0.5, 2.5)
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_14aba")
 debug_color = Color(0.99213, 0, 0.256288, 0.42)
 

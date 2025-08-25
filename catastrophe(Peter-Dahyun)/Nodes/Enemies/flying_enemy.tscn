@@ -164,9 +164,8 @@ shape = SubResource("CircleShape2D_0dvit")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_3o3wv")
 sprite_frames = SubResource("SpriteFrames_0wb0q")
-animation = &"shoot"
-autoplay = "shoot"
-frame_progress = 0.140498
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Flash" type="AnimationPlayer" parent="AnimatedSprite2D"]
 deterministic = true
@@ -185,12 +184,12 @@ position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_0wb0q")
 debug_color = Color(0.945767, 0.182034, 0.377748, 0.42)
 
-[node name="DetectZone" type="Area2D" parent="."]
+[node name="ChaseArea" type="Area2D" parent="."]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea"]
 shape = SubResource("CircleShape2D_s4uff")
-debug_color = Color(0.887128, 0.317067, 0.240722, 0.42)
+debug_color = Color(0.830275, 0.00143853, 0.944684, 0.42)
 
 [node name="PoisonPowder" type="Marker2D" parent="."]
 
@@ -199,5 +198,5 @@ max_health = 15
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
-[connection signal="body_entered" from="DetectZone" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="DetectZone" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="ChaseArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="ChaseArea" to="." method="_on_area_2d_body_exited"]
