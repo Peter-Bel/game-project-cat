@@ -4,3 +4,4 @@
 
 [node name="Health" type="Node"]
 script = ExtResource("1_am2ym")
+max_health = 3
