@@ -18,5 +18,12 @@ func go_to_level(door, scene):
 	spawn_door = door
 	get_tree().change_scene_to_file(scene)
 
+func go_to_level_no_player(scene):
+	if (scene_fade):
+		scene_fade.fade(true)
+	var timer = get_tree().create_timer(transition_time)
+	await timer.timeout
+	get_tree().change_scene_to_file(scene)
+
 func trigger_player_spawn(position: Vector2, direction: String):
 	on_trigger_player_spawn.emit(position, direction)

@@ -19,6 +19,10 @@ var is_landed: bool = false
 var mud_node = preload("res://Nodes/EnvironmentNodes/mud_ball.tscn")
 var projectile_y_spd = -500.0
 
+# ready
+func _ready():
+	time_to_death = 0.5
+
 func _physics_process(delta: float) -> void:
 	if (state == "default"):
 		if (state_timer <= 0):
@@ -61,12 +65,9 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	super(delta)
 	## death 
-	#if (!death_time and health_node.health <= 0):
-		#death(time_to_death)
-	#if (health_node.health <= 0):
-		#position.x += knock_dir.x * knock
-		#position.y += knock_dir.y * knock
-		#knock = lerp(knock, 0.0, knock_acc)
+	if (death_time != null and health_node.health <= 0):
+		NavigationManager.go_to_level_no_player("res://Scenes/TitleScreen/CutScene.tscn")
+		death(time_to_death)
 
 func summon_mud_projectile(mud_speed: float):
 	# print("summoning fail")

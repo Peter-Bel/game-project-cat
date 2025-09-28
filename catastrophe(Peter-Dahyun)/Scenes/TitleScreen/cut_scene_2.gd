@@ -1,10 +1,11 @@
 extends Control
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
+@onready var scene_fade: ColorRect = $CanvasLayer/SceneFade
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if (scene_fade):
+		scene_fade.fade(false)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

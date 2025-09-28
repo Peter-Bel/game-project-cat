@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://b5uy1wtnqvori"]
+[gd_scene load_steps=23 format=3 uid="uid://b5uy1wtnqvori"]
 
 [ext_resource type="Texture2D" uid="uid://cbgeg8tx24dsk" path="res://Assets/SceneAssets/Scene1.png" id="1_d5862"]
 [ext_resource type="Script" uid="uid://cdlo1vymkmnwa" path="res://Scenes/TitleScreen/cut_scene.gd" id="1_tskx8"]
 [ext_resource type="Texture2D" uid="uid://h3m0dafjlb26" path="res://Assets/SceneAssets/Scene1_2.png" id="2_tskx8"]
 [ext_resource type="Texture2D" uid="uid://b31xnmg1bcpjw" path="res://Assets/SceneAssets/Scene1_3.png" id="3_elhy8"]
 [ext_resource type="Texture2D" uid="uid://bbxwbl2k34qhm" path="res://Assets/SceneAssets/Scene2.png" id="4_ea4ka"]
+[ext_resource type="PackedScene" uid="uid://22vqg3buca64" path="res://Nodes/ParticlesAndGui/scene_fade.tscn" id="6_elhy8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d4np4"]
 atlas = ExtResource("2_tskx8")
@@ -216,3 +217,8 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_fvafo")
 animation = &"scene1"
 autoplay = "scene1"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SceneFade" parent="CanvasLayer" instance=ExtResource("6_elhy8")]
+metadata/_edit_use_anchors_ = true

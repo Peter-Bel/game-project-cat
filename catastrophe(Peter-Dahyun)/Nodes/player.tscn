@@ -465,7 +465,6 @@ shape = SubResource("RectangleShape2D_tcxps")
 disabled = true
 
 [node name="Health" parent="." instance=ExtResource("6_r4ynj")]
-imortal = true
 
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

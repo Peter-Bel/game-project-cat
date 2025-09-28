@@ -81,14 +81,10 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	super(delta)
-	#move_and_slide()
 	## death 
-	#if (!death_time and health_node.health <= 0):
-		#death(time_to_death)
-	#if (health_node.health <= 0):
-		#position.x += knock_dir.x * knock
-		#position.y += knock_dir.y * knock
-		#knock = lerp(knock, 0.0, knock_acc)
+	if (death_time != null and health_node.health <= 0):
+		NavigationManager.go_to_level_no_player("res://Scenes/TitleScreen/CutScene2.tscn")
+		death(time_to_death)
 
 func summon_gems(angle: float, offset: float):
 	# print("summoning fail")
