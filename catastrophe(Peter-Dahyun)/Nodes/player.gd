@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 # constants 
-const SPEED = 150.0
+const SPEED = 450.0
 const ACC = 30
 const JUMP_VELOCITY = -200.0
 const JUMP_COOLDOWN = 0.0167 * 4
@@ -10,7 +10,7 @@ const JUMP_INCREASE = -18.0
 const JUMP_INCREASE_ACC = 55
 const ATTACK_TIME = 50
 const ATTACK_ACC = 20
-const ATTACK_DAMAGE = 10
+const ATTACK_DAMAGE = 100
 const ATTACK_DOWN_Y = -200.0
 const ATTACK_UP_Y = 75.0
 const SPIN_ACC = 5
@@ -18,6 +18,7 @@ const SPIN_VELOCITY_X = 185
 const SPIN_VELOCITY_Y = 250
 const SPIN_X_UP = -110
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@export var disable: bool = false
 
 # variables
 @onready var attack = $AttackArea
@@ -112,6 +113,9 @@ func _on_spawn(position: Vector2, direction: String):
 
 # Main event
 func _physics_process(delta: float) -> void:
+	if (disable):
+		return
+	
 	# speed
 	spd = SPEED * spd_multiply
 	
@@ -320,3 +324,7 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 		# particle
 		GameManager.freeze_frame(0.15, 0.1)
 		GameManager.particle("player_attack_hit", mid, 0, Vector2(0, 0), 0.0, [animated_sprite.flip_h, false, 0])
+
+
+func shake(amount: int) -> void:
+	cam.shake = amount
